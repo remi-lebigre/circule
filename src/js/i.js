@@ -6,7 +6,7 @@ class I {
   }
 
   recursive = (r, nest_level) => {
-    ;[...r.childNodes].filter(c => c.nodeType === 3).forEach(this.replaceNode)
+    ;[...r.childNodes].filter(c => c.nodeType === 3 && c.nodeValue !== 'i').forEach(this.replaceNode)
     ;[...r.children].forEach(c => {
       if (nest_level > 0) {
         nest_level--
