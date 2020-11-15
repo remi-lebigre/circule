@@ -6,13 +6,14 @@
   &--main {
     .section {
       &_header {
-        padding-top: 15%;
+        margin-top: 0;
+        padding-top: 22%;
       }
 
       &_img {
         position: absolute;
         z-index: -1;
-        top: 0;
+        top: 7em;
       }
     }
   }

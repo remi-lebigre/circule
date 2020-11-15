@@ -22,6 +22,7 @@ $columns_count: 12;
   $col-width: calc(100% / #{$columns_count/$i} - #{$grid-gutter});
   $width: calc((100% + #{$grid-gutter}) / #{$columns_count/$i} - #{$grid-gutter});
   $padding: calc((100% + #{$grid-gutter}) / #{$columns_count/$i});
+  $negative-padding: calc((-100% - #{$grid-gutter}) / #{$i});
   $gutter: $grid-gutter/2;
 
   @include query-desktop {
@@ -29,6 +30,9 @@ $columns_count: 12;
       width: $col-width;
       margin-left: $gutter;
       margin-right: $gutter;
+    }
+    .col-offset-#{$i} {
+      margin-left: calc(100% / #{$columns_count/$i} + #{$gutter});
     }
     .padding-left-#{$i} {
       padding-left: $padding;
@@ -38,6 +42,9 @@ $columns_count: 12;
     }
     .width-#{$i} {
       width: $width;
+    }
+    .indent-negative-#{$i} {
+      text-indent: $negative-padding;
     }
   }
 }

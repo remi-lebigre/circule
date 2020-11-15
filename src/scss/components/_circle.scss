@@ -1,6 +1,7 @@
 .circle {
-  width: 93px;
-  height: 93px;
+  width: calc((100% + #{$grid-gutter}) / 12 - #{$grid-gutter});
+  height: auto;
+  padding-top: calc((100% + #{$grid-gutter}) / 12 - #{$grid-gutter});
   border-radius: 50%;
   background-color: var(--yellow);
 }
