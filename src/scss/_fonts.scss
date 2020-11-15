@@ -6,3 +6,30 @@
 //  src: local(Lato-Light),
 //  url(../assets/fonts/lato/Lato-Light.ttf) format("truetype");
 //}
+
+@font-face {
+  font-family: SuisseIntl;
+  src: local(SuisseIntl-Light),
+  url(../assets/fonts/SwissTypeface/SuisseIntl/SuisseIntl-Light.otf) format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: SuisseIntl;
+  src: local(SuisseIntl-Regular),
+  url(../assets/fonts/SwissTypeface/SuisseIntl/SuisseIntl-Regular.otf) format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: SuisseIntl;
+  src: local(SuisseIntl-Medium),
+  url(../assets/fonts/SwissTypeface/SuisseIntl/SuisseIntl-Medium.otf) format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+}

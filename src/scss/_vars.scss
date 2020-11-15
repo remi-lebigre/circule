@@ -7,6 +7,14 @@
 //
 //$acceleration: cubic-bezier(.9, 0, .1, 1);
 
+:root {
+  --dark: #141414;
+  --beige: #c4c0b9;
+  --light-grey: #f8f8f8;
+  --yellow: #e9ff1d;
+  --pink: #eed2cd;
+}
+
 $container-margin: 100px;
 $grid-gutter: 25px;
 $mobile-width: 760px;

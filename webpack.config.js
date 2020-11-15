@@ -33,7 +33,18 @@ module.exports = {
             plugins: ['@babel/plugin-proposal-class-properties']
           }
         }
-      }
+      },
+      {
+        test: /\.otf$/,
+        type: 'asset/resource',
+        use: {
+          loader: 'url-loader',
+        },
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
     ],
   },
   plugins: [
