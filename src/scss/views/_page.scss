@@ -1,0 +1,28 @@
+html,
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "sans-serif";
+}
+
+img {
+  max-width: 100%;
+}
+
+svg {
+  pointer-events: none;
+}
+
+ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+li {
+  list-style: none;
+}

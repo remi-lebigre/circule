@@ -1,0 +1,12 @@
+.no-js {
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 5em;
+  opacity: 0;
+  animation: fade-in forwards;
+  animation-delay: .5s;
+}
