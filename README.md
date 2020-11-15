@@ -8,6 +8,7 @@ This is a web frontend boilerplate. It uses:
 
 # Setup
 - `npm install`
+- `npm start`
 
 # CLI
 - `webpack serve`
