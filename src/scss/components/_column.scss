@@ -1,30 +1,43 @@
+.debug-grid {
+  position: fixed !important;
+  z-index: 99999;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: calc(100% - #{$container-margin} * 2);
+
+  .row {
+    height: 100%;
+
+    .col-1, .col-3, .col-6 {
+      height: 100%;
+      background-color: rgb(243, 98, 92, .3);
+    }
+  }
+}
+
 $columns_count: 12;
 @for $i from 1 through $columns_count {
-  $width: calc(100% / #{$columns_count/$i});
+  $col-width: calc(100% / #{$columns_count/$i} - #{$grid-gutter});
+  $width: calc((100% + #{$grid-gutter}) / #{$columns_count/$i} - #{$grid-gutter});
+  $padding: calc((100% + #{$grid-gutter}) / #{$columns_count/$i});
+  $gutter: $grid-gutter/2;
 
   @include query-desktop {
-    .col-offset-#{$i} {
-      margin-left: $width;
-      padding-left: $grid-gutter/2;
-      padding-right: $grid-gutter/2;
-    }
     .col-#{$i} {
-      width: $width;
-      padding-left: $grid-gutter/2;
-      padding-right: $grid-gutter/2;
-    }
-    .col-left-#{$i} {
-      left: $width;
-      padding-left: $grid-gutter/2;
-      padding-right: $grid-gutter/2;
-    }
-    .col-right-#{$i} {
-      right: $width;
-      padding-left: $grid-gutter/2;
-      padding-right: $grid-gutter/2;
+      width: $col-width;
+      margin-left: $gutter;
+      margin-right: $gutter;
     }
     .padding-left-#{$i} {
-      padding-left: $width;
+      padding-left: $padding;
+    }
+    .margin-left-#{$i} {
+      margin-left: $padding;
+    }
+    .width-#{$i} {
+      width: $width;
     }
   }
 }

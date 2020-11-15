@@ -1,13 +1,28 @@
 extends views/layouts/view
 
 block content
-  section.section--light-grey.container(data-scroll-section)
-    h1 studio
+  .debug-grid.container
+    .row.row--inline
+      .col-1
+      .col-1
+      .col-1
+      .col-1
+      .col-1
+      .col-1
+      .col-1
+      .col-1
+      .col-1
+      .col-1
+      .col-1
+      .col-1
+
+  section.section--main.section--light-grey.container(data-scroll-section)
+    h1.section_header studio
       br
       span.padding-left-2.text-color--pink
         span.text-italic .
         | circule
-    img(src=require("./assets/images/_img/homepage_main.jpg"))
+    img.margin-left-4.width-4.section_img(src=require("./assets/images/_img/homepage_main.jpg"))
     .circle
     .separator
     p Bonjour et bienvenue chez Studio Circule. Avec des outils comme le coaching, le magnétisme et les soins énergétiques, nous vous accompagnons dans votre vie et vos projets.

@@ -2,4 +2,18 @@
   &--light-grey {
     background-color: var(--light-grey);
   }
+
+  &--main {
+    .section {
+      &_header {
+        padding-top: 15%;
+      }
+
+      &_img {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+      }
+    }
+  }
 }
