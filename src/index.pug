@@ -1,30 +1,39 @@
 extends views/layouts/view
 
 block content
-  section.container(data-scroll-section)
-    h1 studio .circule
+  section.section--light-grey.container(data-scroll-section)
+    h1 studio
+      br
+      span.padding-left-2.text-color--pink
+        span.text-italic .
+        | circule
     img(src=require("./assets/images/_img/homepage_main.jpg"))
     .circle
+    .separator
     p Bonjour et bienvenue chez Studio Circule. Avec des outils comme le coaching, le magnétisme et les soins énergétiques, nous vous accompagnons dans votre vie et vos projets.
-  section.container(data-scroll-section)
-    h1 carole cicciu kopec
+  section.section--light-grey.container(data-scroll-section)
+    h1
+      span.text-color--pink carole
+      |  cicciu kopec
     p Je suis la fondatrice de Studio Circule. Mon métier ? Énergéticienne, designer, artiste, magnétiseur, coach, collectionneuse d’expériences.
     | Enfant, mon emploi du temps consistait à aller à l’école, prendre des cours d’arts plastiques et d’orgue électronique, voir mes ami.e.s et pratiquer un à deux sports quasi quotidiennement.
+    .separator
     p Au collège et lycée, j’ai rejoint la filière sport-étude avec une option mineure arts plastiques. J’ai pratiqué le basket en championnat, puis la boxe française m’a emmenée jusqu’au bac.
     | Quand il a été question de choisir une orientation, il a été très difficile pour moi de me décider.
     p J’étais plutôt douée partout et surtout j’aimais tout faire en même temps.
     | C’est aussi ce que j’ai ressenti après 10 ans d’études d’art et de design lorsque je suis arrivée sur le marché du travail en France. Être salariée à temps-plein était très rassurant mais m’enfermait dans une seule définition de « Carole ».
     .circle
 
-  section.container(data-scroll-section)
+  section.section--light-grey.container(data-scroll-section)
     p.text-lead J’avais l’impression de ne pas être entière ni vraiment à ma place.
     | Alors j’ai voulu reprendre ce même mode de vie que celui de l’enfance : faire plusieurs activités qui se complètent.
+    .separator
     .circle
     img(src=require("./assets/images/_img/carole.jpg"))
     p Cela m’a inspirée pour t’accompagner de différentes façons ; que ce soit par l’échange oral, par des séances de soins énergétiques ou encore des séances d’exercices.
     p Ainsi, j’ai trouvé mon métier et ma façon d’être épanouie pour exprimer toute ma créativité.
 
-  section.container(data-scroll-section)
+  section.section--light-grey.container(data-scroll-section)
     img(src=require("./assets/images/_img/homepage_big.jpg"))
     .circle
     p.text-lead Je suis là pour faire un bout de route avec toi pour ajuster ce qui a besoin de l’être.
@@ -32,7 +41,7 @@ block content
     | Nous avons conçu ce site comme un magazine (ça c’était juste pour réaliser un de mes rêves de petite fille
     p Je te souhaite de t’y sentir bien, que tu puisses parcourir les différentes rubriques à ton rythme et viennes piocher ce que tu as envie et ce dont tu as besoin. Je suis ravie de répondre à tes questions ici, de te proposer un rdv là et si tu n’as qu’une minute devant toi ; cours faire un tirage !
 
-  section.container(data-scroll-section)
+  section.section--light-grey.container(data-scroll-section)
     h2 Ethique & déontologie
     ul
       li
@@ -50,7 +59,7 @@ block content
         | Consulte en priorité un médecin adapté à ta pathologie.
     .circle
 
-  section.container(data-scroll-section)
+  section.section--light-grey.container(data-scroll-section)
     h2 Diplômes & qualifications
     .circle
     ul
@@ -65,12 +74,16 @@ block content
       li
         p Bachelor en Design d’espaces, Ecole Européenne Supérieure d’Arts de Bretagne, Brest
 
-  section.container(data-scroll-section)
+  section.section--light-grey.container(data-scroll-section)
     p.text-callout Ils ont testé la méthode .Circule pour des soins énergétiques ou des séances de coaching et vous racontent.
+    .separator
     .circle
 
-  section.container(data-scroll-section)
-    h1 l’oracle de roleca
+  section.section--light-grey.container(data-scroll-section)
+    h1
+      span.text-color--pink l’oracle
+      |  de roleca
+    .separator
     .circle
     p Clique sur les cartes défilantes et découvre le message qu’elles ont à te délivrer.
     | Des decks sont disponibles sur notre e-shop. Amour, Attraction, Protection et Relaxation, ces 4 jeux t’accompagnent comme un oracle pouvant t’apporter des guidances quotidiennes.

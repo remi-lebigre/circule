@@ -1,6 +1,7 @@
 import './scss/main.scss'
 import App from "./js/app";
 import NoJS from "./js/no_js";
+import I from "./js/i"
 
 {
   const isMobile = _ => window.matchMedia('only screen and (max-width: 760px)').matches
@@ -11,4 +12,5 @@ import NoJS from "./js/no_js";
     app.init()
   }
   new NoJS()
+  new I()
 }

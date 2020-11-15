@@ -7,9 +7,9 @@ class App {
 
   init = _ => {
     console.debug('--- App desktop init')
-    this.scroll = new LocomotiveScroll({el: document.querySelector('[data-scroll-container]'), smooth: true, getDirection: true})
-    this.scroll.on('scroll', this.onScroll)
-    this.scroll.on('call', this.onCall)
+    const locomotive = new LocomotiveScroll({el: document.querySelector('[data-scroll-container]'), smooth: true, getDirection: true})
+    locomotive.on('scroll', this.onScroll)
+    locomotive.on('call', this.onCall)
   }
 
   onCall = action => console.log(`Scroll action call - ${action}`)

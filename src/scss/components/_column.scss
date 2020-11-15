@@ -1,25 +1,30 @@
-$columns_count: 8;
+$columns_count: 12;
 @for $i from 1 through $columns_count {
+  $width: calc(100% / #{$columns_count/$i});
+
   @include query-desktop {
     .col-offset-#{$i} {
-      margin-left: calc(100% / #{$columns_count/$i});
+      margin-left: $width;
       padding-left: $grid-gutter/2;
       padding-right: $grid-gutter/2;
     }
     .col-#{$i} {
-      width: calc(100% / #{$columns_count/$i});
+      width: $width;
       padding-left: $grid-gutter/2;
       padding-right: $grid-gutter/2;
     }
     .col-left-#{$i} {
-      left: calc(100% / #{$columns_count/$i});
+      left: $width;
       padding-left: $grid-gutter/2;
       padding-right: $grid-gutter/2;
     }
     .col-right-#{$i} {
-      right: calc(100% / #{$columns_count/$i});
+      right: $width;
       padding-left: $grid-gutter/2;
       padding-right: $grid-gutter/2;
+    }
+    .padding-left-#{$i} {
+      padding-left: $width;
     }
   }
 }

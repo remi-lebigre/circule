@@ -36,7 +36,7 @@ module.exports = {
         }
       },
       {
-        test: /\.(otf)$/i,
+        test: /\.(otf|ttf)$/i,
         type: 'asset/resource',
       },
       {

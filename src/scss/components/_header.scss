@@ -1,5 +1,50 @@
-.header {
+header {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   z-index: 10;
+}
+
+.header {
+  &_wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &_center {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &_separator {
+    width: 25px;
+    height: 1px;
+    margin: 9px 10px 8px 6px;
+    border: solid 1px var(--dark);
+  }
+
+  &_nav {
+    display: flex;
+
+    &_item:not(:last-child) {
+      margin-right: 1em;
+    }
+  }
+
+  &_side {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: rotate(-90deg) translate(-6em, -3.3em);
+    transform-origin: top;
+  }
 }
