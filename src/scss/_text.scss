@@ -14,6 +14,7 @@ h1 {
   font-style: normal;
   line-height: 0.88;
   letter-spacing: normal;
+  text-transform: uppercase;
 }
 
 h2 {
@@ -52,7 +53,7 @@ h4 {
   letter-spacing: normal;
 }
 
-.text-paragrah {
+p, .text-paragrah {
   font-size: 14px;
   font-weight: 300;
   font-stretch: normal;
@@ -63,6 +64,16 @@ h4 {
 
 .text-link {
   font-size: 13px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+.text-callout {
+  font-family: SuisseIntl;
+  font-size: 48px;
   font-weight: 500;
   font-stretch: normal;
   font-style: normal;

@@ -16,3 +16,9 @@ This is a web frontend boilerplate. It uses:
 - `webpack`
 
 # TODOs
+
+# Sources
+## Project checklit
+https://docs.google.com/spreadsheets/d/17jsvPzTcREPVJKGjVPkMUEZ9JtGSVkt4c7tXcEtSZm0/edit#gid=1386834576
+## Animations
+https://projects.invisionapp.com/share/ZCZCUX8ERNS#/screens

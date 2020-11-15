@@ -7,11 +7,13 @@ html,
 
 body {
   font-family: SuisseIntl, "sans-serif";
+  background-color: var(--light-grey);
   color: var(--dark);
 }
 
 img {
   max-width: 100%;
+  mix-blend-mode: multiply;
 }
 
 svg {

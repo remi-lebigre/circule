@@ -6,7 +6,8 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js'
+    filename: 'main.js',
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -35,11 +36,8 @@ module.exports = {
         }
       },
       {
-        test: /\.otf$/,
+        test: /\.(otf)$/i,
         type: 'asset/resource',
-        use: {
-          loader: 'url-loader',
-        },
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
