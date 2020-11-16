@@ -1,6 +1,15 @@
+section {
+  margin-bottom: 10em;
+}
+
 .section {
+
   &--light-grey {
     background-color: var(--light-grey);
+  }
+
+  &--full-height {
+    height: 100vh;
   }
 
   &--main {
@@ -14,6 +23,21 @@
         position: absolute;
         z-index: -1;
         top: 7em;
+      }
+
+      &_content-attached-bottom {
+        position: absolute;
+        bottom: $container-margin-y;
+        right: 0;
+        width: calc(100% + #{$grid-gutter});
+      }
+    }
+  }
+
+  &--cards {
+    .section {
+      &_header {
+        padding-top: 2em;
       }
     }
   }

@@ -15,6 +15,7 @@
   --pink: #eed2cd;
 }
 
-$container-margin: 100px;
+$container-margin-y: 2em;
 $grid-gutter: 25px;
+$container-margin: $grid-gutter*2;
 $mobile-width: 760px;

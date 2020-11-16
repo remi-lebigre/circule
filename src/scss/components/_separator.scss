@@ -1,6 +1,6 @@
 .separator {
   height: 1px;
   border: solid 1px var(--dark);
-  margin-top: 3.5em;
-  margin-bottom: 3.5em;
+  margin-top: $container-margin-y;
+  margin-bottom: $container-margin-y;
 }
