@@ -1,5 +1,5 @@
 class I {
-  tags = document.querySelectorAll('h1, h2, h3, h4, h5, h6, .text-link, .text-callout')
+  tags = document.querySelectorAll('h1, h2, h3, h4, h5, h6, .text-h1, .text-h4, .text-link, .text-callout')
 
   constructor () {
     this.tags.forEach(tag => this.recursive(tag, 3))

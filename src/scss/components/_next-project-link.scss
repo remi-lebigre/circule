@@ -1,0 +1,12 @@
+.next-project-link {
+  position: relative;
+  margin-top: 10em;
+  margin-bottom: -5em;
+
+  &_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+}

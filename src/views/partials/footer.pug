@@ -1,18 +1,36 @@
 footer.container(data-scroll-section)
-  .separator
-  h1
-    span.text-color--pink Say
-    |  hello!
-  p Pour nous connaître et nous rencontrer, pour nous parler ou parler de nous.
-  nav
-    ul
-      li
-        a(href="#") Facebook
-      li
-        a(href="#") Twitter
-      li
-        a(href="#") Instagram
-      li
-        a(href="#") LinkedIn
-  .circle
-  p ©2020
+  .row
+    .col-offset-8.col-4
+      .next-project-link
+        img(src=require("../../assets/images/_img/next_page.jpg"))
+        .next-project-link_content
+          p.text-paragraph.text-color--white.text-aligned--center
+            | Page suivante
+          p.text-h4.text-color--white.text-aligned--center
+            | Témoignages
+  .row
+    .col-5
+      .separator
+  .row
+    .col-3
+      p.text-h1.text-color--pink Say
+    .col-2
+      p Pour nous connaître et nous rencontrer, pour nous parler ou parler de nous.
+  .row
+    .col-4
+      p.text-h1 hello!
+    .col-1
+      nav.socials
+        ul.socials_list
+          li.socials_list_item
+            a.text-paragraph(href="#") Facebook
+          li.socials_list_item
+            a.text-paragraph(href="#") Twitter
+          li.socials_list_item
+            a.text-paragraph(href="#") Instagram
+          li.socials_list_item
+            a.text-paragraph(href="#") LinkedIn
+    .col-1.circle
+  .row
+    .col-12
+      p.text-aligned--right ©2020

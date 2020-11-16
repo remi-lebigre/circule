@@ -7,7 +7,7 @@
 //  color: var(--medium_grey);
 //}
 
-h1 {
+h1, .text-h1 {
   font-size: calc(3vw + 48px);
   font-weight: 500;
   font-stretch: normal;
@@ -37,7 +37,7 @@ h3 {
   letter-spacing: normal;
 }
 
-h4 {
+h4, .text-h4 {
   font-size: 24px;
   font-weight: 500;
   font-stretch: normal;
@@ -60,7 +60,7 @@ p {
   margin-bottom: 0;
 }
 
-p, .text-paragrah {
+p, .text-paragraph {
   font-size: 14px;
   font-weight: 300;
   font-stretch: normal;
@@ -108,5 +108,19 @@ a {
 .text-color {
   &--pink {
     color: var(--pink)
+  }
+
+  &--white {
+    color: white;
+  }
+}
+
+.text-aligned {
+  &--right {
+    text-align: right;
+  }
+
+  &--center {
+    text-align: center;
   }
 }
