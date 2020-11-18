@@ -1,0 +1,38 @@
+.post {
+  padding-top: 15%;
+
+  &_header {
+    margin-top: -.5em;
+  }
+
+  &_date {
+    font-style: italic;
+  }
+
+  &_back-link {
+    position: relative;
+    padding-left: 2em;
+    display: inline-block;
+
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '';
+      width: 21px;
+      height: 18px;
+      background: url(/src/assets/images/_items/back.svg) center / contain no-repeat;
+    }
+  }
+
+  &_content {
+    img {
+      margin-top: 4em;
+      margin-bottom: 4em;
+    }
+
+    p {
+      margin-bottom: 2em;
+    }
+  }
+}

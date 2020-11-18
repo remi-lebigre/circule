@@ -19,16 +19,17 @@ h1, .text-h1 {
   margin-bottom: 0;
 }
 
-h2 {
+h2, .text-callout {
   font-size: 48px;
   font-weight: 500;
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
+  text-transform: none  ;
 }
 
-h3 {
+h3, .text-h3 {
   font-size: 20px;
   font-weight: 500;
   font-stretch: normal;
@@ -94,15 +95,6 @@ a {
   line-height: normal;
   letter-spacing: normal;
   text-transform: uppercase;
-}
-
-.text-callout {
-  font-size: 48px;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
 }
 
 .text-color {

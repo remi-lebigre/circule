@@ -2,13 +2,16 @@
   vertical-align: bottom !important;
 }
 
-$count: 20;
+$count: 40;
 @for $i from 1 through $count {
   .mb-#{$i} {
     margin-bottom: #{$i}em;
   }
   .mt-#{$i} {
     margin-top: #{$i}em;
+  }
+  .mtn-#{$i} {
+    margin-top: -#{$i}em;
   }
   .mr-#{$i} {
     margin-right: #{$i}em;
@@ -27,5 +30,11 @@ $count: 20;
   }
   .pl-#{$i} {
     padding-left: #{$i}em;
+  }
+  .prc-#{$i} {
+    padding-right: #{$grid-gutter*$i};
+  }
+  .plc-#{$i} {
+    padding-left: #{$grid-gutter*$i};
   }
 }

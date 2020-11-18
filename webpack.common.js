@@ -3,6 +3,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const PAGES = ['index', 'about', 'inspiration', 'article']
+const pageFactory = name => new HtmlWebpackPlugin({
+  template: `./src/${name}.pug`,
+  filename: `${name}.html`
+})
+
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -49,13 +55,6 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
-    new HtmlWebpackPlugin({
-      template: './src/index.pug',
-      filename: 'index.html'
-    }),
-    new HtmlWebpackPlugin({
-      template: './src/about.pug',
-      filename: 'about.html'
-    }),
+    ...PAGES.map(pageFactory),
   ],
-};
+}

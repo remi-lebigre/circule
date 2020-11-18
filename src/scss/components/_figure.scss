@@ -1,0 +1,13 @@
+.figure {
+  text-align: center;
+  margin-right: 0;
+  margin-left: 0;
+
+  &_date {
+    font-style: italic;
+  }
+
+  &_img{
+    margin-bottom: 1.5em;
+  }
+}
