@@ -34,6 +34,14 @@ section {
     }
   }
 
+  &--about {
+    .section {
+      &_header {
+        padding-top: 20%;
+      }
+    }
+  }
+
   &--cards {
     .section {
       &_header {

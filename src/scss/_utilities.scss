@@ -1,3 +1,31 @@
 .aligned-bottom {
   vertical-align: bottom !important;
 }
+
+$count: 20;
+@for $i from 1 through $count {
+  .mb-#{$i} {
+    margin-bottom: #{$i}em;
+  }
+  .mt-#{$i} {
+    margin-top: #{$i}em;
+  }
+  .mr-#{$i} {
+    margin-right: #{$i}em;
+  }
+  .ml-#{$i} {
+    margin-left: #{$i}em;
+  }
+  .pb-#{$i} {
+    padding-bottom: #{$i}em;
+  }
+  .pt-#{$i} {
+    padding-top: #{$i}em;
+  }
+  .pr-#{$i} {
+    padding-right: #{$i}em;
+  }
+  .pl-#{$i} {
+    padding-left: #{$i}em;
+  }
+}
