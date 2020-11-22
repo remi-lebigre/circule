@@ -6,7 +6,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const PAGES = ['index', 'about', 'inspiration', 'article']
 const pageFactory = name => new HtmlWebpackPlugin({
   template: `./src/${name}.pug`,
-  filename: `${name}.html`
+  filename: `${name}.html`,
+  posts: require(`./tmp/posts.json`)
 })
 
 module.exports = {
@@ -20,6 +21,7 @@ module.exports = {
     rules: [
       {
         test: /\.pug$/,
+        exclude: /(node_modules|bower_components)/,
         use: ['pug-loader']
       },
       {

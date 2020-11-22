@@ -2,8 +2,9 @@ extends views/layouts/view
 include views/components/card
 
 block content
+  - var { posts } = htmlWebpackPlugin.options
   section.section--main.section--full-height.section--light-grey.container(data-scroll-section)
-    h1.section_header(data-scroll data-scroll-speed="1" data-scroll-delay="0.05") studio
+    h1.section_header(data-scroll data-scroll-speed="1" data-scroll-delay="0.05")=posts[0].content
       br
       span.padding-left-2.text-color--pink
         span.text-italic .
