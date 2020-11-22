@@ -4,10 +4,16 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const PAGES = ['index', 'about', 'inspiration', 'article']
+
 const pageFactory = name => new HtmlWebpackPlugin({
   template: `./src/${name}.pug`,
   filename: `${name}.html`,
-  posts: require(`./tmp/posts.json`)
+})
+const POSTS = require(`./tmp/posts.json`)
+const postFactory = ({content}) => new HtmlWebpackPlugin({
+  template: `./src/article.pug`,
+  filename: `article.html`,
+  content: content
 })
 
 module.exports = {
@@ -58,5 +64,6 @@ module.exports = {
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
     ...PAGES.map(pageFactory),
+    ...POSTS.map(postFactory)
   ],
 }

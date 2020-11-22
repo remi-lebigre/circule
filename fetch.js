@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const axios = require('axios')
-const endpoint = 'https://circule-api.herokuapp.com'
+const endpoint = process.env.API_ENDPOINT
 const tmp_dir = 'tmp'
 const posts_path = path.resolve(__dirname, tmp_dir, 'posts.json')
 
