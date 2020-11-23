@@ -17,7 +17,8 @@ block content
     .row
       .col-4.prc-1
         figure.figure.mt-30
-          img.figure_img(src=require("./assets/images/_img/_inspiration/Bitmap.jpg"))
+          a(href=posts[0].page_link)
+            img.figure_img(src=require("./assets/images/_img/_inspiration/Bitmap.jpg"))
           figcaption
             p.figure_date=posts[0].date
             h2.text-h3=posts[0].title

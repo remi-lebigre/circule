@@ -120,7 +120,7 @@ block content
       .col-offset-2.col-1.circle
     .row
       .col-12
-        p=testimonials[0].testimonial_name
+        a(href=testimonials[0].page_link)=testimonials[0].testimonial_name
 
   section.section--light-grey.section--full-height.section--cards.container(data-scroll-section)
     .row

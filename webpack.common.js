@@ -9,23 +9,25 @@ const TESTIMONIALS = require(`./tmp/testimonials.json`)
 const PAGES = ['index', 'about', 'inspiration']
 
 const urlify = content => slugify(content, {lower: true, strict: true})
+const urlifyPost = content => `${urlify(content.title)}.html`
+const urlifyTestimonial = content => `${urlify(content.testimonial_name)}.html`
 
 const pageFactory = name => new HtmlWebpackPlugin({
   template: `./src/${name}.pug`,
   filename: `${name}.html`,
-  posts: POSTS,
-  testimonials: TESTIMONIALS,
+  posts: POSTS.map(e => ({page_link: urlifyPost(e), ...e})),
+  testimonials: TESTIMONIALS.map(e => ({page_link: urlifyTestimonial(e), ...e})),
 })
 
 const postFactory = content => new HtmlWebpackPlugin({
   template: `./src/post.pug`,
-  filename: `${urlify(content.title)}.html`,
+  filename: urlifyPost(content),
   ...content
 })
 
 const testimonialFactory = (content) => new HtmlWebpackPlugin({
   template: `./src/testimonial.pug`,
-  filename: `${urlify(content.testimonial_name)}.html`,
+  filename: urlifyTestimonial(content),
   ...content
 })
 
