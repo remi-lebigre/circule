@@ -1,0 +1,43 @@
+extends views/layouts/view
+
+block content
+  - const { testimonials } = htmlWebpackPlugin.options
+  section.container.section--light-grey.section--inspiration
+    .row
+      .col-offset-4.col-8
+        h1.section_header Témoignages
+    .row
+      .col-2
+        p.mt-5 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet animi architecto aut delectus deleniti dolor, enim error facere, fugiat fugit in incidunt laudantium magni numquam pariatur quaerat sapiente ullam voluptates!
+      .col-offset-2.col-8
+        .separator.separator--big
+    .row
+      .col-offset-4.col-1.circle
+    //TODO
+    .row
+      .col-4.prc-1
+        figure.figure.mt-30
+          a(href=testimonials[0].page_link)
+            img.figure_img(src=require("./assets/images/_img/_inspiration/Bitmap.jpg"))
+          figcaption
+            p.figure_date=testimonials[0].date
+            h2.text-h3=testimonials[0].title
+      .col-3.prc-1
+        figure.figure.mt-8
+          img.figure_img(src=require("./assets/images/_img/_inspiration/erik-mclean-FgFCsLRnCVY-unsplash.jpg"))
+          figcaption
+            p.figure_date 12 juillet
+            h2.text-h3 Pellentesque et dictum diam lorem ipsum.
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus doloribus dolorum ducimus hic laborum, modi reiciendis voluptate? Aliquam autem cumque in nemo neque, odit pariatur tempore. Quibusdam, quisquam, sed?
+      .col-5
+        figure.figure
+          img.figure_img(src=require("./assets/images/_img/_inspiration/sour-moha-sHBWWLGfoVg-unsplash.jpg"))
+          figcaption
+            p.figure_date 12 juillet
+            h2.text-h3 Pellentesque et dictum diam lorem ipsum.
+            p Lorem ipsum do
+    //END TODO
+
+
+
+

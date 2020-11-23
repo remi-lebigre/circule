@@ -1,3 +1,4 @@
+- const { name } = htmlWebpackPlugin.options
 doctype html
 html(lang=locale)
   head
@@ -22,7 +23,7 @@ html(lang=locale)
     meta(name="twitter:image" content='')
 
     link(rel="icon" href="")
-  body
+  body(class=name)
     include ../partials/no_js
     include ../partials/header
 
