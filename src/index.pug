@@ -2,6 +2,7 @@ extends views/layouts/view
 include views/components/card
 
 block content
+  - const { testimonials } = htmlWebpackPlugin.options
   section.section--main.section--full-height.section--light-grey.container(data-scroll-section)
     h1.section_header(data-scroll data-scroll-speed="1" data-scroll-delay="0.05") studio
       br
@@ -109,7 +110,7 @@ block content
           li
             p Bachelor en Design d’espaces, Ecole Européenne Supérieure d’Arts de Bretagne, Brest
 
-  section.section--light-grey.section--full-height.container(data-scroll-section)
+  section.section--testimonials.section--light-grey.section--full-height.container(data-scroll-section)
     .row
       .col-offset-3.col-7
         p.text-callout Ils ont testé la méthode .Circule pour des soins énergétiques ou des séances de coaching et vous racontent.
@@ -117,6 +118,9 @@ block content
       .col-offset-3.col-5
         .separator
       .col-offset-2.col-1.circle
+    .row
+      .col-12
+        p=testimonials[0].testimonial_name
 
   section.section--light-grey.section--full-height.section--cards.container(data-scroll-section)
     .row

@@ -1,0 +1,22 @@
+extends views/layouts/view
+
+block content
+  - const { title, date, rich_content, header } = htmlWebpackPlugin.options
+  section.container.section--light-grey.post
+    .row
+      .col-12
+        a.post_back-link(href="#") Retour
+    .row
+      .col-1.circle.aligned-bottom
+      .col-offset-3.col-6
+        h1.post_header.text-callout=title
+    .row
+      .col-offset-4.col8
+        p.post_date=date
+    .row
+      .col-2
+        if header
+          p.mt-5=header
+      .post_content.col-offset-2.col-8
+        .separator.separator--big
+        p=rich_content

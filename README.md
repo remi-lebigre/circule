@@ -16,6 +16,7 @@ This is a web frontend boilerplate. It uses:
 - `webpack`
 
 # TODOs
+- Upload assets : https://www.npmjs.com/package/strapi-provider-upload-sftp-v2
 
 # Sources
 ## Project checklit

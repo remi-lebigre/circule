@@ -9,3 +9,6 @@ dist
 
 # Code
 tmp
+
+# Environment variables
+.env

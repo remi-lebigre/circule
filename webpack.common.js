@@ -2,18 +2,31 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const slugify = require('slugify')
 
-const PAGES = ['index', 'about', 'inspiration', 'article']
+const POSTS = require(`./tmp/posts.json`)
+const TESTIMONIALS = require(`./tmp/testimonials.json`)
+const PAGES = ['index', 'about', 'inspiration']
+
+const urlify = content => slugify(content, {lower: true, strict: true})
 
 const pageFactory = name => new HtmlWebpackPlugin({
   template: `./src/${name}.pug`,
   filename: `${name}.html`,
+  posts: POSTS,
+  testimonials: TESTIMONIALS,
 })
-const POSTS = require(`./tmp/posts.json`)
-const postFactory = ({content}) => new HtmlWebpackPlugin({
-  template: `./src/article.pug`,
-  filename: `article.html`,
-  content: content
+
+const postFactory = content => new HtmlWebpackPlugin({
+  template: `./src/post.pug`,
+  filename: `${urlify(content.title)}.html`,
+  ...content
+})
+
+const testimonialFactory = (content) => new HtmlWebpackPlugin({
+  template: `./src/testimonial.pug`,
+  filename: `${urlify(content.testimonial_name)}.html`,
+  ...content
 })
 
 module.exports = {
@@ -64,6 +77,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
     ...PAGES.map(pageFactory),
-    ...POSTS.map(postFactory)
+    ...POSTS.map(postFactory),
+    ...TESTIMONIALS.map(testimonialFactory)
   ],
 }
