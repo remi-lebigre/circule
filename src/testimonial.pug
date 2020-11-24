@@ -1,7 +1,7 @@
 extends views/layouts/view
 
 block content
-  - const { testimonial_quote,testimonial_name,testimonial_content, avatar } = htmlWebpackPlugin.options
+  - const { testimonial_quote,testimonial_name,testimonial_content, avatar: {url} } = htmlWebpackPlugin.options
   section.testimonial.container.section--light-grey.post
     .row
       .col-12
@@ -9,7 +9,7 @@ block content
     .row
       .col-1.circle.aligned-bottom
       .col-offset-2.col-1
-       span.testimonial_quote-icon.text-callout.text-color--pink “
+        span.testimonial_quote-icon.text-callout.text-color--pink “
       .col-6
         h1.post_header.text-callout=testimonial_quote
     .row
@@ -19,5 +19,5 @@ block content
       .post_content.col-offset-4.col-8
         .separator.separator--big
         p=testimonial_content
-      if avatar
-        img(src=avatar.url)
+      if url
+        img(src=url)

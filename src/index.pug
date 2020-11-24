@@ -119,8 +119,10 @@ block content
         .separator
       .col-offset-2.col-1.circle
     .row
-      .col-12
-        a(href=testimonials[0].page_link)=testimonials[0].testimonial_name
+      .col-offset-1.col-2
+        a(href=testimonials[0].page_link)
+          img(src=testimonials[0].avatar.url)
+
 
   section.section--light-grey.section--full-height.section--cards.container(data-scroll-section)
     .row
