@@ -6,7 +6,7 @@ class I {
   }
 
   recursive = (r, nest_level) => {
-    ;[...r.childNodes].filter(c => c.nodeType === 3 && c.nodeValue !== 'i').forEach(this.replaceNode)
+    ;[...r.childNodes].filter(this.filterReplacedCharacters).forEach(this.replaceNode)
     ;[...r.children].forEach(c => {
       if (nest_level > 0) {
         nest_level--
@@ -15,17 +15,33 @@ class I {
     })
   }
 
+  filterReplacedCharacters = c => c.nodeType === 3 && c.textContent !== 'i' && c.textContent !== 'I'
+  createItalicSpan = letter => {
+    let span = document.createElement('span')
+    span.textContent = letter
+    span.className = 'text-italic'
+    return span
+  }
   replaceNode = node => {
-    let content = node.textContent.split(/[iI]/)
+    const content = node.textContent.split(/[i]/)
     let frag = document.createDocumentFragment()
 
     content.forEach((c, index) => {
-      frag.appendChild(document.createTextNode(c))
+      const upcase_content = c.split(/[I]/)
+
+      if (upcase_content.length > 1) {
+        upcase_content.forEach((uc, ui) => {
+          frag.appendChild(document.createTextNode(uc))
+          if (ui < upcase_content.length - 1) {
+            frag.appendChild(this.createItalicSpan('I'))
+          }
+        })
+      } else {
+        frag.appendChild(document.createTextNode(c))
+      }
+
       if (index < content.length - 1) {
-        let span = document.createElement('span')
-        span.textContent = 'i'
-        span.className = 'text-italic'
-        frag.appendChild(span)
+        frag.appendChild(this.createItalicSpan('i'))
       }
     })
 
