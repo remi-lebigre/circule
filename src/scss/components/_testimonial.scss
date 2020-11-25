@@ -1,0 +1,47 @@
+.testimonial {
+  position: relative;
+
+  &_img {
+    filter: grayscale(1);
+    opacity: .7;
+  }
+
+  &:hover {
+    .testimonial_img {
+      opacity: 1;
+      filter: grayscale(0);
+    }
+  }
+
+  &-0 {
+    top: 12em;
+    transform: translateX(calc(-50% - 12.5px));
+    display: block;
+  }
+
+  &-1 {
+    top: 20em;
+  }
+
+  &-2 {
+    top: 0;
+  }
+
+  &-3 {
+    top: 22em;
+    transform: translateX(calc(50% + 12.5px));
+    display: block;
+  }
+
+  &-4 {
+    top: 29em;
+  }
+
+  &-5 {
+    top: 35em;
+  }
+
+  &-6 {
+    top: 29em;
+  }
+}

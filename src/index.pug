@@ -110,19 +110,39 @@ block content
           li
             p Bachelor en Design d’espaces, Ecole Européenne Supérieure d’Arts de Bretagne, Brest
 
-  section.section--testimonials.section--light-grey.section--full-height.container(data-scroll-section)
-    .row
-      .col-offset-3.col-7
-        p.text-callout Ils ont testé la méthode .Circule pour des soins énergétiques ou des séances de coaching et vous racontent.
-    .row
-      .col-offset-3.col-5
-        .separator
-      .col-offset-2.col-1.circle
-    .row
-      .col-offset-1.col-2
-        a(href=testimonials[0].page_link)
-          img(src=testimonials[0].avatar.url)
-
+  section.section--testimonials.section--light-grey(data-scroll-section)
+    .container.container--full-height
+      .testimonials_header
+        .row
+          .col-offset-3.col-7
+            p.text-callout Ils ont testé la méthode .Circule pour des soins énergétiques ou des séances de coaching et vous racontent.
+        .row
+          .col-offset-3.col-5
+            .separator
+          .col-offset-2.col-1.circle
+      .row
+        .col-2
+          a.testimonial.testimonial-0(href=testimonials[0].page_link)
+            img.testimonial_img(src=testimonials[0].avatar.url)
+        .col-offset-1.col-2
+          a.testimonial.testimonial-1(href=testimonials[1].page_link)
+            img.testimonial_img(src=testimonials[1].avatar.url)
+        .col-offset-2.col-2
+          a.testimonial.testimonial-2(href=testimonials[2].page_link)
+            img.testimonial_img(src=testimonials[2].avatar.url)
+        .col-offset-1.col-2
+          a.testimonial.testimonial-3(href=testimonials[3].page_link)
+            img.testimonial_img(src=testimonials[3].avatar.url)
+      .row
+        .col-offset-1.col-2
+          a.testimonial.testimonial-4(href=testimonials[4].page_link)
+            img.testimonial_img(src=testimonials[4].avatar.url)
+        .col-offset-2.col-2
+          a.testimonial.testimonial-5(href=testimonials[5].page_link)
+            img.testimonial_img(src=testimonials[5].avatar.url)
+        .col-offset-2.col-2
+          a.testimonial.testimonial-6(href=testimonials[6].page_link)
+            img.testimonial_img(src=testimonials[6].avatar.url)
 
   section.section--light-grey.section--full-height.section--cards.container(data-scroll-section)
     .row
