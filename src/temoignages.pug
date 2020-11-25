@@ -1,4 +1,5 @@
 extends views/layouts/view
+include views/components/testimonial
 
 block content
   - const { testimonials } = htmlWebpackPlugin.options
@@ -13,31 +14,34 @@ block content
         .separator.separator--big
     .row
       .col-offset-4.col-1.circle
-    //TODO
-    .row
-      .col-4.prc-1
-        figure.figure.mt-30
-          a(href=testimonials[0].page_link)
-            img.figure_img(src=testimonials[0].avatar.url)
-          figcaption
-            p.figure_date=testimonials[0].date
-            h2.text-h3=testimonials[0].title
-      .col-3.prc-1
-        figure.figure.mt-8
-          img.figure_img(src=require("./assets/images/_img/_inspiration/erik-mclean-FgFCsLRnCVY-unsplash.jpg"))
-          figcaption
-            p.figure_date 12 juillet
-            h2.text-h3 Pellentesque et dictum diam lorem ipsum.
-            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus doloribus dolorum ducimus hic laborum, modi reiciendis voluptate? Aliquam autem cumque in nemo neque, odit pariatur tempore. Quibusdam, quisquam, sed?
-      .col-5
-        figure.figure
-          img.figure_img(src=require("./assets/images/_img/_inspiration/sour-moha-sHBWWLGfoVg-unsplash.jpg"))
-          figcaption
-            p.figure_date 12 juillet
-            h2.text-h3 Pellentesque et dictum diam lorem ipsum.
-            p Lorem ipsum do
-    //END TODO
-
-
-
-
+    each t,i in testimonials
+      if i % 9 === 0
+        .row
+          .col-4.prc-1
+            +testimonial(t).mt-30
+          .col-3.prc-1
+            if testimonials[i + 1]
+              +testimonial(testimonials[i + 1]).mt-8
+          .col-5
+            if testimonials[i + 2]
+              +testimonial(testimonials[i + 2])
+        .row
+          .col-5
+            if testimonials[i + 3]
+              +testimonial(testimonials[i + 3]).mtn-3
+          .col-3.plc-1
+            if testimonials[i + 4]
+              +testimonial(testimonials[i + 4]).mt-30
+          .col-4.plc-1
+            if testimonials[i + 5]
+              +testimonial(testimonials[i + 5]).mt-3
+        .row
+          .col-4.prc-1
+            if testimonials[i + 6]
+              +testimonial(testimonials[i + 6]).mt-20
+          .col-5
+            if testimonials[i + 7]
+              +testimonial(testimonials[i + 7]).mt-5
+          .col-3.plc-1
+            if testimonials[i + 8]
+              +testimonial(testimonials[i + 8]).mtn-5
