@@ -1,4 +1,5 @@
 extends views/layouts/view
+include views/components/post
 
 block content
   - const { posts } = htmlWebpackPlugin.options
@@ -13,94 +14,37 @@ block content
         .separator.separator--big
     .row
       .col-offset-4.col-1.circle
-    //TODO
-    .row
-      .col-4.prc-1
-        figure.figure.mt-30
-          a(href=posts[0].page_link)
-            img.figure_img(src=require("./assets/images/_img/_inspiration/Bitmap.jpg"))
-          figcaption
-            p.figure_date=posts[0].date
-            h2.text-h3=posts[0].title
-      .col-3.prc-1
-        figure.figure.mt-8
-          img.figure_img(src=require("./assets/images/_img/_inspiration/erik-mclean-FgFCsLRnCVY-unsplash.jpg"))
-          figcaption
-            p.figure_date 12 juillet
-            h2.text-h3 Pellentesque et dictum diam lorem ipsum.
-            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus doloribus dolorum ducimus hic laborum, modi reiciendis voluptate? Aliquam autem cumque in nemo neque, odit pariatur tempore. Quibusdam, quisquam, sed?
-      .col-5
-        figure.figure
-          img.figure_img(src=require("./assets/images/_img/_inspiration/sour-moha-sHBWWLGfoVg-unsplash.jpg"))
-          figcaption
-            p.figure_date 12 juillet
-            h2.text-h3 Pellentesque et dictum diam lorem ipsum.
-            p Lorem ipsum do
-    //END TODO
-    .row
-      .col-4.prc-1
-        figure.figure.mt-30
-          img.figure_img(src=require("./assets/images/_img/_inspiration/Bitmap.jpg"))
-          figcaption
-            p.figure_date 12 juillet
-            h2.text-h3 Pellentesque et dictum diam lorem ipsum.
-      .col-3.prc-1
-        figure.figure.mt-8
-          img.figure_img(src=require("./assets/images/_img/_inspiration/erik-mclean-FgFCsLRnCVY-unsplash.jpg"))
-          figcaption
-            p.figure_date 12 juillet
-            h2.text-h3 Pellentesque et dictum diam lorem ipsum.
-            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus doloribus dolorum ducimus hic laborum, modi reiciendis voluptate? Aliquam autem cumque in nemo neque, odit pariatur tempore. Quibusdam, quisquam, sed?
-      .col-5
-        figure.figure
-          img.figure_img(src=require("./assets/images/_img/_inspiration/sour-moha-sHBWWLGfoVg-unsplash.jpg"))
-          figcaption
-            p.figure_date 12 juillet
-            h2.text-h3 Pellentesque et dictum diam lorem ipsum.
-            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam architecto illo inventore libero nesciunt nihil optio, perspiciatis possimus provident, quisquam reiciendis reprehenderit sapiente sint vel veritatis voluptas voluptatem voluptates? Tenetur.
-    .row
-      .col-5
-        figure.figure.mtn-3
-          img.figure_img(src=require("./assets/images/_img/_inspiration/sour-moha-ssXdBOUmjLA-unsplash.jpg"))
-          figcaption
-            p.figure_date 12 juillet
-            h2.text-h3 Pellentesque et dictum diam lorem ipsum.
-      .col-3.plc-1
-        figure.figure.mt-30
-          img.figure_img(src=require("./assets/images/_img/_inspiration/gordon-cowie-2QH3u52AWO4-unsplash.jpg"))
-          figcaption
-            p.figure_date 12 juillet
-            h2.text-h3 Pellentesque et dictum diam lorem ipsum.
-            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus doloribus dolorum ducimus hic laborum, modi reiciendis voluptate? Aliquam autem cumque in nemo neque, odit pariatur tempore. Quibusdam, quisquam, sed?
-      .col-4.plc-1
-        figure.figure.mt-3
-          img.figure_img(src=require("./assets/images/_img/_inspiration/markus-spiske-mxbmiZn5Spw-unsplash.jpg"))
-          figcaption
-            p.figure_date 12 juillet
-            h2.text-h3 Pellentesque et dictum diam lorem ipsum.
-            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam architecto illo inventore libero nesciunt nihil optio, perspiciatis possimus provident, quisquam reiciendis reprehenderit sapiente sint vel veritatis voluptas voluptatem voluptates? Tenetur.
-    .row
-      .col-4.prc-1
-        figure.figure.mt-20
-          img.figure_img(src=require("./assets/images/_img/_inspiration/yulia-khlebnikova-_8iqc5-cG-Y-unsplash.jpg"))
-          figcaption
-            p.figure_date 12 juillet
-            h2.text-h3 Pellentesque et dictum diam lorem ipsum.
-            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, dolor doloremque error explicabo hic numquam placeat reiciendis sunt. Animi consectetur dicta eius ipsam laboriosam maiores quo suscipit tenetur unde ut.
-      .col-5
-        figure.figure.mt-5
-          img.figure_img(src=require("./assets/images/_img/_inspiration/felipe-labate-MeDMTl7Lna0-unsplash.jpg"))
-          figcaption
-            p.figure_date 12 juillet
-            h2.text-h3 Pellentesque et dictum diam lorem ipsum.
-            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus doloribus dolorum ducimus hic laborum, modi reiciendis voluptate? Aliquam autem cumque in nemo neque, odit pariatur tempore. Quibusdam, quisquam, sed?
-      .col-3.plc-1
-        figure.figure.mtn-5
-          img.figure_img(src=require("./assets/images/_img/_inspiration/melnychuk-nataliya-dTOyffxJqCU-unsplash.jpg"))
-          figcaption
-            p.figure_date 12 juillet
-            h2.text-h3 Pellentesque et dictum diam lorem ipsum.
-            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam architecto illo inventore libero nesciunt nihil optio, perspiciatis possimus provident, quisquam reiciendis reprehenderit sapiente sint vel veritatis voluptas voluptatem voluptates? Tenetur.
+    each t,i in posts
+      if i % 9 === 0
+        .row
+          .col-4.prc-1
+            +post(t).mt-30
+          .col-3.prc-1
+            if posts[i + 1]
+              +post(posts[i + 1]).mt-8
+          .col-5
+            if posts[i + 2]
+              +post(posts[i + 2])
+        .row
+          .col-5
+            if posts[i + 3]
+              +post(posts[i + 3]).mtn-3
+          .col-3.plc-1
+            if posts[i + 4]
+              +post(posts[i + 4]).mt-30
+          .col-4.plc-1
+            if posts[i + 5]
+              +post(posts[i + 5]).mt-3
+        .row
+          .col-4.prc-1
+            if posts[i + 6]
+              +post(posts[i + 6]).mt-20
+          .col-5
+            if posts[i + 7]
+              +post(posts[i + 7]).mt-5
+          .col-3.plc-1
+            if posts[i + 8]
+              +post(posts[i + 8]).mtn-5
 
 
 

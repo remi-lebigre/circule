@@ -1,5 +1,6 @@
 extends views/layouts/view
 include views/components/card
+include views/components/home-testimonial
 
 block content
   - const { testimonials } = htmlWebpackPlugin.options
@@ -122,27 +123,20 @@ block content
           .col-offset-2.col-1.circle
       .row
         .col-2
-          a.testimonial.testimonial-0(href=testimonials[0].page_link)
-            img.testimonial_img(src=testimonials[0].avatar.url)
+          +home-testimonial(testimonials[0]).testimonial-0
         .col-offset-1.col-2
-          a.testimonial.testimonial-1(href=testimonials[1].page_link)
-            img.testimonial_img(src=testimonials[1].avatar.url)
+          +home-testimonial(testimonials[1]).testimonial-1
         .col-offset-2.col-2
-          a.testimonial.testimonial-2(href=testimonials[2].page_link)
-            img.testimonial_img(src=testimonials[2].avatar.url)
+          +home-testimonial(testimonials[2]).testimonial-2
         .col-offset-1.col-2
-          a.testimonial.testimonial-3(href=testimonials[3].page_link)
-            img.testimonial_img(src=testimonials[3].avatar.url)
+          +home-testimonial(testimonials[3]).testimonial-3
       .row
         .col-offset-1.col-2
-          a.testimonial.testimonial-4(href=testimonials[4].page_link)
-            img.testimonial_img(src=testimonials[4].avatar.url)
+          +home-testimonial(testimonials[4]).testimonial-4
         .col-offset-2.col-2
-          a.testimonial.testimonial-5(href=testimonials[5].page_link)
-            img.testimonial_img(src=testimonials[5].avatar.url)
+          +home-testimonial(testimonials[5]).testimonial-5
         .col-offset-2.col-2
-          a.testimonial.testimonial-6(href=testimonials[6].page_link)
-            img.testimonial_img(src=testimonials[6].avatar.url)
+          +home-testimonial(testimonials[6]).testimonial-6
 
   section.section--light-grey.section--full-height.section--cards.container(data-scroll-section)
     .row

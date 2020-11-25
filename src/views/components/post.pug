@@ -1,0 +1,8 @@
+mixin post(p)
+  figure.figure(class=attributes.class)
+    a(href=p.page_link)
+      if p.cover
+        img.figure_img.img-auto(src=p.cover.url)
+    figcaption
+      p.figure_date=p.date
+      h2.text-h3=p.title

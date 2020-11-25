@@ -1,0 +1,5 @@
+mixin home-testimonial(t)
+  if t
+    a.testimonial(class=attributes.class href=t.page_link)
+      if t.avatar
+        img.testimonial_img(src=t.avatar.url)

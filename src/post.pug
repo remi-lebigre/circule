@@ -1,7 +1,7 @@
 extends views/layouts/view
 
 block content
-  - const { title, date, rich_content, header } = htmlWebpackPlugin.options
+  - const { title, date, rich_content, header, cover: {url} } = htmlWebpackPlugin.options
   section.post.container.section--light-grey.post
     .row
       .col-12
@@ -19,4 +19,6 @@ block content
           p.mt-5=header
       .post_content.col-offset-2.col-8
         .separator.separator--big
+        if url
+          img.img-auto(src=url)
         p=rich_content
