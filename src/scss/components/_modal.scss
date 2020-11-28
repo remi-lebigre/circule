@@ -1,0 +1,45 @@
+.modal {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  &_bg {
+    z-index: -1;
+    opacity: .8;
+    background-color: var(--dark);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  &_close {
+    position: absolute;
+    top: $grid-gutter*2;
+    right: $grid-gutter*2;
+    width: $grid-gutter;
+    height: $grid-gutter;
+    background: url('/src/assets/images/_items/close.svg') center /contain no-repeat;
+  }
+
+  &_content {
+    height: 80vh;
+
+    img {
+      mix-blend-mode: normal;
+      height: 100%;
+      width: auto;
+    }
+  }
+
+  &--open {
+    display: flex;
+  }
+}

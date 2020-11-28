@@ -4,7 +4,7 @@ header {
   left: 0;
   width: 100%;
   z-index: 10;
-  padding-top: $container-margin-y;
+  padding-top: $grid-gutter*2;
 }
 
 .header {

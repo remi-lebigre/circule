@@ -1,7 +1,8 @@
 import './scss/main.scss'
-import App from "./js/app";
-import NoJS from "./js/no_js";
+import App from "./js/app"
+import NoJS from "./js/no_js"
 import I from "./js/i"
+import Cards from "./js/cards"
 
 {
   const isMobile = _ => window.matchMedia('only screen and (max-width: 760px)').matches
@@ -13,4 +14,5 @@ import I from "./js/i"
   }
   new NoJS()
   new I()
+  new Cards()
 }
