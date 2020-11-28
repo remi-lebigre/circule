@@ -1,0 +1,33 @@
+.icon {
+  display: inline-block;
+  position: relative;
+  background: center /contain no-repeat;
+
+  &--emoji {
+    width: 4em;
+    height: 4em;
+    top: -1.5em;
+    left: 67%;
+    transform: rotate(20deg);
+    background-image: url(/src/assets/images/_items/emoji.png);
+  }
+
+  &--flag-it {
+    left: 35%;
+    top: -3em;
+    width: 3em;
+    height: 3em;
+    z-index: 2;
+    transform: rotate(-15deg);
+    background-image: url(/src/assets/images/_items/italie.png);
+  }
+
+  &--flag-po {
+    left: 39.5%;
+    top: -7.5em;
+    width: 3em;
+    height: 3em;
+    transform: rotate(10deg);
+    background-image: url(/src/assets/images/_items/pologne.png);
+  }
+}
