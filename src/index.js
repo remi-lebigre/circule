@@ -4,6 +4,7 @@ import NoJS from "./js/no_js"
 import I from "./js/i"
 import Cards from "./js/cards"
 import Testimonials from './js/testimonials'
+import DebugGrid from "./js/debug-grid"
 
 {
   const isMobile = _ => window.matchMedia('only screen and (max-width: 760px)').matches
@@ -17,4 +18,5 @@ import Testimonials from './js/testimonials'
   new I()
   new Cards()
   new Testimonials()
+  new DebugGrid()
 }

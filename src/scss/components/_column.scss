@@ -1,4 +1,19 @@
 .debug-grid {
+  display: none;
+
+  &-cta {
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: $container-margin;
+    height: $container-margin-y;
+  }
+
+  &--show {
+    display: block;
+  }
+
   position: fixed !important;
   z-index: 99999;
   pointer-events: none;
