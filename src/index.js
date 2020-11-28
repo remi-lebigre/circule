@@ -3,6 +3,7 @@ import App from "./js/app"
 import NoJS from "./js/no_js"
 import I from "./js/i"
 import Cards from "./js/cards"
+import Testimonials from './js/testimonials'
 
 {
   const isMobile = _ => window.matchMedia('only screen and (max-width: 760px)').matches
@@ -15,4 +16,5 @@ import Cards from "./js/cards"
   new NoJS()
   new I()
   new Cards()
+  new Testimonials()
 }

@@ -16,8 +16,8 @@
 @import "utilities";
 
 // Components
-@import "components/cards";
 @import "components/card";
+@import "components/cards";
 @import "components/circle";
 @import "components/column";
 @import "components/container";
@@ -29,14 +29,15 @@
 @import "components/modal";
 @import "components/next-project-link";
 @import "components/no_js";
+@import "components/quote-icon";
 @import "components/row";
 @import "components/section";
 @import "components/separator";
 @import "components/socials";
 @import "components/testimonial";
+@import "components/testimonials";
 
 // Views
 @import "views/inspiration";
 @import "views/page";
 @import "views/post";
-@import "views/testimonial-view";

@@ -112,15 +112,21 @@ block content
             p Bachelor en Design d’espaces, Ecole Européenne Supérieure d’Arts de Bretagne, Brest
 
   section.section--testimonials.section--light-grey(data-scroll-section)
-    .container.container--full-height
+    .testimonials.container.container--full-height
       .testimonials_header
         .row
-          .col-offset-3.col-7
-            p.text-callout Ils ont testé la méthode .Circule pour des soins énergétiques ou des séances de coaching et vous racontent.
+          .col-offset-2.col-1
+            span.quote-icon.text-callout.text-color--pink “
+          .col-7
+            p.text-callout.testimonials_default-content Ils ont testé la méthode .Circule pour des soins énergétiques ou des séances de coaching et vous racontent.
+            p.text-callout.testimonials_quote
         .row
           .col-offset-3.col-5
             .separator
           .col-offset-2.col-1.circle
+        .row
+          .col-offset-3.col-6
+            .testimonials_name
       .row
         .col-2
           +home-testimonial(testimonials[0]).testimonial-0

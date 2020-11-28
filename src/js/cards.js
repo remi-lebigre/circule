@@ -11,15 +11,8 @@ class Cards {
     })
   }
 
-  hoverIn = _e => {
-    console.debug('hoverIn')
-    this.container.classList.add('cards--hover')
-  }
-
-  hoverOut = _e => {
-    console.debug('hoverOut')
-    this.container.classList.remove('cards--hover')
-  }
+  hoverIn = _e => this.container.classList.add('cards--hover')
+  hoverOut = _e => this.container.classList.remove('cards--hover')
 
   click = _e => new Modal(
     {

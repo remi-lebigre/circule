@@ -41,16 +41,6 @@ section {
   &--testimonials {
     overflow: hidden;
     height: 150vh;
-
-    .testimonials {
-      &_header {
-        position: absolute;
-        z-index: 1;
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
-      }
-    }
   }
 
   &--about {

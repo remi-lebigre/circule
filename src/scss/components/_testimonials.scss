@@ -1,0 +1,44 @@
+.testimonials {
+  &_header {
+    pointer-events: none;
+    z-index: 1;
+    position: absolute;
+    top: 53vh;
+    left: 0;
+    width: 100%;
+    height: 40%;
+  }
+
+  &_quote {
+    display: none;
+  }
+
+  .quote-icon {
+    display: none;
+  }
+
+  &--hover {
+    .testimonials {
+      &_default-content {
+        display: none;
+      }
+
+      &_quote {
+        display: block;
+      }
+    }
+
+    .quote-icon {
+      display: block;
+    }
+
+    .testimonial_img {
+      opacity: .15;
+
+      &:hover {
+        opacity: 1;
+        filter: grayscale(0);
+      }
+    }
+  }
+}

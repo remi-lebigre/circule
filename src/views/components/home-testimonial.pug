@@ -1,5 +1,6 @@
 mixin home-testimonial(t)
   if t
-    a.testimonial(class=attributes.class href=t.page_link)
+    a.testimonial(class=attributes.class href=t.page_link, data-name=t.testimonial_name)
+      .testimonial_quote.text-callout=t.testimonial_quote
       if t.avatar
         img.testimonial_img(src=t.avatar.url)

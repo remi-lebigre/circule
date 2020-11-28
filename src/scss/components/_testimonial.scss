@@ -6,11 +6,8 @@
     opacity: .7;
   }
 
-  &:hover {
-    .testimonial_img {
-      opacity: 1;
-      filter: grayscale(0);
-    }
+  &_quote {
+    display: none;
   }
 
   &-0 {
