@@ -7,6 +7,7 @@ import Testimonials from './js/testimonials'
 import DebugGrid from "./js/debug-grid"
 import HeaderDate from "./js/header_date";
 import Router from "./js/router";
+import CircleCanvas from "./js/circle-canvas";
 
 {
   const isMobile = _ => window.matchMedia('only screen and (max-width: 760px)').matches
@@ -26,4 +27,5 @@ import Router from "./js/router";
   }
 
   new DebugGrid()
+  new CircleCanvas()
 }
