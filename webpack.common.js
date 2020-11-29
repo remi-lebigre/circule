@@ -22,7 +22,7 @@ const pageFactory = (name, index) => {
     posts: POSTS.map(e => ({page_link: urlifyPost(e), ...e})),
     testimonials: TESTIMONIALS.map(e => ({page_link: urlifyTestimonial(e), ...e})),
     footer: {
-      title: capitalize(next_name),
+      title: capitalize(next_name === 'index' ? 'accueil' : next_name),
       link: `${next_name}.html`
     }
   })
