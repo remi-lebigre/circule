@@ -5,7 +5,8 @@ import I from "./js/i"
 import Cards from "./js/cards"
 import Testimonials from './js/testimonials'
 import DebugGrid from "./js/debug-grid"
-import HeaderDate from "./js/date";
+import HeaderDate from "./js/header_date";
+import Router from "./js/router";
 
 {
   const isMobile = _ => window.matchMedia('only screen and (max-width: 760px)').matches
@@ -17,8 +18,12 @@ import HeaderDate from "./js/date";
   }
   new NoJS()
   new I()
-  new Cards()
-  new Testimonials()
-  new DebugGrid()
   new HeaderDate()
+
+  if (new Router().isIndex()) {
+    new Cards()
+    new Testimonials()
+  }
+
+  new DebugGrid()
 }

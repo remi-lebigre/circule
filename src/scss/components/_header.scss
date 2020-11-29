@@ -46,5 +46,19 @@ header {
     white-space: nowrap;
     overflow: hidden;
     transform: rotate(-90deg) translate(-1em, .3em);
+
+    &_content {
+      display: block;
+      animation: header-side 10s linear infinite;
+    }
+  }
+}
+
+@keyframes header-side {
+  from {
+    transform: translate3d(200%, 0, 0);
+  }
+  to {
+    transform: translate3d(-200%, 0, 0);
   }
 }

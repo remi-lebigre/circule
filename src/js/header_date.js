@@ -1,6 +1,5 @@
 class HeaderDate {
   constructor () {
-    this.date = new Date()
     document.querySelector('.header_paris-time').innerText = this.parisHoursAndMinutes()
   }
 
@@ -9,7 +8,7 @@ class HeaderDate {
     return time.substring(0, time.lastIndexOf(':'))
   }
 
-  parisTime = _ => this.date.toLocaleTimeString("fr-FR", {timeZone: 'Europe/Paris'})
+  parisTime = _ => new Date().toLocaleTimeString("fr-FR", {timeZone: 'Europe/Paris'})
 
 }
 
