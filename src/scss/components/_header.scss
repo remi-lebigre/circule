@@ -40,25 +40,30 @@ header {
 
   &_side {
     position: fixed;
-    top: 8em;
-    right: 0;
+    top: 10em;
+    right: -.4em;
+    overflow: hidden;
+    transform: rotate(-90deg);
     width: 120px;
     white-space: nowrap;
-    overflow: hidden;
-    transform: rotate(-90deg) translate(-1em, .3em);
 
     &_content {
       display: block;
-      animation: header-side 10s linear infinite;
+      position: relative;
+      animation: header-side-first 5s linear infinite;
+
+      &_last {
+        padding-left: 1em;
+      }
     }
   }
 }
 
-@keyframes header-side {
+@keyframes header-side-first {
   from {
-    transform: translate3d(200%, 0, 0);
+    transform: translateX(0);
   }
   to {
-    transform: translate3d(-200%, 0, 0);
+    transform: translateX(-160%);
   }
 }
