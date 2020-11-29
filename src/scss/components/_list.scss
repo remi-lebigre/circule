@@ -1,4 +1,6 @@
 ul.list {
+  margin-top: 2em;
+
   li {
     &:first-child {
       border-top: solid 1px var(--dark);

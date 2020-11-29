@@ -15,16 +15,18 @@ class App {
   }
 
   initScroll = _ => {
-    const locomotive = new LocomotiveScroll({
-      el: document.querySelector('[data-scroll-container]'),
-      smooth: true,
-      getDirection: true
-    })
-    locomotive.on('scroll', this.onScroll)
-    locomotive.on('call', this.onCall)
+    setTimeout(_=>{
+      const locomotive = new LocomotiveScroll({
+        el: document.querySelector('[data-scroll-container]'),
+        smooth: true,
+        // getDirection: true
+      })
+      // locomotive.on('scroll', this.onScroll)
+      // locomotive.on('call', this.onCall)
+    },200)
   }
-  onCall = action => console.log(`Scroll action call - ${action}`)
-  onScroll = event => console.log(`Scroll event direction - ${event.direction}`)
+  // onCall = action => console.log(`Scroll action call - ${action}`)
+  // onScroll = event => console.log(`Scroll event direction - ${event.direction}`)
 }
 
 export default App

@@ -59,20 +59,19 @@ block content
         p Ainsi, j’ai trouvé mon métier et ma façon d’être épanouie pour exprimer toute ma créativité.
 
   section.section--light-grey(data-scroll-section)
-    img(src=require("./assets/images/home/home-plantes.jpg"))
-
-  section.section--light-grey.container(data-scroll-section)
-    .row
-      .col-1.circle
-      .col-offset-5.col-2
-        p.text-lead Je suis là pour faire un bout de route avec toi pour ajuster ce qui a besoin de l’être.
-      .col-2
-        p Pour rétablir un équilibre, à l’intérieur et à l’extérieur de toi, ou juste pour te faire du bien. Que ce soit toi, ton intérieur, ta garde-robe, ou encore tes projets, je suis là pour t’aider à retrouver une forme d’harmonie pour bien vivre et atteindre tes objectifs.
-          | Nous avons conçu ce site comme un magazine (ça c’était juste pour réaliser un de mes rêves de petite fille
-          br
-          span.icon.icon--emoji
-      .col-2
-        p Je te souhaite de t’y sentir bien, que tu puisses parcourir les différentes rubriques à ton rythme et viennes piocher ce que tu as envie et ce dont tu as besoin. Je suis ravie de répondre à tes questions ici, de te proposer un rdv là et si tu n’as qu’une minute devant toi ; cours faire un tirage !
+    img.mb-8(src=require("./assets/images/home/home-plantes.jpg"))
+    .container
+      .row
+        .col-1.circle
+        .col-offset-5.col-2
+          p.text-lead Je suis là pour faire un bout de route avec toi pour ajuster ce qui a besoin de l’être.
+        .col-2
+          p Pour rétablir un équilibre, à l’intérieur et à l’extérieur de toi, ou juste pour te faire du bien. Que ce soit toi, ton intérieur, ta garde-robe, ou encore tes projets, je suis là pour t’aider à retrouver une forme d’harmonie pour bien vivre et atteindre tes objectifs.
+            | Nous avons conçu ce site comme un magazine (ça c’était juste pour réaliser un de mes rêves de petite fille
+            br
+            span.icon.icon--emoji
+        .col-2
+          p Je te souhaite de t’y sentir bien, que tu puisses parcourir les différentes rubriques à ton rythme et viennes piocher ce que tu as envie et ce dont tu as besoin. Je suis ravie de répondre à tes questions ici, de te proposer un rdv là et si tu n’as qu’une minute devant toi ; cours faire un tirage !
 
   section.section--light-grey.container(data-scroll-section)
     .row
@@ -116,8 +115,8 @@ block content
             p Bachelor en Design d’espaces, Ecole Européenne Supérieure d’Arts de Bretagne, Brest
 
   section.section--testimonials.section--light-grey(data-scroll-section)
-    .testimonials.container.container--full-height
-      .testimonials_header
+    .testimonials.container
+      .testimonials_header(data-scroll data-scroll-sticky data-scroll-target=".section--testimonials" data-scroll-offset="-30%")
         .row
           .col-offset-2.col-1
             span.quote-icon.text-callout.text-color--pink “
@@ -133,14 +132,14 @@ block content
             .testimonials_name
       .row
         .col-2
-          +home-testimonial(testimonials[0]).testimonial-0
+          +home-testimonial(testimonials[0]).testimonial-0.testimonial--first
         .col-offset-1.col-2
           +home-testimonial(testimonials[1]).testimonial-1
         .col-offset-2.col-2
           +home-testimonial(testimonials[2]).testimonial-2
         .col-offset-1.col-2
-          +home-testimonial(testimonials[3]).testimonial-3
-      .row
+          +home-testimonial(testimonials[3]).testimonial-3.testimonial--last
+      .row.pb-30
         .col-offset-1.col-2
           +home-testimonial(testimonials[4]).testimonial-4
         .col-offset-2.col-2
@@ -148,33 +147,50 @@ block content
         .col-offset-2.col-2
           +home-testimonial(testimonials[6]).testimonial-6
 
-  section.section--light-grey.section--full-height.section--cards.container(data-scroll-section)
-    .row
-      .col-12
-        h1.section_header.row
-          span.col-12.text-color--pink l’oracle
-          br
-          span.col-3 de
-          span.col-9 roleca
-    .row
-      .col-5
-        .separator
-    .row
-      .col-1.circle
-      .col-offset-2.col-2
-        p Clique sur les cartes défilantes et découvre le message qu’elles ont à te délivrer.
-          | Des decks sont disponibles sur notre e-shop. Amour, Attraction, Protection et Relaxation, ces 4 jeux t’accompagnent comme un oracle pouvant t’apporter des guidances quotidiennes.
-          | Chaque jeu contient 21 cartes pour te rappeler qu’une bonne habitude et un changement peuvent s’opérer en seulement 21 jours.
-          | Pour en savoir plus, contacte-nous !
-    .cards
+  section.section--light-grey.section--cards(data-scroll-section)
+    .container.z-1(data-scroll data-scroll-sticky data-scroll-target=".section--cards" data-scroll-offset="-20%")
       .row
-        .cards_col.col-offset-6.col-2
-          +card
-          +card
-        .cards_col.col-2
-          +card
-          +card
-        .cards_col.col-2
-          +card
-          +card
+        .col-12
+          h1.section_header.row
+            span.col-12.text-color--pink l’oracle
+            br
+            span.col-3 de
+            span.col-9 roleca
+      .row
+        .col-5
+          .separator
+      .row
+        .col-1.circle
+        .col-offset-2.col-2
+          p Clique sur les cartes défilantes et découvre le message qu’elles ont à te délivrer.
+            | Des decks sont disponibles sur notre e-shop. Amour, Attraction, Protection et Relaxation, ces 4 jeux t’accompagnent comme un oracle pouvant t’apporter des guidances quotidiennes.
+            | Chaque jeu contient 21 cartes pour te rappeler qu’une bonne habitude et un changement peuvent s’opérer en seulement 21 jours.
+            | Pour en savoir plus, contacte-nous !
+    .container
+      .cards
+        .row
+          .col-offset-6.col-2(data-scroll data-scroll-speed="1" data-scroll-delay="0.05")
+            +card
+            +card
+            +card
+            +card
+            +card
+            +card
+            +card
+          .col-2(data-scroll data-scroll-speed="2" data-scroll-delay="0.05")
+            +card
+            +card
+            +card
+            +card
+            +card
+            +card
+            +card
+          .col-2(data-scroll data-scroll-speed=".5" data-scroll-delay="0.05")
+            +card
+            +card
+            +card
+            +card
+            +card
+            +card
+            +card
 

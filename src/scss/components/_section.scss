@@ -40,7 +40,6 @@ section {
 
   &--testimonials {
     overflow: hidden;
-    height: 150vh;
   }
 
   &--about {
@@ -55,14 +54,6 @@ section {
     .section {
       &_header {
         padding-top: 20%;
-      }
-    }
-  }
-
-  &--cards {
-    .section {
-      &_header {
-        padding-top: 2em;
       }
     }
   }
