@@ -63,7 +63,7 @@ section {
       &_content {
         pointer-events: none;
 
-        span, p {
+        span, p, .circle {
           pointer-events: auto;
         }
       }

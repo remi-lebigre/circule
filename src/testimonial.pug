@@ -2,7 +2,7 @@ extends views/layouts/view
 
 block content
   - const { testimonial_quote,testimonial_name,testimonial_content, avatar: {url} } = htmlWebpackPlugin.options
-  section.testimonial-view.container.section--light-grey.post(data-scroll-section)
+  section.testimonial-view.container.post(data-scroll-section)
     .row
       .col-12
         a.post_back-link(href="/temoignages") Retour

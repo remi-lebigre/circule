@@ -15,18 +15,19 @@ class App {
   }
 
   initScroll = _ => {
-    setTimeout(_=>{
+    window.wscroll = 0
+    setTimeout(_ => {
       const locomotive = new LocomotiveScroll({
         el: document.querySelector('[data-scroll-container]'),
         smooth: true,
         // getDirection: true
       })
-      // locomotive.on('scroll', this.onScroll)
+      locomotive.on('scroll', this.onScroll)
       // locomotive.on('call', this.onCall)
-    },200)
+    }, 200)
   }
   // onCall = action => console.log(`Scroll action call - ${action}`)
-  // onScroll = event => console.log(`Scroll event direction - ${event.direction}`)
+  onScroll = ({scroll: {y}}) => window.wscroll = y
 }
 
 export default App

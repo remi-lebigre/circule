@@ -20,12 +20,11 @@ import CircleCanvas from "./js/circle-canvas";
   new NoJS()
   new I()
   new HeaderDate()
-
-  if (new Router().isIndex()) {
+  const router = new Router()
+  if (router.isIndex()) {
     new Cards()
     new Testimonials()
   }
-
-  new DebugGrid()
   new CircleCanvas()
+  new DebugGrid()
 }
