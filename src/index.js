@@ -5,6 +5,7 @@ import I from "./js/i"
 import Cards from "./js/cards"
 import Testimonials from './js/testimonials'
 import DebugGrid from "./js/debug-grid"
+import HeaderDate from "./js/date";
 
 {
   const isMobile = _ => window.matchMedia('only screen and (max-width: 760px)').matches
@@ -19,4 +20,5 @@ import DebugGrid from "./js/debug-grid"
   new Cards()
   new Testimonials()
   new DebugGrid()
+  new HeaderDate()
 }
