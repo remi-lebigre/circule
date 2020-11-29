@@ -1,4 +1,5 @@
 extends views/layouts/view
+include views/components/img
 
 block content
   section.container.section--light-grey.section--about(data-scroll-section)
@@ -8,7 +9,7 @@ block content
       .col-1.aligned-bottom.circle
     .row.mt-3
       .col-6
-        img(src=require("./assets/images/about/about-intro.jpg"))
+        +img(require("./assets/images/about/about-intro.jpg"))
       .col-6
         .row
           .col-6
