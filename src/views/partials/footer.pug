@@ -1,13 +1,13 @@
 footer.container(data-scroll-section)
+  - const { footer: {title, link} } = htmlWebpackPlugin.options
   .row
     .col-offset-8.col-4
-      .next-project-link
+      a.next-project-link(href=link)
         img(src=require("../../assets/images/_img/next_page.jpg"))
         .next-project-link_content
           p.text-paragraph.text-color--white.text-aligned--center
             | Page suivante
-          p.text-h4.text-color--white.text-aligned--center
-            | Témoignages
+          p.text-h4.text-color--white.text-aligned--center=title
   .row
     .col-5
       .separator

@@ -6,31 +6,53 @@ const slugify = require('slugify')
 
 const POSTS = require(`./tmp/posts.json`)
 const TESTIMONIALS = require(`./tmp/testimonials.json`)
-const PAGES = ['index', 'about', 'inspiration', 'temoignages']
+const PAGES = ['index', 'about', 'temoignages', 'inspiration']
 
+const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1)
 const urlify = content => slugify(content, {lower: true, strict: true})
 const urlifyPost = content => `${urlify(content.title)}.html`
 const urlifyTestimonial = content => `${urlify(content.testimonial_name)}.html`
 
-const pageFactory = name => new HtmlWebpackPlugin({
-  template: `./src/${name}.pug`,
-  filename: `${name}.html`,
-  name,
-  posts: POSTS.map(e => ({page_link: urlifyPost(e), ...e})),
-  testimonials: TESTIMONIALS.map(e => ({page_link: urlifyTestimonial(e), ...e})),
-})
+const pageFactory = (name, index) => {
+  let next_name = PAGES[index + 1] || PAGES[0]
+  return new HtmlWebpackPlugin({
+    template: `./src/${name}.pug`,
+    filename: `${name}.html`,
+    name,
+    posts: POSTS.map(e => ({page_link: urlifyPost(e), ...e})),
+    testimonials: TESTIMONIALS.map(e => ({page_link: urlifyTestimonial(e), ...e})),
+    footer: {
+      title: capitalize(next_name),
+      link: `${next_name}.html`
+    }
+  })
+}
 
-const postFactory = content => new HtmlWebpackPlugin({
-  template: `./src/post.pug`,
-  filename: urlifyPost(content),
-  ...content
-})
+const postFactory = (content, index) => {
+  let next_content = POSTS[index + 1] || POSTS[0]
+  return new HtmlWebpackPlugin({
+    template: `./src/post.pug`,
+    filename: urlifyPost(content),
+    footer: {
+      title: next_content.title,
+      link: urlifyPost(next_content)
+    },
+    ...content
+  })
+}
 
-const testimonialFactory = (content) => new HtmlWebpackPlugin({
-  template: `./src/testimonial.pug`,
-  filename: urlifyTestimonial(content),
-  ...content
-})
+const testimonialFactory = (content, index) => {
+  let next_content = TESTIMONIALS[index + 1] || TESTIMONIALS[0]
+  return new HtmlWebpackPlugin({
+    template: `./src/testimonial.pug`,
+    filename: urlifyTestimonial(content),
+    footer: {
+      title: next_content.testimonial_name,
+      link: urlifyTestimonial(next_content)
+    },
+    ...content
+  })
+}
 
 module.exports = {
   entry: './src/index.js',
