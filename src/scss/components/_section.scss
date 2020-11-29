@@ -57,4 +57,16 @@ section {
       }
     }
   }
+
+  &--cards {
+    .section {
+      &_content {
+        pointer-events: none;
+
+        span, p {
+          pointer-events: auto;
+        }
+      }
+    }
+  }
 }

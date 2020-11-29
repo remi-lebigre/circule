@@ -17,6 +17,10 @@ h1, .text-h1 {
   text-transform: uppercase;
   margin-top: 0;
   margin-bottom: 0;
+
+  span {
+    line-height: 1em;
+  }
 }
 
 h2, .text-callout {
