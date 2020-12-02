@@ -1,13 +1,32 @@
+import {
+  linear,
+  easeInQuad,
+  easeOutQuad,
+  easeInOutQuad,
+  easeInCubic,
+  easeOutCubic,
+  easeInOutCubic,
+  easeInQuart,
+  easeOutQuart,
+  easeInOutQuart,
+  easeInQuint,
+  easeOutQuint,
+  easeInOutQuint,
+} from "./easing"
+
 class CircleCanvas {
   height = window.innerHeight
   width = window.innerWidth
-  default_radius = 0
+  initial_radius = 0
   radius = 0
   frame = 0
-  ended = false
-  started = false
-  STEPS = 120
   target = null
+
+  STEPS = 50
+  SCALE = 100
+  COLOR_YELLOW = "#e9ff1d"
+  STATUSES = ['delayed-drawing-in', 'drawing-in', 'drawn', 'drawing-out', 'delayed-drawing-out', 'finished']
+  state = 'finished'
 
   constructor () {
     this.initListeners()
@@ -17,8 +36,7 @@ class CircleCanvas {
 
   initCircle = _ => {
     const circle = document.querySelector('.circle')
-    const circle_width = circle.getBoundingClientRect().width
-    this.default_radius = circle_width - circle_width / 2
+    this.initial_radius = circle.getBoundingClientRect().width / 2.2
   }
 
   initListeners = _ => document.querySelectorAll('.circle').forEach(c => {
@@ -27,6 +45,7 @@ class CircleCanvas {
   })
 
   initCanvas = _ => {
+    // Multiplicator is set so that full circle occupies full screen size when at max radius
     this.max = (this.height > this.width ? this.height : this.width) * 1.5
     this.canvases = document.querySelectorAll(".circle-canvas")
     this.ctxs = [...this.canvases].map(c => {
@@ -36,20 +55,59 @@ class CircleCanvas {
     })
   }
 
-  //TODO: handle states from hover in/out to figure out which frame to start
+  isDrawingIn = _ => this.state === 'drawing-in'
+  isDrawn = _ => this.state === 'drawn'
+  isDrawingOut = _ => this.state === 'drawing-out'
+  isFinished = _ => this.state === 'finished'
+
+  isDelayedDrawingIn = _ => this.state === 'delayed-drawing-in'
+  isDelayedDrawingOut = _ => this.state === 'delayed-drawing-out'
+
+  drawIn = _ => {
+    console.debug('STATE - drawing-in')
+    this.frame = 0
+    this.state = 'drawing-in'
+    this.animate()
+  }
+  endDraw = _ => {
+    console.debug('STATE - drawn')
+    this.state = 'drawn'
+  }
+  drawOut = _ => {
+    console.debug('STATE - drawing-out')
+    this.frame = 0
+    this.state = 'drawing-out'
+    this.animate()
+  }
+  delayDrawIn = _ => {
+    console.debug('STATE - delayed-drawing-in')
+    this.state = 'delayed-drawing-in'
+  }
+  delayDrawOut = _ => {
+    console.debug('STATE - delayed-drawing-out')
+    this.state = 'delayed-drawing-out'
+  }
+  finish = _ => {
+    console.debug('STATE - finished')
+    this.frame = 0
+    this.state = 'finished'
+    this.clear()
+  }
 
   hoverIn = ({target}) => {
     this.target = target
-    this.start()
-    this.animate()
+    if (this.isFinished()) {
+      this.drawIn()
+    } else if (this.isDrawingOut()){
+      this.delayDrawIn()
+    }
   }
 
   hoverOut = _ => {
-    this.reset()
-    if (this.ended && this.frame === 0) {
-      this.animate()
-    } else {
-      this.frame = this.STEPS - this.frame
+    if (this.isDrawn()) {
+      this.drawOut()
+    } else if (this.isDrawingIn()) {
+      this.delayDrawOut()
     }
   }
 
@@ -59,12 +117,6 @@ class CircleCanvas {
   }
   ctxsInView = _ => this.ctxs.filter(c => c.canvas.classList.contains('is-inview') || this.isCtxMain(c))
   isCtxMain = c => c.canvas.classList.contains('circle-canvas--main')
-  start = _ => {
-    this.started = true
-  }
-  reset = _ => {
-    this.started = false
-  }
   clear = _ => this.ctxsInView().forEach(c => c.clearRect(0, 0, this.width, this.height))
 
   rand = input => Math.round((Math.random() * input) * 100) / 100
@@ -79,9 +131,10 @@ class CircleCanvas {
         offset_y -= c.canvas.getBoundingClientRect().top
       }
 
+      c.fillStyle = this.COLOR_YELLOW
+
       const path = new Path2D(this.path({x: x, y: offset_y}))
-      c.fillStyle = "#e9ff1d"
-      c.fill(this.scaleUp({path, x: x, y: offset_y, scale: this.radius / (this.default_radius * 2)}))
+      c.fill(this.scaleUp({path, x: x, y: offset_y, scale: this.radius / this.SCALE}))
     })
   }
 
@@ -105,6 +158,11 @@ class CircleCanvas {
     return sequence.map(s => `${s[0]} ${s[1].map(this.coords(x, y)).join(' ')}`).join(' ')
   }
 
+  coords = (x, y) => i => [
+    i[0] + x + this.rand(1),
+    i[1] + y + this.rand(1),
+  ]
+
   scaleUp = ({path, x, y, scale}) => {
     let p1 = new Path2D()
     let m = document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGMatrix()
@@ -116,37 +174,35 @@ class CircleCanvas {
     return p1
   }
 
-  coords = (x, y) => i => [
-    i[0] + x + this.rand(1),
-    i[1] + y + this.rand(1),
-  ]
-
   animate = _ => {
     this.frame += 1
-    this.calcRadius()
+
+    // console.debug(this.state, this.frame, this.radius)
+
+    if (this.isDrawingIn() || this.isDelayedDrawingOut()) {
+      this.radiusUp()
+    } else if (this.isDrawingOut() || this.isDelayedDrawingIn()) {
+      this.radiusDown()
+    }
+
     if (this.frame <= this.STEPS) {
       this.drawCircle()
       window.requestAnimationFrame(this.animate)
     } else {
-      this.ended = true
-      this.frame = 0
+      if (this.isDrawingIn()) {
+        this.endDraw()
+      } else if (this.isDrawingOut()) {
+        this.finish()
+      } else if (this.isDelayedDrawingIn()) {
+        this.drawIn()
+      } else if (this.isDelayedDrawingOut()) {
+        this.drawOut()
+      }
     }
   }
 
-  calcRadius = _ => {
-    if (this.started) {
-      this.radius = this.default_radius + this.max * this.easeInQuart(this.frame / this.STEPS)
-    } else {
-      this.radius = this.max - (this.max * this.easeOutCubic(this.frame / this.STEPS))
-    }
-  }
-
-  easeInCubic = t => Math.pow(t, 3)
-  easeOutCubic = t => 1 - this.easeInCubic(1 - t)
-  easeInQuad = t => Math.pow(t, 2)
-  easeOutQuad = t => 1 - this.easeInQuad(1 - t)
-  easeInQuart = t => Math.pow(t, 4)
-  easeOutQuart = t => 1 - this.easeInQuart(1 - t)
+  radiusUp = _ => this.radius = this.initial_radius + this.max * easeInQuart(this.frame / this.STEPS)
+  radiusDown = _ => this.radius = this.initial_radius + this.max - (this.max * easeOutQuart(this.frame / this.STEPS))
 }
 
 export default CircleCanvas
