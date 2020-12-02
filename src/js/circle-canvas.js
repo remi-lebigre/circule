@@ -1,15 +1,24 @@
 class CircleCanvas {
   height = window.innerHeight
   width = window.innerWidth
-  drawn_radius = 0
+  default_radius = 0
+  radius = 0
   frame = 0
   ended = false
   started = false
-  STEPS = 15
+  STEPS = 120
+  target = null
 
   constructor () {
     this.initListeners()
     this.initCanvas()
+    this.initCircle()
+  }
+
+  initCircle = _ => {
+    const circle = document.querySelector('.circle')
+    const circle_width = circle.getBoundingClientRect().width
+    this.default_radius = circle_width - circle_width / 2
   }
 
   initListeners = _ => document.querySelectorAll('.circle').forEach(c => {
@@ -27,48 +36,52 @@ class CircleCanvas {
     })
   }
 
-  hoverIn = ({target}) => {
-    this.start()
-    this.animateFromCoords(target)
-  }
+  //TODO: handle states from hover in/out to figure out which frame to start
 
-  animateFromCoords = target => {
-    const coords = target.getBoundingClientRect()
-    this.x = coords.x + coords.width / 2
-    this.y = coords.y + coords.height / 2
+  hoverIn = ({target}) => {
+    this.target = target
+    this.start()
     this.animate()
   }
 
-  hoverOut = ({target}) => {
+  hoverOut = _ => {
     this.reset()
-    if (this.ended) {
-      if (this.drawn_radius > this.max) {
-        this.drawn_radius = this.max
-      }
-      this.animateFromCoords(target)
+    if (this.ended && this.frame === 0) {
+      this.animate()
+    } else {
+      this.frame = this.STEPS - this.frame
     }
   }
 
-  ctxsInView = _ => this.ctxs.filter(c => c.canvas.classList.contains('is-inview') || c.canvas.classList.contains('circle-canvas--main'))
+  targetCoords = _ => {
+    const coords = this.target.getBoundingClientRect()
+    return {x: coords.x + coords.width / 2, y: coords.y + coords.height / 2}
+  }
+  ctxsInView = _ => this.ctxs.filter(c => c.canvas.classList.contains('is-inview') || this.isCtxMain(c))
+  isCtxMain = c => c.canvas.classList.contains('circle-canvas--main')
   start = _ => {
     this.started = true
-    this.frame = 0
   }
   reset = _ => {
-    this.frame = 0
     this.started = false
   }
   clear = _ => this.ctxsInView().forEach(c => c.clearRect(0, 0, this.width, this.height))
 
   rand = input => Math.round((Math.random() * input) * 100) / 100
 
-  drawCircle = _ => {
+  drawCircle = () => {
     this.clear()
     this.ctxsInView().forEach(c => {
-      const offset_y = this.y - c.canvas.getBoundingClientRect().top
-      const path = new Path2D(this.path({x: this.x, y: offset_y}))
+      const {x, y} = this.targetCoords()
+
+      let offset_y = y
+      if (!this.isCtxMain(c)) {
+        offset_y -= c.canvas.getBoundingClientRect().top
+      }
+
+      const path = new Path2D(this.path({x: x, y: offset_y}))
       c.fillStyle = "#e9ff1d"
-      c.fill(this.scaleUp({path, x: this.x, y: offset_y, scale: this.drawn_radius / 100}))
+      c.fill(this.scaleUp({path, x: x, y: offset_y, scale: this.radius / (this.default_radius * 2)}))
     })
   }
 
@@ -104,18 +117,14 @@ class CircleCanvas {
   }
 
   coords = (x, y) => i => [
-    i[0] + x + this.rand(10),
-    i[1] + y + this.rand(10),
+    i[0] + x + this.rand(1),
+    i[1] + y + this.rand(1),
   ]
 
   animate = _ => {
     this.frame += 1
     this.calcRadius()
-
-    if (this.drawn_radius < 0) {
-      this.drawn_radius = 0
-      this.drawCircle()
-    } else if (this.drawn_radius <= this.max && this.drawn_radius > 0) {
+    if (this.frame <= this.STEPS) {
       this.drawCircle()
       window.requestAnimationFrame(this.animate)
     } else {
@@ -126,13 +135,18 @@ class CircleCanvas {
 
   calcRadius = _ => {
     if (this.started) {
-      this.drawn_radius += (this.easeInCubic(this.frame / this.STEPS))
+      this.radius = this.default_radius + this.max * this.easeInQuart(this.frame / this.STEPS)
     } else {
-      this.drawn_radius -= (this.easeOutCubic(this.frame / this.STEPS))
+      this.radius = this.max - (this.max * this.easeOutCubic(this.frame / this.STEPS))
     }
   }
+
   easeInCubic = t => Math.pow(t, 3)
   easeOutCubic = t => 1 - this.easeInCubic(1 - t)
+  easeInQuad = t => Math.pow(t, 2)
+  easeOutQuad = t => 1 - this.easeInQuad(1 - t)
+  easeInQuart = t => Math.pow(t, 4)
+  easeOutQuart = t => 1 - this.easeInQuart(1 - t)
 }
 
 export default CircleCanvas
