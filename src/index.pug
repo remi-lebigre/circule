@@ -2,6 +2,7 @@ extends views/layouts/view
 include views/components/card
 include views/components/home-testimonial
 include views/components/img
+include views/components/circle
 
 block content
   - const { testimonials } = htmlWebpackPlugin.options
@@ -13,7 +14,7 @@ block content
         | circule
     +img(require("./assets/images/home/home-intro.jpg")).margin-left-4.width-4.section_img
     .row.section_content-attached-bottom
-      .col-offset-9.circle(data-scroll)
+      +circle.col-offset-9
       .col-offset-9.col-3
         .separator
         p.indent-negative-3 Bonjour et bienvenue chez Studio Circule. Avec des outils comme le coaching, le magnétisme et les soins énergétiques, nous vous accompagnons dans votre vie et vos projets.
@@ -41,7 +42,7 @@ block content
       .col-2
         p J’étais plutôt douée partout et surtout j’aimais tout faire en même temps.
           | C’est aussi ce que j’ai ressenti après 10 ans d’études d’art et de design lorsque je suis arrivée sur le marché du travail en France. Être salariée à temps-plein était très rassurant mais m’enfermait dans une seule définition de « Carole ».
-      .col-offset-1.circle
+      +circle.col-offset-1
 
   section.container(data-scroll-section)
     .row
@@ -55,7 +56,7 @@ block content
       .col-2
         p Cela m’a inspirée pour t’accompagner de différentes façons ; que ce soit par l’échange oral, par des séances de soins énergétiques ou encore des séances d’exercices.
     .row
-      .col-1.circle
+      +circle.col-1
       .col-offset-7.col-2
         p Ainsi, j’ai trouvé mon métier et ma façon d’être épanouie pour exprimer toute ma créativité.
 
@@ -63,7 +64,7 @@ block content
     +img(require("./assets/images/home/home-plantes.jpg")).mb-8
     .container
       .row
-        .col-1.circle
+        +circle.col-1
         .col-offset-5.col-2
           p.text-lead Je suis là pour faire un bout de route avec toi pour ajuster ce qui a besoin de l’être.
         .col-2
@@ -96,11 +97,11 @@ block content
           li
             p Attention, mes pratiques et accompagnements ne se substituent nullement à la médecine allopathique, mais agissent en complément. Je ne délivre pas de diagnostic ni n’interfère avec un traitement médical, ce n’est pas mon métier.
               | Consulte en priorité un médecin adapté à ta pathologie.
-      .col-offset-4.col-1.circle
+      +circle.col-offset-4.col-1
 
   section.container(data-scroll-section)
     .row
-      .col-offset-1.col-1.aligned-bottom.circle
+      +circle.col-offset-1.aligned-bottom
       .col-offset-4.col-5
         h2 Diplômes & qualifications
         ul.list
@@ -127,7 +128,7 @@ block content
         .row
           .col-offset-3.col-5
             .separator
-          .col-offset-2.col-1.circle
+          +circle.col-offset-2
         .row
           .col-offset-3.col-6
             .testimonials_name
@@ -161,7 +162,7 @@ block content
         .col-5
           .separator
       .row
-        .col-1.circle
+        +circle
         .col-offset-2.col-2
           p Clique sur les cartes défilantes et découvre le message qu’elles ont à te délivrer.
             | Des decks sont disponibles sur notre e-shop. Amour, Attraction, Protection et Relaxation, ces 4 jeux t’accompagnent comme un oracle pouvant t’apporter des guidances quotidiennes.

@@ -6,6 +6,8 @@ html,
 }
 
 body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   font-family: SuisseIntl, "sans-serif";
   background-color: var(--light-grey);
   color: var(--dark);
