@@ -33,6 +33,7 @@
 
     .testimonial_img {
       opacity: .15;
+      transform: scale(#{$card-hover-zoom-out});
 
       &:hover {
         opacity: 1;

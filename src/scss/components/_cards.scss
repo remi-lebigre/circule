@@ -2,9 +2,11 @@
   &--hover {
     .card {
       filter: grayscale(1);
+      transform: scale(#{$card-hover-zoom-out});
 
       &:hover {
         filter: grayscale(0);
+        transform: scale(#{$card-hover-zoom});
       }
     }
   }

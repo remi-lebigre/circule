@@ -1,5 +1,5 @@
 .card {
   margin-bottom: $grid-gutter;
-  transition: .3s filter;
+  transition: .3s ease-in-out filter, .5s ease-in-out transform;
   border-radius: 7px;
 }
