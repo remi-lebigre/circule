@@ -118,7 +118,7 @@ block content
 
   section.section--testimonials(data-scroll-section)
     .testimonials.container
-      .testimonials_header(data-scroll data-scroll-sticky data-scroll-target=".section--testimonials" data-scroll-offset="-30%")
+      .testimonials_header.z-1(data-scroll data-scroll-sticky data-scroll-target=".section--testimonials" data-scroll-offset="-30%")
         .row
           .col-offset-2.col-1
             span.quote-icon.text-callout.text-color--pink “
@@ -128,7 +128,6 @@ block content
         .row
           .col-offset-3.col-5
             .separator
-          +circle.col-offset-2
         .row
           .col-offset-3.col-6
             .testimonials_name
@@ -146,7 +145,8 @@ block content
           +home-testimonial(testimonials[4]).testimonial-4
         .col-offset-2.col-2
           +home-testimonial(testimonials[5]).testimonial-5
-        .col-offset-2.col-2
+        +circle.col-offset-1
+        .col-2
           +home-testimonial(testimonials[6]).testimonial-6
 
   section.section--cards(data-scroll-section)

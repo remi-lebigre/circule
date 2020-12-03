@@ -2,11 +2,16 @@
   position: relative;
   display: block;
   background: var(--light-grey);
-  z-index: -1;
+  overflow: hidden;
+
+  &:hover &_img {
+    transform: scale(#{$img-hover-zoom});
+  }
 
   &_img {
     filter: grayscale(1);
     opacity: .7;
+    transition: .3s ease-in-out;
   }
 
   &_quote {

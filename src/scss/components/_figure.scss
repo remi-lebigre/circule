@@ -18,6 +18,6 @@
   }
 
   &:hover .img {
-    transform: scale(1.1);
+    transform: scale(#{$img-hover-zoom});
   }
 }
