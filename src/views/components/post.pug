@@ -1,8 +1,9 @@
+include img
 mixin post(p)
   figure.figure(class=attributes.class)
-    a(href=p.page_link)
+    a.figure_link(href=p.page_link)
       if p.cover
-        img.figure_img.img-auto(src=p.cover.url)
+        +img(p.cover.url).figure_img.img-auto
     figcaption
       p.figure_date=p.date
       h2.text-h3=p.title

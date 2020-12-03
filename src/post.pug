@@ -1,4 +1,5 @@
 extends views/layouts/view
+include views/components/circle
 
 block content
   - const { title, date, rich_content, header, cover: {url} } = htmlWebpackPlugin.options
@@ -7,7 +8,7 @@ block content
       .col-12
         a.post_back-link(href="/inspiration.html") Retour
     .row
-      .col-1.circle.aligned-bottom
+      +circle.aligned-bottom
       .col-offset-3.col-6
         h1.post_header.text-callout=title
     .row
@@ -21,4 +22,6 @@ block content
         .separator.separator--big
         if url
           img.img-auto(src=url)
+          //TODO: fix canvas position
+          canvas.circle-canvas.circle-canvas--img(data-scroll)
         p=rich_content

@@ -17,8 +17,10 @@
 
 }
 
-.circle-canvas--left {
-  .circle-canvas {
-    left: 100%;
+.circle-canvas {
+  &--left {
+    .circle-canvas {
+      left: 100%;
+    }
   }
 }

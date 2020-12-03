@@ -1,8 +1,9 @@
+include img
 mixin testimonial(t)
   figure.figure(class=attributes.class)
-    a(href=t.page_link)
+    a.figure_link(href=t.page_link)
       if t.avatar
-        img.figure_img.img-auto(src=t.avatar.url)
+        +img(t.avatar.url).figure_img.img-auto
     figcaption
       p.figure_date=t.testimonial_name
       h2.text-h3=t.testimonial_quote

@@ -3,11 +3,21 @@
   margin-right: 0;
   margin-left: 0;
 
+  &_link {
+    display: block;
+    overflow: hidden;
+    margin-bottom: 1.5em;
+  }
+
   &_date {
     font-style: italic;
   }
 
-  &_img {
-    margin-bottom: 1.5em;
+  .img {
+    transition: transform ease-in-out 1s;
+  }
+
+  &:hover .img {
+    transform: scale(1.1);
   }
 }
