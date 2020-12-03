@@ -3,8 +3,10 @@ footer.container(data-scroll-section)
   .row
     .col-offset-8.col-4
       a.next-project-link(href=link)
-        img(src=require("../../assets/images/_img/next_page.jpg"))
-        canvas.circle-canvas
+        //TODO: error when including mixin
+        .img(data-scroll).img--light-grey
+          img.img_img(src=require("../../assets/images/_img/next_page.jpg"))
+          canvas.circle-canvas(data-scroll)
         .next-project-link_content
           p.text-paragraph.text-color--white.text-aligned--center
             | Page suivante
@@ -31,7 +33,8 @@ footer.container(data-scroll-section)
             a.text-paragraph(href="#") Instagram
           li.socials_list_item
             a.text-paragraph(href="#") LinkedIn
-    .col-1.circle
+    //TODO: error when including mixin
+    .circle(data-scroll)
   .row
     .col-12
       p.text-aligned--right ©2020

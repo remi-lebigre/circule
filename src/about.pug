@@ -1,15 +1,16 @@
 extends views/layouts/view
 include views/components/img
+include views/components/circle
 
 block content
   section.container.section--about(data-scroll-section)
     .row
       .col-6
         h1.section_header À propos
-      .col-1.aligned-bottom.circle
+      +circle.col-1.aligned-bottom
     .row.mt-3
       .col-6
-        +img(require("./assets/images/about/about-intro.jpg"))
+        +img(require("./assets/images/about/about-intro.jpg")).circle-canvas--left
       .col-6
         .row
           .col-6

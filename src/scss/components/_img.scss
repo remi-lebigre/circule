@@ -1,6 +1,7 @@
 .img {
   overflow: hidden;
   position: relative;
+  max-height: 100vh;
   z-index: -1;
 
   &_img {

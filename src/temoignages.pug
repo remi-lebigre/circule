@@ -1,5 +1,6 @@
 extends views/layouts/view
 include views/components/testimonial
+include views/components/circle
 
 block content
   - const { testimonials } = htmlWebpackPlugin.options
@@ -13,7 +14,7 @@ block content
       .col-offset-2.col-8
         .separator.separator--big
     .row
-      .col-offset-4.col-1.circle
+      +circle.col-offset-4.col-1
     each t,i in testimonials
       if i % 9 === 0
         .row

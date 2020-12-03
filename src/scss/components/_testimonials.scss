@@ -13,6 +13,10 @@
     display: none;
   }
 
+  &_default-content, &_quote {
+    height: 33vh;
+  }
+
   &--hover {
     .testimonials {
       &_default-content {

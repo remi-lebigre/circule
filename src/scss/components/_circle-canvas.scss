@@ -7,14 +7,18 @@
   pointer-events: none;
   z-index: -1;
   display: block;
+
+  &--img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
 }
 
-.circle-canvas--img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: -1;
-  display: block;
+.circle-canvas--left {
+  .circle-canvas {
+    left: 100%;
+  }
 }

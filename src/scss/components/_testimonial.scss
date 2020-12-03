@@ -1,6 +1,8 @@
 .testimonial {
   position: relative;
   display: block;
+  background: var(--light-grey);
+  z-index: -1;
 
   &_img {
     filter: grayscale(1);

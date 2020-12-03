@@ -5,6 +5,7 @@
   border-radius: 50%;
   background-color: var(--yellow);
   transform: scale(0);
+  pointer-events: auto;
 
   &.is-inview {
     animation: circle-pop 1.5s cubic-bezier(0, 0, 0.01, 1.01) forwards;
