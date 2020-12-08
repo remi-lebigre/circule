@@ -1,0 +1,65 @@
+.darkmode {
+  &_cta {
+    border: none;
+    background: none;
+    width: 15px;
+    height: 15px;
+    position: relative;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+
+    &:after {
+      content: '';
+      width: 5px;
+      height: 5px;
+      background-color: var(--dark);
+      border-radius: 50%;
+      transition: .3s;
+    }
+
+    &:hover:after {
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
+
+[darkmode] {
+  --dark: #{$light-grey};
+  //--beige: #c4c0b9;
+  --light-grey: #{$dark};
+  //--yellow: #e9ff1d;
+  //--pink: #eed2cd;
+
+  &[circle] {
+    a,
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .text-paragraph,
+    .text-h1,
+    .text-callout,
+    .text-h3,
+    .text-h4,
+    .text-lead,
+    .text-paragraph,
+    .text-link,
+    .text-color,
+    .separator,
+    .header_separator,
+    .darkmode_cta,
+    .list li,
+    {
+      color: #{$dark};
+      border-color: #{$dark};
+      transition: .3s color .3s, .3s border-color .3s;
+    }
+  }
+}

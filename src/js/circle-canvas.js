@@ -21,6 +21,7 @@ class CircleCanvas {
   radius = 0
   frame = 0
   target = null
+  body = document.querySelector('body')
 
   STEPS = 50
   SCALE = 100
@@ -65,6 +66,7 @@ class CircleCanvas {
 
   drawIn = _ => {
     console.debug('STATE - drawing-in')
+    this.body.setAttribute('circle', true)
     this.frame = 0
     this.state = 'drawing-in'
     this.animate()
@@ -75,6 +77,7 @@ class CircleCanvas {
   }
   drawOut = _ => {
     console.debug('STATE - drawing-out')
+    this.body.removeAttribute('circle')
     this.frame = 0
     this.state = 'drawing-out'
     this.animate()

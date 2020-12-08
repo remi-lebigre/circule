@@ -3,11 +3,12 @@
   display: block;
   background: var(--light-grey);
 
-  &:hover &_img {
+  &:hover .testimonial_img {
     transform: scale(#{$card-hover-zoom});
   }
 
   &_img {
+    display: block;
     filter: grayscale(1);
     opacity: .7;
     transition: .3s ease-in-out filter, .3s ease-in-out opacity, .5s ease-in-out transform;
@@ -51,5 +52,11 @@
 
   &-6 {
     margin-top: 6em;
+  }
+}
+
+[darkmode] {
+  .testimonial {
+    background-color: var(--darkmode-img-blend-mode);
   }
 }

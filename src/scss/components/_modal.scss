@@ -43,3 +43,9 @@
     display: flex;
   }
 }
+
+[darkmode] {
+  .modal_bg {
+    background-color: $dark;
+  }
+}

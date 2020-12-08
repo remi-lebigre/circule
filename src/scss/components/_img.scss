@@ -6,6 +6,7 @@
 
   &_img {
     opacity: 0;
+    display: block;
   }
 
   &--light-grey {
@@ -16,6 +17,12 @@
     .img_img {
       animation: img-reveal 1.5s forwards;
     }
+  }
+}
+
+[darkmode] {
+  .img {
+    background-color: var(--darkmode-img-blend-mode);
   }
 }
 

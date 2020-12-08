@@ -20,3 +20,7 @@
     transform: scale(#{$img-hover-zoom});
   }
 }
+
+[darkmode][circle] .next-project-link_content p {
+  color: white;
+}

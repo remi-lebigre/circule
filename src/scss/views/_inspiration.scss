@@ -2,6 +2,10 @@
   background-color: var(--pink);
 
   .text-color--pink {
-    color: white;
+    color: white !important;
   }
+}
+
+[darkmode] {
+  background-color: var(--light-grey);
 }

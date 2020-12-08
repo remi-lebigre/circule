@@ -8,6 +8,7 @@ import DebugGrid from "./js/debug-grid"
 import HeaderDate from "./js/header_date";
 import Router from "./js/router";
 import CircleCanvas from "./js/circle-canvas";
+import Darkmode from "./js/darkmode";
 
 {
   const isMobile = _ => window.matchMedia('only screen and (max-width: 760px)').matches
@@ -27,4 +28,5 @@ import CircleCanvas from "./js/circle-canvas";
   }
   new CircleCanvas()
   new DebugGrid()
+  new Darkmode()
 }

@@ -1,7 +1,8 @@
 .circle {
-  width: calc((100% + #{$grid-gutter}) / 12 - #{$grid-gutter});
+  $w: calc(100% / 12 - #{$grid-gutter});
+  width: $w;
   height: auto;
-  padding-top: calc((100% + #{$grid-gutter}) / 12 - #{$grid-gutter});
+  padding-top: $w;
   border-radius: 50%;
   background-color: var(--yellow);
   transform: scale(0);

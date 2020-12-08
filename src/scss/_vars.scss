@@ -6,13 +6,19 @@
 //}
 //
 //$acceleration: cubic-bezier(.9, 0, .1, 1);
+$dark: #141414;
+$beige: #c4c0b9;
+$light-grey: #f8f8f8;
+$yellow: #e9ff1d;
+$pink: #eed2cd;
 
 :root {
-  --dark: #141414;
-  --beige: #c4c0b9;
-  --light-grey: #f8f8f8;
-  --yellow: #e9ff1d;
-  --pink: #eed2cd;
+  --dark: #{$dark};
+  --beige: #{$beige};
+  --light-grey: #{$light-grey};
+  --yellow: #{$yellow};
+  --pink: #{$pink};
+  --darkmode-img-blend-mode: #afafaf;
 }
 
 $container-margin-y: 3em;

@@ -33,6 +33,10 @@ header {
   &_nav {
     display: flex;
 
+    // shifted because of darkmode CTA
+    position: relative;
+    left: 5px;
+
     &_item:not(:last-child) {
       margin-right: 1em;
     }
