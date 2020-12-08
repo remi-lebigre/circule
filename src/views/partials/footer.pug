@@ -1,11 +1,11 @@
 footer.container(data-scroll-section)
-  - const { footer: {title, link} } = htmlWebpackPlugin.options
+  - const { footer: {title, link, name, img} } = htmlWebpackPlugin.options
   .row
     .col-offset-8.col-4
       a.next-project-link(href=link)
         //TODO: error when including mixin
         .img(data-scroll).img--light-grey
-          img.img_img(src=require("../../assets/images/_img/next_page.jpg"))
+          img.img_img(src=img || require(`../../assets/images/next-page/${name}.jpg`))
           canvas.circle-canvas.circle-canvas--img(data-scroll)
         .next-project-link_content
           p.text-paragraph.text-color--white.text-aligned--center

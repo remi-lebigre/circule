@@ -15,6 +15,8 @@ const urlifyTestimonial = content => `${urlify(content.testimonial_name)}.html`
 
 const pageFactory = (name, index) => {
   let next_name = PAGES[index + 1] || PAGES[0]
+  console.log('page', name)
+  console.log('next page', next_name)
   return new HtmlWebpackPlugin({
     template: `./src/${name}.pug`,
     filename: `${name}.html`,
@@ -23,7 +25,8 @@ const pageFactory = (name, index) => {
     testimonials: TESTIMONIALS.map(e => ({page_link: urlifyTestimonial(e), ...e})),
     footer: {
       title: capitalize(next_name === 'index' ? 'accueil' : next_name),
-      link: `${next_name}.html`
+      link: `${next_name}.html`,
+      name: next_name
     }
   })
 }
@@ -35,7 +38,8 @@ const postFactory = (content, index) => {
     filename: urlifyPost(content),
     footer: {
       title: next_content.title,
-      link: urlifyPost(next_content)
+      link: urlifyPost(next_content),
+      img: next_content.cover.url
     },
     ...content
   })
@@ -48,7 +52,8 @@ const testimonialFactory = (content, index) => {
     filename: urlifyTestimonial(content),
     footer: {
       title: next_content.testimonial_name,
-      link: urlifyTestimonial(next_content)
+      link: urlifyTestimonial(next_content),
+      img: next_content.avatar.url
     },
     ...content
   })
