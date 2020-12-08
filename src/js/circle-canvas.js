@@ -23,6 +23,7 @@ class CircleCanvas {
   target = null
   body = document.querySelector('body')
 
+  // the more steps the slower the animation is
   STEPS = 50
   SCALE = 100
   COLOR_YELLOW = "#e9ff1d"
@@ -50,8 +51,8 @@ class CircleCanvas {
     this.max = (this.height > this.width ? this.height : this.width) * 1.5
     this.canvases = document.querySelectorAll(".circle-canvas")
     this.ctxs = [...this.canvases].map(c => {
-      c.setAttribute('height', `${this.height}px`)
-      c.setAttribute('width', `${this.width}px`)
+      c.setAttribute('height', `${c.clientHeight}px`)
+      c.setAttribute('width', `${c.clientWidth}px`)
       return c.getContext("2d")
     })
   }
@@ -101,7 +102,7 @@ class CircleCanvas {
     this.target = target
     if (this.isFinished()) {
       this.drawIn()
-    } else if (this.isDrawingOut()){
+    } else if (this.isDrawingOut()) {
       this.delayDrawIn()
     }
   }
@@ -118,8 +119,8 @@ class CircleCanvas {
     const coords = this.target.getBoundingClientRect()
     return {x: coords.x + coords.width / 2, y: coords.y + coords.height / 2}
   }
-  ctxsInView = _ => this.ctxs.filter(c => c.canvas.classList.contains('is-inview') || this.isCtxMain(c))
-  isCtxMain = c => c.canvas.classList.contains('circle-canvas--main')
+  ctxsInView = _ => this.ctxs.filter(c => c.canvas.classList.contains('is-inview') || this.isCanvasMain(c.canvas))
+  isCanvasMain = canvas => canvas.classList.contains('circle-canvas--main')
   clear = _ => this.ctxsInView().forEach(c => c.clearRect(0, 0, this.width, this.height))
 
   rand = input => Math.round((Math.random() * input) * 100) / 100
@@ -127,17 +128,17 @@ class CircleCanvas {
   drawCircle = () => {
     this.clear()
     this.ctxsInView().forEach(c => {
-      const {x, y} = this.targetCoords()
+      let {x, y} = this.targetCoords()
 
-      let offset_y = y
-      if (!this.isCtxMain(c)) {
-        offset_y -= c.canvas.getBoundingClientRect().top
+      if (!this.isCanvasMain(c.canvas)) {
+        y -= c.canvas.getBoundingClientRect().top
+        x -= c.canvas.getBoundingClientRect().x
       }
 
       c.fillStyle = this.COLOR_YELLOW
 
-      const path = new Path2D(this.path({x: x, y: offset_y}))
-      c.fill(this.scaleUp({path, x: x, y: offset_y, scale: this.radius / this.SCALE}))
+      const path = new Path2D(this.path({x, y}))
+      c.fill(this.scaleUp({path, x, y, scale: this.radius / this.SCALE}))
     })
   }
 
