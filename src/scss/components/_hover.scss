@@ -1,0 +1,21 @@
+.hover {
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -1px;
+    left: 0;
+    background-color: var(--dark);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s;
+  }
+
+  &:hover:after {
+    transform-origin: bottom left;
+    transform: scaleX(1);
+  }
+}
