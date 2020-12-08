@@ -9,6 +9,7 @@ import HeaderDate from "./js/header_date";
 import Router from "./js/router";
 import CircleCanvas from "./js/circle-canvas";
 import Darkmode from "./js/darkmode";
+import Spy from "./js/spy";
 
 {
   const isMobile = _ => window.matchMedia('only screen and (max-width: 760px)').matches
@@ -29,4 +30,5 @@ import Darkmode from "./js/darkmode";
   new CircleCanvas()
   new DebugGrid()
   new Darkmode()
+  new Spy()
 }
