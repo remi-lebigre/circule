@@ -1,13 +1,17 @@
 class Spy {
 
+  ICON_OFFSET_X = 2
+  ICON_OFFSET_Y = 18
   constructor () {
     this.spy = document.querySelector('.spy')
-    document.addEventListener('mousemove', this.throttle(this.onMouseMove, 30))
+
+    // Use throttle if need be
+    // document.addEventListener('mousemove', this.throttle(this.onMouseMove, 20))
+    document.addEventListener('mousemove', this.onMouseMove)
   }
 
   onMouseMove = ({clientX, clientY}) => {
-    this.spy.style.top = `${clientY}px`
-    this.spy.style.left = `${clientX}px`
+    this.spy.style.transform = `translate3d(${clientX - this.ICON_OFFSET_X}px,${clientY - this.ICON_OFFSET_Y}px,0)`
   }
 
   throttle = (func, wait, options) => {

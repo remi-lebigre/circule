@@ -4,6 +4,9 @@
   position: absolute;
   width: 64px;
   height: 64px;
-  transform: translate3d(-2px, -18px, 0);
+  top: 0;
+  left: 0;
   background: url('/src/assets/images/_items/cursor.png') center /contain no-repeat;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
 }
