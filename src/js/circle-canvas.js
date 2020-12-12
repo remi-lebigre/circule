@@ -13,6 +13,7 @@ import {
   easeOutQuint,
   easeInOutQuint,
 } from "./easing"
+import BezierEasing from 'bezier-easing'
 
 class CircleCanvas {
   height = window.innerHeight
@@ -21,10 +22,11 @@ class CircleCanvas {
   radius = 0
   frame = 0
   target = null
+  easing = null
   body = document.querySelector('body')
 
   // the more steps the slower the animation is
-  STEPS = 50
+  STEPS = 40
   SCALE = 100
   COLOR_YELLOW = "#e9ff1d"
   STATUSES = ['delayed-drawing-in', 'drawing-in', 'drawn', 'drawing-out', 'delayed-drawing-out', 'finished']
@@ -36,6 +38,8 @@ class CircleCanvas {
     this.initListeners()
     this.initCanvas()
     this.initCircle()
+    // this.easing = BezierEasing(.5, 0, 0, 1)
+    this.easing = BezierEasing(.36, .33, 1, -0.37)
   }
 
   initCircle = _ => {
@@ -50,7 +54,7 @@ class CircleCanvas {
 
   initCanvas = _ => {
     // Multiplicator is set so that full circle occupies full screen size when at max radius
-    this.max = (this.height > this.width ? this.height : this.width) * 1.5
+    this.max = (this.height > this.width ? this.height : this.width) * 1.2
     this.canvases = document.querySelectorAll(".circle-canvas")
     this.ctxs = [...this.canvases].map(c => {
       c.setAttribute('height', `${c.clientHeight}px`)
@@ -125,7 +129,7 @@ class CircleCanvas {
   isCanvasMain = canvas => canvas.classList.contains('circle-canvas--main')
   clear = _ => this.ctxsInView().forEach(c => c.clearRect(0, 0, this.width, this.height))
 
-  rand = input => Math.round((Math.random() * input) * 100) / 100
+  rand = (input = 1) => Math.round((Math.random() * input) * 100) / 100
 
   drawCircle = () => {
     this.clear()
@@ -144,8 +148,8 @@ class CircleCanvas {
     })
   }
 
-  path = ({x, y}) => {
-    const sequence = [
+  sequences = [
+    [
       ['M', [[45.7, -79.8]]],
       ['C', [[59.1, -71.4], [69.8, -59,], [77.9, -45]]],
       ['C', [[86, -31], [91.5, -15.5,], [92.1, 0.4]]],
@@ -160,14 +164,36 @@ class CircleCanvas {
       ['C', [[-31.8, -87.4], [-15.9, -92,], [0.1, -92.2]]],
       ['C', [[16.1, -92.4], [32.3, -88.1,], [45.7, -79.8]]],
       ['Z', [[]]],
+    ],
+    [
+      ['M', [[45.6, -76.9]]],
+      ['C', [[58.2, -71.6], [67, -57.7], [74.5, -43.4]]],
+      ['C', [[82, -29.2], [88.3, -14.6], [88.8, 0.3]]],
+      ['C', [[89.4, 15.2], [84.2, 30.4], [74.9, 41.5]]],
+      ['C', [[65.5, 52.6], [51.9, 59.5], [38.8, 65.6]]],
+      ['C', [[25.6, 71.6], [12.8, 76.8], [-1.5, 79.4]]],
+      ['C', [[-15.8, 82.1], [-31.7, 82.2], [-46.1, 76.9]]],
+      ['C', [[-60.5, 71.6], [-73.5, 60.8], [-80.5, 47]]],
+      ['C', [[-87.5, 33.3], [-88.4, 16.7], [-87.3, 0.7]]],
+      ['C', [[-86.1, -15.4], [-83, -30.7], [-74.7, -42.3]]],
+      ['C', [[-66.5, -53.8], [-53.3, -61.5], [-40, -66.5]]],
+      ['C', [[-26.7, -71.4], [-13.3, -73.6], [1.6, -76.3]]],
+      ['C', [[16.5, -79], [32.9, -82.3], [45.6, -76.9]]],
+      ['Z', [[]]]
     ]
-    return sequence.map(s => `${s[0]} ${s[1].map(this.coords(x, y)).join(' ')}`).join(' ')
+  ]
+
+  path = ({x, y}) => {
+    // let seq = this.sequences[Math.round(this.rand())]
+    let seq = this.sequences[0]
+    // seq.filter(s => s[0] === 'C').map(s => {
+    //   s[1][2][0] = s[1][2][0] + ((this.frame / this.STEPS) * 3)
+    //   s[1][2][1] = s[1][2][1] + ((this.frame / this.STEPS) * 3)
+    // })
+    return seq.map(s => `${s[0]} ${s[1].map(this.coords(x, y)).join(' ')}`).join(' ')
   }
 
-  coords = (x, y) => i => [
-    i[0] + x + this.rand(1),
-    i[1] + y + this.rand(1),
-  ]
+  coords = (x, y) => i => [i[0] + x, i[1] + y]
 
   scaleUp = ({path, x, y, scale}) => {
     let p1 = new Path2D()
@@ -207,8 +233,8 @@ class CircleCanvas {
     }
   }
 
-  radiusUp = _ => this.radius = this.initial_radius + this.max * easeInQuart(this.frame / this.STEPS)
-  radiusDown = _ => this.radius = this.initial_radius + this.max - (this.max * easeOutQuart(this.frame / this.STEPS))
+  radiusUp = _ => this.radius = this.initial_radius + this.max * this.easing(this.frame / this.STEPS)
+  radiusDown = _ => this.radius = this.initial_radius + this.max - (this.max * easeOutQuint(this.frame / this.STEPS))
 }
 
 export default CircleCanvas
