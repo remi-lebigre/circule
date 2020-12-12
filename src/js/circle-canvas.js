@@ -21,8 +21,10 @@ class CircleCanvas {
   initial_radius = 0
   radius = 0
   frame = 0
-  target = null
   easing = null
+  circle_path = null
+  x = 0
+  y = 0
   body = document.querySelector('body')
 
   // the more steps the slower the animation is
@@ -37,14 +39,8 @@ class CircleCanvas {
 
     this.initListeners()
     this.initCanvas()
-    this.initCircle()
     // this.easing = BezierEasing(.5, 0, 0, 1)
     this.easing = BezierEasing(.36, .33, 1, -0.37)
-  }
-
-  initCircle = _ => {
-    const circle = document.querySelector('.circle')
-    this.initial_radius = circle.getBoundingClientRect().width / 2.2
   }
 
   initListeners = _ => document.querySelectorAll('.circle').forEach(c => {
@@ -76,6 +72,7 @@ class CircleCanvas {
     this.body.setAttribute('circle', true)
     this.frame = 0
     this.state = 'drawing-in'
+    this.selectCirclePath()
     this.animate()
   }
   endDraw = _ => {
@@ -104,8 +101,16 @@ class CircleCanvas {
     this.clear()
   }
 
+  initCircle = target => {
+    this.initial_radius = document.querySelector('.circle').getBoundingClientRect().width / 2.2
+    this.selectCirclePath()
+    let {x, y} = this.targetCoords(target)
+    this.x = x
+    this.y = y
+  }
+
   hoverIn = ({target}) => {
-    this.target = target
+    this.initCircle(target)
     if (this.isFinished()) {
       this.drawIn()
     } else if (this.isDrawingOut()) {
@@ -121,20 +126,21 @@ class CircleCanvas {
     }
   }
 
-  targetCoords = _ => {
-    const coords = this.target.getBoundingClientRect()
+  targetCoords = target => {
+    const coords = target.getBoundingClientRect()
     return {x: coords.x + coords.width / 2, y: coords.y + coords.height / 2}
   }
   ctxsInView = _ => this.ctxs.filter(c => c.canvas.classList.contains('is-inview') || this.isCanvasMain(c.canvas))
   isCanvasMain = canvas => canvas.classList.contains('circle-canvas--main')
   clear = _ => this.ctxsInView().forEach(c => c.clearRect(0, 0, this.width, this.height))
 
-  rand = (input = 1) => Math.round((Math.random() * input) * 100) / 100
+  rand = (input = 1) => Math.round(Math.round((Math.random() * input) * 100) / 100)
 
-  drawCircle = () => {
+  drawCircle = _ => {
     this.clear()
     this.ctxsInView().forEach(c => {
-      let {x, y} = this.targetCoords()
+      let y = this.y
+      let x = this.x
 
       if (!this.isCanvasMain(c.canvas)) {
         y -= c.canvas.getBoundingClientRect().top
@@ -142,13 +148,11 @@ class CircleCanvas {
       }
 
       c.fillStyle = this.COLOR_YELLOW
-
-      const path = new Path2D(this.path({x, y}))
-      c.fill(this.scaleUp({path, x, y, scale: this.radius / this.SCALE}))
+      c.fill(this.scaleUp({path: new Path2D(this.path({x, y})), x, y, scale: this.radius / this.SCALE}))
     })
   }
 
-  sequences = [
+  paths = [
     [
       ['M', [[45.7, -79.8]]],
       ['C', [[59.1, -71.4], [69.8, -59,], [77.9, -45]]],
@@ -180,18 +184,27 @@ class CircleCanvas {
       ['C', [[-26.7, -71.4], [-13.3, -73.6], [1.6, -76.3]]],
       ['C', [[16.5, -79], [32.9, -82.3], [45.6, -76.9]]],
       ['Z', [[]]]
-    ]
+    ],
+    [
+      ["M", [[41.2, -69.2]]],
+      ["C", [[54, -64], [65.5, -54.2], [74.5, -41.9]]],
+      ["C", [[83.5, -29.6], [90.1, -14.8], [89.6, -0.3,]]],
+      ["C", [[89.1, 14.3,], [81.6, 28.6], [73.5, 42.3,]]],
+      ["C", [[65.4, 56.1,], [56.6, 69.4,], [44.2, 76.6,]]],
+      ["C", [[31.9, 83.7,], [15.9, 84.7,], [1.6, 81.9,]]],
+      ["C", [[-12.7, 79.1,], [-25.4, 72.6], [-38.2, 65.7,]]],
+      ["C", [[-50.9, 58.8,], [-63.8, 51.5], [-70, 40.5,]]],
+      ["C", [[-76.2, 29.5,], [-75.8, 14.7], [-77.3, -0.8,]]],
+      ["C", [[-78.7, -16.4], [-82, -32.8], [-77.6, -47.1,]]],
+      ["C", [[-73.3, -61.3], [-61.3, -73.4], [-47.1, -77.9,]]],
+      ["C", [[-32.9, -82.4], [-16.5, -79.3], [-1.1, -77.3,]]],
+      ["C", [[14.2, -75.3,], [28.4, -74.5], [41.2, -69.2]]],
+      ["Z", [[]]],
+    ],
   ]
 
-  path = ({x, y}) => {
-    // let seq = this.sequences[Math.round(this.rand())]
-    let seq = this.sequences[0]
-    // seq.filter(s => s[0] === 'C').map(s => {
-    //   s[1][2][0] = s[1][2][0] + ((this.frame / this.STEPS) * 3)
-    //   s[1][2][1] = s[1][2][1] + ((this.frame / this.STEPS) * 3)
-    // })
-    return seq.map(s => `${s[0]} ${s[1].map(this.coords(x, y)).join(' ')}`).join(' ')
-  }
+  selectCirclePath = _ => this.circle_path = this.paths[(this.paths.length - 1) * this.rand()]
+  path = ({x, y}) => this.circle_path.map(s => `${s[0]} ${s[1].map(this.coords(x, y)).join(' ')}`).join(' ')
 
   coords = (x, y) => i => [i[0] + x, i[1] + y]
 
