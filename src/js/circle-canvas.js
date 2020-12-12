@@ -39,7 +39,6 @@ class CircleCanvas {
 
     this.initListeners()
     this.initCanvas()
-    // this.easing = BezierEasing(.5, 0, 0, 1)
     this.easing = BezierEasing(.36, .33, 1, -0.37)
   }
 
@@ -84,6 +83,7 @@ class CircleCanvas {
     this.body.removeAttribute('circle')
     this.frame = 0
     this.state = 'drawing-out'
+    this.setDefaultCirclePath()
     this.animate()
   }
   delayDrawIn = _ => {
@@ -203,6 +203,7 @@ class CircleCanvas {
     ],
   ]
 
+  setDefaultCirclePath = _ => this.circle_path = this.paths[0]
   selectCirclePath = _ => this.circle_path = this.paths[(this.paths.length - 1) * this.rand()]
   path = ({x, y}) => this.circle_path.map(s => `${s[0]} ${s[1].map(this.coords(x, y)).join(' ')}`).join(' ')
 
