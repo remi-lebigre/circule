@@ -65,6 +65,15 @@ class App {
         from: {
           namespace: 'inspiration'
         },
+      }, {
+        name: 'inspiration',
+        leave () {
+        },
+        enter () {
+        },
+        to: {
+          namespace: 'inspiration'
+        },
       }]
     })
     barba.hooks.beforeEnter(({next: {container}}) => {
@@ -72,7 +81,6 @@ class App {
       t.locomotive.destroy()
       t.startServices()
     })
-
   }
 
   disablePageReloadOnSamePageLink = _ => this.container.querySelectorAll('a[href]').forEach(el => {
