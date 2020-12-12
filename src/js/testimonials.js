@@ -1,5 +1,7 @@
 class Testimonials {
   constructor () {
+    console.debug('New testimonials')
+
     this.container = document.querySelector('.testimonials')
     this.header = document.querySelector('.testimonials_header')
     this.quote = document.querySelector('.testimonials_quote')

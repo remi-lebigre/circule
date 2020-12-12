@@ -1,0 +1,74 @@
+// TODO: Entry state
+// Init
+.barba-once {
+}
+
+.barba-once-active {
+}
+
+.barba-once-to {
+}
+
+$duration: 750ms;
+.inspiration, .barba {
+  &-leave-active {
+    transition-duration: $duration;
+
+    .barba-transition-panel {
+      transition: transform $duration cubic-bezier(.77, 0, .93, .31);
+    }
+  }
+
+  &-enter-active {
+    transition-duration: $duration;
+
+    .barba-transition-panel {
+      transition: transform $duration cubic-bezier(0, .7, .29, .99);
+    }
+  }
+
+
+  &-leave {
+    .barba-transition-panel {
+      transform: translate3d(0, 100%, 0);
+    }
+  }
+
+  &-leave-to {
+    .barba-transition-panel {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  &-enter {
+    .barba-transition-panel {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  &-enter-to {
+    .barba-transition-panel {
+      transform: translate3d(0, -100%, 0);
+    }
+  }
+}
+
+.inspiration {
+  &-leave-active, &-enter-active {
+    .barba-transition-panel {
+      background-color: var(--dark) !important;
+    }
+  }
+}
+
+.barba-transition-panel {
+  position: fixed;
+  z-index: $z-index-cursor - 1;
+  transform: translate3d(0, 100%, 0);
+  will-change: transform;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--pink);
+}

@@ -1,11 +1,13 @@
 .inspiration {
-  background-color: var(--pink);
+  .circle-canvas--main {
+    background-color: var(--pink);
+  }
 
   .text-color--pink {
     color: white !important;
   }
 }
 
-[darkmode] {
+[darkmode] .circle-canvas--main {
   background-color: var(--light-grey);
 }

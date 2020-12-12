@@ -31,6 +31,8 @@ class CircleCanvas {
   state = 'finished'
 
   constructor () {
+    console.debug('New circle-canvas')
+
     this.initListeners()
     this.initCanvas()
     this.initCircle()

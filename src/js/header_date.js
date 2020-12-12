@@ -1,6 +1,7 @@
 class HeaderDate {
   constructor () {
-    document.querySelector('.header_paris-time').innerText = this.parisHoursAndMinutes()
+    console.debug('New header-date')
+    document.querySelectorAll('.header_paris-time').forEach(node => node.innerText = this.parisHoursAndMinutes())
   }
 
   parisHoursAndMinutes = _ => {

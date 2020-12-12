@@ -1,5 +1,5 @@
 .spy {
-  z-index: 1000;
+  z-index: $z-index-cursor;
   pointer-events: none;
   position: absolute;
   width: 64px;
@@ -9,4 +9,8 @@
   background: url('/src/assets/images/_items/cursor.png') center /contain no-repeat;
   transform: translate3d(0, 0, 0);
   will-change: transform;
+
+  &--hidden {
+    display: none;
+  }
 }

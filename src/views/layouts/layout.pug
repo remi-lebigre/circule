@@ -25,12 +25,14 @@ html(lang=locale)
     meta(name="twitter:image" content='')
 
     link(rel="icon" href="")
-  body(class=name)
+  body(data-barba="wrapper")
     include ../partials/no_js
-    include ../partials/header
-
-    main(data-scroll-container)
-      block main
-    +modal
-    .spy
-    canvas.circle-canvas.circle-canvas--main
+    a.logo.hover.text-link(href="/") .CIRCULE
+    .wrap(class=name data-barba="container" data-barba-namespace=name)
+      include ../partials/header
+      main(data-scroll-container)
+        block main
+      +modal
+      .barba-transition-panel
+      canvas.circle-canvas.circle-canvas--main
+    .spy.spy--hidden

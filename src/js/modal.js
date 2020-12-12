@@ -1,6 +1,8 @@
 class Modal {
 
   constructor ({content}) {
+    console.debug('New modal')
+
     this.modal = document.querySelector('.modal')
     this.modal_content = document.querySelector('.modal_content')
     this.modal_bg = document.querySelector('.modal_bg')

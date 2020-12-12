@@ -1,6 +1,6 @@
 .no-js {
   position: fixed;
-  z-index: 9999;
+  z-index: $z-index-cursor - 1;
   left: 0;
   top: 0;
   width: 100%;
@@ -9,4 +9,14 @@
   opacity: 0;
   animation: fade-in forwards;
   animation-delay: .5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--pink);
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
 }

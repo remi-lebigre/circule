@@ -2,6 +2,7 @@ import Modal from "./modal"
 
 class Cards {
   constructor () {
+    console.debug('New cards')
     this.container = document.querySelector('.cards')
     this.cards = document.querySelectorAll('.card')
     this.cards.forEach(c => {

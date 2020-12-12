@@ -1,5 +1,7 @@
 class DebugGrid {
   constructor () {
+    console.debug('New debug-grid')
+
     document.querySelector('.debug-grid-cta').addEventListener('click', this.toggle)
     this.grid = document.querySelector('.debug-grid')
   }

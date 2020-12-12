@@ -7,6 +7,8 @@ class Darkmode {
   cookie = new Cookies()
 
   constructor () {
+    console.debug('New darkmode')
+
     this.cta.addEventListener('click', this.toggle)
     const darkmode_enabled = this.cookie.get(this.DARKMODE_COOKIE)
     !darkmode_enabled ? this.unset() : this.set()
