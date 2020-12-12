@@ -17,7 +17,7 @@
   &, &_content {
     display: inline-block;
     transition-duration: 1s;
-    transition-timing-function: cubic-bezier(.5, 0, 0, 1);
+    transition-timing-function: $timing;
   }
 }
 

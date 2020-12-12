@@ -3,7 +3,7 @@ include views/components/circle
 
 block content
   - const { title, date, rich_content, header, cover: {url} } = htmlWebpackPlugin.options
-  section.post.container.post(data-scroll-section)
+  section.post.container.post(data-scroll data-scroll-section)
     .row
       .col-12
         a.post_back-link(href="/inspiration.html") Retour

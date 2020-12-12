@@ -6,7 +6,7 @@ include views/components/circle
 
 block content
   - const { testimonials } = htmlWebpackPlugin.options
-  section.section--main.section--full-height.container(data-scroll-section)
+  section.section--main.section--full-height.container(data-scroll  data-scroll-section)
     h1.section_header(data-scroll data-scroll-speed="1" data-scroll-delay="0.05")
       span.title-animation
         span.title-animation_content studio
@@ -22,7 +22,7 @@ block content
         .separator
         p.indent-negative-3 Bonjour et bienvenue chez Studio Circule. Avec des outils comme le coaching, le magnétisme et les soins énergétiques, nous vous accompagnons dans votre vie et vos projets.
 
-  section.container(data-scroll-section)
+  section.container(data-scroll  data-scroll-section)
     .row
       .col-8
         h1.z-1(data-scroll)
@@ -48,7 +48,7 @@ block content
           | C’est aussi ce que j’ai ressenti après 10 ans d’études d’art et de design lorsque je suis arrivée sur le marché du travail en France. Être salariée à temps-plein était très rassurant mais m’enfermait dans une seule définition de « Carole ».
       +circle.col-offset-1
 
-  section.container(data-scroll-section)
+  section.container(data-scroll data-scroll-section)
     .row
       .col-3
         p.text-lead J’avais l’impression de ne pas être entière ni vraiment à ma place.
@@ -64,7 +64,7 @@ block content
       .col-offset-7.col-2
         p Ainsi, j’ai trouvé mon métier et ma façon d’être épanouie pour exprimer toute ma créativité.
 
-  section(data-scroll-section)
+  section(data-scroll data-scroll-section)
     +img(require("./assets/images/home/home-plantes.jpg")).mb-8
     .container
       .row
@@ -79,7 +79,7 @@ block content
         .col-2
           p Je te souhaite de t’y sentir bien, que tu puisses parcourir les différentes rubriques à ton rythme et viennes piocher ce que tu as envie et ce dont tu as besoin. Je suis ravie de répondre à tes questions ici, de te proposer un rdv là et si tu n’as qu’une minute devant toi ; cours faire un tirage !
 
-  section.container(data-scroll-section)
+  section.container(data-scroll data-scroll-section)
     .row
       .col-offset-1.col-5
         h2(data-scroll)
@@ -106,7 +106,7 @@ block content
               | Consulte en priorité un médecin adapté à ta pathologie.
       +circle.col-offset-4.col-1
 
-  section.container(data-scroll-section)
+  section.container(data-scroll data-scroll-section)
     .row
       +circle.col-offset-1.aligned-bottom
       .col-offset-4.col-5
@@ -125,7 +125,7 @@ block content
           li
             p Bachelor en Design d’espaces, Ecole Européenne Supérieure d’Arts de Bretagne, Brest
 
-  section.section--testimonials(data-scroll-section)
+  section.section--testimonials(data-scroll data-scroll-section)
     .testimonials.container
       .testimonials_header.z-1(data-scroll data-scroll-sticky data-scroll-target=".section--testimonials" data-scroll-offset="-30%")
         .row
@@ -157,7 +157,7 @@ block content
         .col-offset-2.col-2
           +home-testimonial(testimonials[6]).testimonial-6
 
-  section.section--cards(data-scroll-section)
+  section.section--cards(data-scroll data-scroll-section)
     .section_content.container.z-1(data-scroll data-scroll-sticky data-scroll-target=".section--cards" data-scroll-offset="-20%")
       .row
         .col-12

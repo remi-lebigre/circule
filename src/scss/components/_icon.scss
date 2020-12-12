@@ -2,13 +2,18 @@
   display: inline-block;
   position: relative;
   background: center /contain no-repeat;
+  transform: translateY(20px);
+  opacity: 0;
+  transition-duration: 1s;
+  transition-delay: 1s;
+  transition-timing-function: $timing;
+  transition-property: transform, opacity;
 
   &--emoji {
     width: 4em;
     height: 4em;
     top: -1.5em;
     left: 67%;
-    transform: rotate(20deg);
     background-image: url(/src/assets/images/_items/emoji.png);
   }
 
@@ -18,7 +23,6 @@
     width: 3em;
     height: 3em;
     z-index: 2;
-    transform: rotate(-15deg);
     background-image: url(/src/assets/images/_items/italie.png);
   }
 
@@ -27,7 +31,22 @@
     top: -7.5em;
     width: 3em;
     height: 3em;
-    transform: rotate(10deg);
     background-image: url(/src/assets/images/_items/pologne.png);
+  }
+}
+
+.is-inview .icon {
+  opacity: 1;
+
+  &--emoji {
+    transform: rotate(20deg);
+  }
+
+  &--flag-it {
+    transform: rotate(-15deg);
+  }
+
+  &--flag-po {
+    transform: rotate(10deg);
   }
 }

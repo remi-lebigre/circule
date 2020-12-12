@@ -1,11 +1,23 @@
 .separator {
   height: 1px;
   border-bottom: solid 1px var(--dark);
+  transform: scaleX(0);
   margin-top: $container-margin-y;
   margin-bottom: $container-margin-y;
+  transition-duration: 1s;
+  transition-timing-function: $timing;
+  transition-property: transform;
+  transform-origin: left;
+  transition-delay: .3s;
 
   &--big {
     margin-top: $container-margin-y*2;
     margin-bottom: $container-margin-y*2;
+  }
+}
+
+.is-inview {
+  .separator {
+    transform: scaleX(1);
   }
 }
