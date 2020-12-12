@@ -77,8 +77,10 @@ class App {
         },
       }]
     })
+    barba.hooks.once(({next: {container}}) => container.setAttribute('fade-in', true))
     barba.hooks.beforeEnter(({next: {container}}) => {
       this.container = container
+      container.setAttribute('fade-in', true)
       t.locomotive.destroy()
       t.startServices()
     })

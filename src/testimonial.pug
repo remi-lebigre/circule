@@ -1,28 +1,27 @@
 extends views/layouts/view
 include views/components/circle
+include views/components/img
 
 block content
   - const { testimonial_quote,testimonial_name,testimonial_content, avatar: {url} } = htmlWebpackPlugin.options
   section.testimonial-view.container.post(data-scroll data-scroll-section)
     .row
       .col-12
-        a.post_back-link(href="/temoignages.html") Retour
+        a.post_back-link.fade-in(href="/temoignages.html") Retour
     .row
-      +circle.aligned-bottom
+      +circle.circle--delayed
       .col-offset-2.col-1
-        span.quote-icon.text-callout.text-color--pink “
+        span.quote-icon.text-callout.text-color--pink.fade-in “
       .col-6
         h1.post_header.text-callout(data-scroll)
           span.title-animation
             span.title-animation_content=testimonial_quote
     .row
       .col-offset-4.col8
-        p.post_date=testimonial_name
+        p.post_date.fade-in=testimonial_name
     .row
       .post_content.col-offset-4.col-8.circle-canvas--top
         .separator.separator--big
-        p=testimonial_content
+        p.fade-in=testimonial_content
         if url
-          img.img-auto(src=url)
-          //TODO: fix canvas position
-          canvas.circle-canvas.circle-canvas--img(data-scroll)
+          +img(url).img--width-auto

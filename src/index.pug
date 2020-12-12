@@ -17,15 +17,15 @@ block content
           | circule
     +img(require("./assets/images/home/home-intro.jpg")).margin-left-4.width-4.section_img
     .row.section_content-attached-bottom
-      +circle.col-offset-9
+      +circle.col-offset-9.circle--delayed
       .col-offset-9.col-3
         .separator
-        p.indent-negative-3 Bonjour et bienvenue chez Studio Circule. Avec des outils comme le coaching, le magnétisme et les soins énergétiques, nous vous accompagnons dans votre vie et vos projets.
+        p.indent-negative-3.fade-in Bonjour et bienvenue chez Studio Circule. Avec des outils comme le coaching, le magnétisme et les soins énergétiques, nous vous accompagnons dans votre vie et vos projets.
 
-  section.container(data-scroll  data-scroll-section)
+  section.container(data-scroll data-scroll-section)
     .row
       .col-8
-        h1.z-1(data-scroll)
+        h1.z-1(data-scroll data-scroll-offset="20%")
           span.title-animation.padding-left-6.text-color--pink
             span.title-animation_content carole
           span.title-animation
@@ -82,7 +82,7 @@ block content
   section.container(data-scroll data-scroll-section)
     .row
       .col-offset-1.col-5
-        h2(data-scroll)
+        h2(data-scroll data-scroll-offset="20%")
           span.title-animation
             span.title-animation_content Ethique
           br
@@ -110,7 +110,7 @@ block content
     .row
       +circle.col-offset-1.aligned-bottom
       .col-offset-4.col-5
-        h2(data-scroll)
+        h2(data-scroll data-scroll-offset="20%")
           span.title-animation
             span.title-animation_content Diplômes & qualifications
         ul.list

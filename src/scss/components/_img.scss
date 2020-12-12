@@ -13,6 +13,12 @@
     background-color: var(--light-grey);
   }
 
+  &--width-auto {
+    .img_img {
+      width: auto;
+    }
+  }
+
   &.is-inview {
     .img_img {
       animation: img-reveal 1.5s forwards;

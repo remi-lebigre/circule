@@ -11,6 +11,12 @@
   &.is-inview {
     animation: circle-pop 1.5s cubic-bezier(0, 0, 0.01, 1.01) forwards;
   }
+
+  &--delayed {
+    &.is-inview {
+      animation-delay: 1s;
+    }
+  }
 }
 
 @keyframes circle-pop {
