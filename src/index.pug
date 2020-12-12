@@ -142,20 +142,20 @@ block content
             .testimonials_name
       .row
         .col-2
-          +home-testimonial(testimonials[0]).testimonial-0.testimonial--first
+          +home-testimonial(testimonials[0]).testimonial-0.testimonial--first(data-scroll-speed="1" data-scroll-delay="0.03")
         .col-offset-1.col-2
-          +home-testimonial(testimonials[1]).testimonial-1
+          +home-testimonial(testimonials[1]).testimonial-1(data-scroll-speed="1.2" data-scroll-delay="0.05")
         .col-offset-2.col-2
-          +home-testimonial(testimonials[2]).testimonial-2
+          +home-testimonial(testimonials[2]).testimonial-2(data-scroll-speed=".9" data-scroll-delay="0.03")
         .col-offset-1.col-2
-          +home-testimonial(testimonials[3]).testimonial-3.testimonial--last
+          +home-testimonial(testimonials[3]).testimonial-3.testimonial--last(data-scroll-speed="1" data-scroll-delay="0.05")
       .row.pb-30
         .col-offset-1.col-2
-          +home-testimonial(testimonials[4]).testimonial-4
+          +home-testimonial(testimonials[4]).testimonial-4(data-scroll-speed=".9" data-scroll-delay="0.05")
         .col-offset-2.col-2
-          +home-testimonial(testimonials[5]).testimonial-5
+          +home-testimonial(testimonials[5]).testimonial-5(data-scroll-speed="1" data-scroll-delay="0.05")
         .col-offset-2.col-2
-          +home-testimonial(testimonials[6]).testimonial-6
+          +home-testimonial(testimonials[6]).testimonial-6(data-scroll-speed="1.2" data-scroll-delay="0.03")
 
   section.section--cards(data-scroll data-scroll-section)
     .section_content.container.z-1(data-scroll data-scroll-sticky data-scroll-target=".section--cards" data-scroll-offset="-20%")
