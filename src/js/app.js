@@ -56,6 +56,7 @@ class App {
     barba.use(barbaPrefetch)
     barba.init({
       debug: true,
+      preventRunning: true,
       transitions: [{
         name: 'inspiration',
         leave () {
