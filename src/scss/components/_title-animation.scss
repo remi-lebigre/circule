@@ -1,0 +1,30 @@
+.title-animation {
+  overflow: hidden;
+
+  &_content {
+    transform: translateY(110%);
+  }
+
+  &:nth-child(odd) {
+    transform: rotate(5deg);
+
+  }
+
+  &:nth-child(even) {
+    transform: rotate(-5deg);
+  }
+
+  &, &_content {
+    display: inline-block;
+    transition-duration: 1s;
+    transition-timing-function: cubic-bezier(.5, 0, 0, 1);
+  }
+}
+
+.is-inview .title-animation {
+  transform: none !important;
+
+  .title-animation_content {
+    transform: none;
+  }
+}

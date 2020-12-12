@@ -7,11 +7,14 @@ include views/components/circle
 block content
   - const { testimonials } = htmlWebpackPlugin.options
   section.section--main.section--full-height.container(data-scroll-section)
-    h1.section_header(data-scroll data-scroll-speed="1" data-scroll-delay="0.05") studio
+    h1.section_header(data-scroll data-scroll-speed="1" data-scroll-delay="0.05")
+      span.title-animation
+        span.title-animation_content studio
       br
-      span.padding-left-2.text-color--pink
-        span.text-italic .
-        | circule
+      span.title-animation.padding-left-2
+        span.title-animation_content.text-color--pink
+          span.text-italic .
+          | circule
     +img(require("./assets/images/home/home-intro.jpg")).margin-left-4.width-4.section_img
     .row.section_content-attached-bottom
       +circle.col-offset-9
@@ -22,10 +25,11 @@ block content
   section.container(data-scroll-section)
     .row
       .col-8
-        h1.z-1
-          span.padding-left-6.text-color--pink carole
-          br
-          |  cicciu kopec
+        h1.z-1(data-scroll)
+          span.title-animation.padding-left-6.text-color--pink
+            span.title-animation_content carole
+          span.title-animation
+            span.title-animation_content cicciu kopec
         span.icon.icon--flag-it
         span.icon.icon--flag-po
       .col-offset-1.col-2
@@ -78,9 +82,12 @@ block content
   section.container(data-scroll-section)
     .row
       .col-offset-1.col-5
-        h2 Ethique
+        h2(data-scroll)
+          span.title-animation
+            span.title-animation_content Ethique
           br
-          | & déontologie
+          span.title-animation
+            span.title-animation_content & déontologie
     .row
       .col-offset-1.col-5
         ul.list
@@ -103,7 +110,9 @@ block content
     .row
       +circle.col-offset-1.aligned-bottom
       .col-offset-4.col-5
-        h2 Diplômes & qualifications
+        h2(data-scroll)
+          span.title-animation
+            span.title-animation_content Diplômes & qualifications
         ul.list
           li
             p Maitre Praticienne Reiki Usui (Niveau III) de l’école de Reiki de Gauthier Papp, Paris
@@ -152,11 +161,14 @@ block content
     .section_content.container.z-1(data-scroll data-scroll-sticky data-scroll-target=".section--cards" data-scroll-offset="-20%")
       .row
         .col-12
-          h1.section_header.row
-            span.col-4.text-color--pink l’oracle
+          h1.section_header.row(data-scroll)
+            span.title-animation.col-4.text-color--pink
+              span.title-animation_content l’oracle
             br
-            span.col-3 de
-            span.col-5 roleca
+            span.title-animation.col-3
+              span.title-animation_content de
+            span.title-animation.col-5
+              span.title-animation_content roleca
       .row
         .col-5
           .separator

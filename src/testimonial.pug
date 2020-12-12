@@ -12,7 +12,9 @@ block content
       .col-offset-2.col-1
         span.quote-icon.text-callout.text-color--pink “
       .col-6
-        h1.post_header.text-callout=testimonial_quote
+        h1.post_header.text-callout(data-scroll)
+          span.title-animation
+            span.title-animation_content=testimonial_quote
     .row
       .col-offset-4.col8
         p.post_date=testimonial_name

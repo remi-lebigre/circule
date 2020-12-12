@@ -6,17 +6,23 @@ block content
   section.container.section--about(data-scroll-section)
     .row
       .col-6
-        h1.section_header À propos
+        h1.section_header(data-scroll)
+          span.title-animation
+            span.title-animation_content À propos
       +circle.col-1.aligned-bottom
     .row.mt-3
       .col-6
         +img(require("./assets/images/about/about-intro.jpg")).circle-canvas--left
       .col-6
-        .row
+        .row(data-scroll)
           .col-6
-            p.text-h1 de
+            p.text-h1
+              span.title-animation
+                span.title-animation_content de
           .col-6
-            p.text-h1.text-color--pink.text-aligned--right moi
+            p.text-h1.text-color--pink.text-aligned--right
+              span.title-animation
+                span.title-animation_content moi
         .row
           .col-6
             .separator.separator--big
