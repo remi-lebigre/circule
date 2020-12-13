@@ -1,4 +1,8 @@
+import Splitter from "./splitter";
+import I from "./i";
+
 class Testimonials {
+  reveal_timeout = null
   constructor () {
     console.debug('New testimonials')
 
@@ -10,17 +14,28 @@ class Testimonials {
     this.testimonials.forEach(c => {
       c.addEventListener('mouseenter', this.hoverIn)
       c.addEventListener('mouseleave', this.hoverOut)
-      c.addEventListener('click', this.click)
     })
   }
 
   hoverIn = ({target, target: {dataset: {name}}}) => {
-    this.container.classList.add('testimonials--hover')
     this.quote.innerHTML = target.querySelector('.testimonial_quote').innerHTML
+    setTimeout(_ => {
+      new Splitter({elements: [this.quote]}).split()
+      setTimeout(_ => {
+        new I({elements: [this.quote]})
+      }, 1)
+    }, 1)
     this.name.innerText = name
+    this.container.classList.add('testimonials--hover')
+    this.reveal_timeout =setTimeout(this.reveal, 100)
   }
+  reveal = _ => this.quote.classList.add('is-inview')
 
-  hoverOut = _e => this.container.classList.remove('testimonials--hover')
+  hoverOut = _e => {
+    clearTimeout(this.reveal_timeout)
+    this.quote.classList.remove('is-inview')
+    this.container.classList.remove('testimonials--hover')
+  }
 }
 
 export default Testimonials

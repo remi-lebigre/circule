@@ -13,7 +13,9 @@
   }
 
   &_default-content, &_quote {
-    height: 33vh;
+    .title-animation {
+      display: block
+    }
   }
 
   &--hover {

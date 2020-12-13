@@ -11,6 +11,7 @@ import Router from "./router"
 import CircleCanvas from "./circle-canvas"
 import Darkmode from "./darkmode"
 import Spy from "./spy"
+import Splitter from "./splitter"
 
 class App {
   locomotive = null
@@ -29,14 +30,17 @@ class App {
 
   startServices = _ => {
     this.initScrollonImageLoad()
-    new I()
     new HeaderDate()
     const router = new Router()
     if (router.isIndex()) {
+      new Splitter({
+        elements: document.querySelectorAll(".testimonials_default-content")
+      }).split()
       new Cards()
       new Testimonials()
     }
     new CircleCanvas()
+    new I({})
     new DebugGrid()
     new Darkmode()
     this.disablePageReloadOnSamePageLink()

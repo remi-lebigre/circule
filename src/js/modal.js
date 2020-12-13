@@ -1,6 +1,6 @@
 class Modal {
 
-  ANIMATION_DURATION = 2000
+  ANIMATION_DURATION = 1500
   state = 'animating'
 
   constructor ({coords}) {

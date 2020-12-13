@@ -1,6 +1,6 @@
 mixin home-testimonial(t)
   if t
     a.testimonial(class=attributes.class href=t.page_link, data-name=t.testimonial_name data-scroll data-scroll-speed=attributes['data-scroll-speed'] data-scroll-delay=attributes['data-scroll-delay'])
-      .testimonial_quote.text-callout=t.testimonial_quote
+      .testimonial_quote=t.testimonial_quote
       if t.avatar
         img.testimonial_img(src=t.avatar.url)
