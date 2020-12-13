@@ -28,7 +28,7 @@ class CircleCanvas {
   body = document.querySelector('body')
 
   // the more steps the slower the animation is
-  STEPS = 40
+  STEPS = 30
   SCALE = 100
   COLOR_YELLOW = "#e9ff1d"
   STATUSES = ['delayed-drawing-in', 'drawing-in', 'drawn', 'drawing-out', 'delayed-drawing-out', 'finished']
@@ -39,7 +39,7 @@ class CircleCanvas {
 
     this.initListeners()
     this.initCanvas()
-    this.easing = BezierEasing(.36, .33, 1, -0.37)
+    this.easing = BezierEasing(.36,.13,1,-0.16)
   }
 
   initListeners = _ => document.querySelectorAll('.circle').forEach(c => {

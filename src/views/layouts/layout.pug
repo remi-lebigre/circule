@@ -1,6 +1,6 @@
 include ../../views/components/modal
-- const { name } = htmlWebpackPlugin.options
-- const website_title = 'Circule'
+- const { name, page_title } = htmlWebpackPlugin.options
+- const website_title = `Circule | ${page_title}`
 doctype html
 html(lang=locale)
   head
@@ -23,8 +23,6 @@ html(lang=locale)
     meta(name="twitter:title" content="")
     meta(name="twitter:description" content="")
     meta(name="twitter:image" content='')
-
-    link(rel="icon" href="")
   body(data-barba="wrapper")
     include ../partials/no_js
     a.logo.hover.text-link(href="/") .CIRCULE

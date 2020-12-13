@@ -57,25 +57,28 @@ class App {
     barba.init({
       debug: true,
       preventRunning: true,
-      transitions: [{
-        name: 'inspiration',
-        leave () {
+      transitions: [
+        {
+          name: 'inspiration',
+          leave () {
+          },
+          enter () {
+          },
+          from: {
+            namespace: 'inspiration'
+          },
         },
-        enter () {
-        },
-        from: {
-          namespace: 'inspiration'
-        },
-      }, {
-        name: 'inspiration',
-        leave () {
-        },
-        enter () {
-        },
-        to: {
-          namespace: 'inspiration'
-        },
-      }]
+        {
+          name: 'inspiration',
+          leave () {
+          },
+          enter () {
+          },
+          to: {
+            namespace: 'inspiration'
+          },
+        }
+      ]
     })
     barba.hooks.once(({next: {container}}) => container.setAttribute('fade-in', true))
     barba.hooks.beforeEnter(({next: {container}}) => {
