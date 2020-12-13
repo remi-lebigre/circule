@@ -2,6 +2,10 @@
   vertical-align: bottom !important;
 }
 
+.pointer-events-none {
+  pointer-events: none !important;
+}
+
 $count: 40;
 @for $i from 1 through $count {
   .mb-#{$i} {

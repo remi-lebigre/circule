@@ -15,11 +15,7 @@ class Cards {
   hoverIn = _e => this.container.classList.add('cards--hover')
   hoverOut = _e => this.container.classList.remove('cards--hover')
 
-  click = _e => new Modal(
-    {
-      content: `<img src="${require('/src/assets/images/_img/card_verso.jpg')}"/>`
-    }
-  ).open()
+  click = ({target}) => new Modal({coords: target.getBoundingClientRect()}).open()
 }
 
 export default Cards

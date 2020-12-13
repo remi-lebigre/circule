@@ -1,23 +1,27 @@
 .modal {
   z-index: 100;
   position: fixed;
+  display: flex;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  display: none;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
   justify-content: center;
   align-items: center;
 
   &_bg {
     z-index: -1;
-    opacity: .8;
+    opacity: 0;
     background-color: var(--dark);
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
+    transition: opacity .5s $timing;
   }
 
   &_close {
@@ -32,15 +36,52 @@
   &_content {
     height: 80vh;
 
-    img {
-      mix-blend-mode: normal;
+    &--animate {
+      will-change: transform;
+      transition: $timing 1s;
+
+      .modal_card {
+        transition: transform $timing 1.5s;
+        transform: rotateY(180deg)
+      }
+    }
+  }
+
+  &_card {
+    transform-style: preserve-3d;
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    &_face {
+      border-radius: 7px;
+      position: absolute;
+      width: 100%;
       height: 100%;
-      width: auto;
+      top: 0;
+      left: 0;
+      backface-visibility: hidden;
+      background: center /cover no-repeat;
+
+      &--back {
+        background-image: url(/src/assets/images/_img/card_verso.jpg);
+        transform: rotateY(180deg);
+      }
+
+      &--front {
+        background-image: url(/src/assets/images/_img/card.jpg);
+      }
     }
   }
 
   &--open {
-    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+
+    .modal_bg {
+      opacity: .9;
+    }
   }
 }
 
