@@ -42,6 +42,7 @@
 
       .modal_card {
         transition: transform $timing 1.5s;
+        transition-delay: .75s;
         transform: rotateY(180deg)
       }
     }
