@@ -21,14 +21,16 @@ class CircleCanvas {
   initial_radius = 0
   radius = 0
   frame = 0
-  easing = null
   circle_path = null
-  x = 0
-  y = 0
+  target = null
   body = document.querySelector('body')
 
   // the more steps the slower the animation is
-  STEPS = 30
+  STEPS_IN = 90
+  STEPS_OUT = 45
+  easing_in = BezierEasing(.49, .34, .18, .94)
+  easing_out = easeOutQuint
+
   SCALE = 100
   COLOR_YELLOW = "#e9ff1d"
   STATUSES = ['delayed-drawing-in', 'drawing-in', 'drawn', 'drawing-out', 'delayed-drawing-out', 'finished']
@@ -39,7 +41,6 @@ class CircleCanvas {
 
     this.initListeners()
     this.initCanvas()
-    this.easing = BezierEasing(.36,.13,1,-0.16)
   }
 
   initListeners = _ => document.querySelectorAll('.circle').forEach(c => {
@@ -101,16 +102,11 @@ class CircleCanvas {
     this.clear()
   }
 
-  initCircle = target => {
-    this.initial_radius = document.querySelector('.circle').getBoundingClientRect().width / 2.2
-    this.selectCirclePath()
-    let {x, y} = this.targetCoords(target)
-    this.x = x
-    this.y = y
-  }
+  initCircle = _ => this.initial_radius = document.querySelector('.circle').getBoundingClientRect().width / 2.2
 
   hoverIn = ({target}) => {
-    this.initCircle(target)
+    this.target = target
+    this.initCircle()
     if (this.isFinished()) {
       this.drawIn()
     } else if (this.isDrawingOut()) {
@@ -126,8 +122,8 @@ class CircleCanvas {
     }
   }
 
-  targetCoords = target => {
-    const coords = target.getBoundingClientRect()
+  targetCoords = _ => {
+    const coords = this.target.getBoundingClientRect()
     return {x: coords.x + coords.width / 2, y: coords.y + coords.height / 2}
   }
   ctxsInView = _ => this.ctxs.filter(c => c.canvas.classList.contains('is-inview') || this.isCanvasMain(c.canvas))
@@ -139,8 +135,7 @@ class CircleCanvas {
   drawCircle = _ => {
     this.clear()
     this.ctxsInView().forEach(c => {
-      let y = this.y
-      let x = this.x
+      let {x, y} = this.targetCoords()
 
       if (!this.isCanvasMain(c.canvas)) {
         y -= c.canvas.getBoundingClientRect().top
@@ -257,13 +252,15 @@ class CircleCanvas {
 
     // console.debug(this.state, this.frame, this.radius)
 
+    let steps = this.STEPS_IN
     if (this.isDrawingIn() || this.isDelayedDrawingOut()) {
-      this.radiusUp()
+      this.radiusUp(steps)
     } else if (this.isDrawingOut() || this.isDelayedDrawingIn()) {
-      this.radiusDown()
+      steps = this.STEPS_OUT
+      this.radiusDown(steps)
     }
 
-    if (this.frame <= this.STEPS) {
+    if (this.frame <= steps) {
       this.drawCircle()
       window.requestAnimationFrame(this.animate)
     } else {
@@ -279,8 +276,8 @@ class CircleCanvas {
     }
   }
 
-  radiusUp = _ => this.radius = this.initial_radius + this.max * this.easing(this.frame / this.STEPS)
-  radiusDown = _ => this.radius = this.initial_radius + this.max - (this.max * easeOutQuint(this.frame / this.STEPS))
+  radiusUp = steps => this.radius = this.initial_radius + this.max * this.easing_in(this.frame / steps)
+  radiusDown = steps => this.radius = this.initial_radius + this.max - (this.max * this.easing_out(this.frame / steps))
 }
 
 export default CircleCanvas
