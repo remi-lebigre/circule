@@ -9,7 +9,7 @@ class I {
     } else {
       this.tags = document.querySelectorAll('h1, h2, h3, h4, h5, h6, .text-h1, .text-h4, .text-link, .text-callout')
     }
-    this.tags.forEach(tag => this.recursive(tag, 3))
+    this.tags.forEach(tag => this.recursive(tag, 4))
   }
 
   recursive = (r, nest_level) => {
