@@ -1,0 +1,19 @@
+.transition-panel {
+  position: fixed;
+  z-index: $z-index-cursor - 1;
+  transform: translate3d(0, 100%, 0);
+  will-change: transform;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--pink);
+
+  &--dark {
+    background-color: var(--dark);
+  }
+}
+
+.in-transition {
+  pointer-events: none !important;
+}

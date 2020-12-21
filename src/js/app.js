@@ -1,7 +1,4 @@
 import LocomotiveScroll from 'locomotive-scroll'
-import barba from "@barba/core"
-import barbaCss from '@barba/css'
-import barbaPrefetch from "@barba/prefetch"
 import I from "./i"
 import Cards from "./cards"
 import Testimonials from './testimonials'
@@ -12,6 +9,7 @@ import CircleCanvas from "./circle-canvas"
 import Darkmode from "./darkmode"
 import Spy from "./spy"
 import Splitter from "./splitter"
+import Transitions from "./transitions";
 
 class App {
   locomotive = null
@@ -25,7 +23,12 @@ class App {
     console.debug('--- App desktop init')
     new Spy()
     this.startServices()
-    this.initPageTransitions()
+    new Transitions({
+      callback: _ => {
+        this.locomotive.destroy()
+        this.startServices()
+      }
+    })
   }
 
   startServices = _ => {
@@ -52,45 +55,6 @@ class App {
       .map(img => new Promise(resolve => {
         img.onload = img.onerror = resolve
       }))).then(this.initScroll)
-  }
-
-  initPageTransitions = _ => {
-    let t = this
-    barba.use(barbaCss)
-    barba.use(barbaPrefetch)
-    barba.init({
-      debug: true,
-      preventRunning: true,
-      transitions: [
-        {
-          name: 'inspiration',
-          leave () {
-          },
-          enter () {
-          },
-          from: {
-            namespace: 'inspiration'
-          },
-        },
-        {
-          name: 'inspiration',
-          leave () {
-          },
-          enter () {
-          },
-          to: {
-            namespace: 'inspiration'
-          },
-        }
-      ]
-    })
-    barba.hooks.once(({next: {container}}) => container.setAttribute('fade-in', true))
-    barba.hooks.beforeEnter(({next: {container}}) => {
-      this.container = container
-      container.setAttribute('fade-in', true)
-      t.locomotive.destroy()
-      t.startServices()
-    })
   }
 
   disablePageReloadOnSamePageLink = _ => this.container.querySelectorAll('a[href]').forEach(el => {
