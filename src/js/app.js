@@ -68,20 +68,19 @@ class App {
 
   initScroll = _ => {
     console.debug('New scroll')
-    window.wscroll = 0
     setTimeout(_ => {
       this.locomotive = new LocomotiveScroll({
         el: this.container.querySelector('[data-scroll-container]'),
         smooth: true,
         // getDirection: true
       })
-      this.locomotive.on('scroll', this.onScroll)
+      // this.locomotive.on('scroll', this.onScroll)
       // locomotive.on('call', this.onCall)
     }, 200)
   }
 
   // onCall = action => console.log(`Scroll action call - ${action}`)
-  onScroll = ({scroll: {y}}) => window.wscroll = y
+  // onScroll = ({scroll: {y}}) => console.log(`Scroll - ${y}`)
 }
 
 export default App
