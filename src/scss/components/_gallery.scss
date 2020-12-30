@@ -1,0 +1,17 @@
+.gallery {
+  .section {
+    &_header {
+      padding-top: 20%;
+    }
+  }
+  
+  &--hover {
+    .figure_link {
+      filter: grayscale(1);
+
+      &:hover {
+        filter: grayscale(0);
+      }
+    }
+  }
+}

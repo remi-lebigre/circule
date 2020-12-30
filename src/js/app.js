@@ -10,6 +10,7 @@ import Darkmode from "./darkmode"
 import Spy from "./spy"
 import Splitter from "./splitter"
 import Transitions from "./transitions";
+import Gallery from "./gallery";
 
 class App {
   locomotive = null
@@ -42,6 +43,8 @@ class App {
       }).split()
       new Cards()
       new Testimonials()
+    } else if (router.isGallery()) {
+      new Gallery()
     }
     new CircleCanvas()
     new I({})
