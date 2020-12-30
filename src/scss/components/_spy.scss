@@ -13,4 +13,12 @@
   &--hidden {
     display: none;
   }
+
+  &--hover {
+    background-image: url('/src/assets/images/_items/cursor-survol.png')
+  }
+
+  &--click {
+    background-image: url('/src/assets/images/_items/cursor-clic.png')
+  }
 }

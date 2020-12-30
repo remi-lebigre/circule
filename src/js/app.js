@@ -13,6 +13,7 @@ import Transitions from "./transitions";
 
 class App {
   locomotive = null
+  spy = null
   container = document
 
   mobileInit = _ => {
@@ -21,7 +22,7 @@ class App {
 
   init = _ => {
     console.debug('--- App desktop init')
-    new Spy()
+    this.spy = new Spy()
     this.startServices()
     new Transitions({
       callback: _ => {
@@ -46,6 +47,7 @@ class App {
     new I({})
     new DebugGrid()
     new Darkmode()
+    this.spy.reload()
     this.disablePageReloadOnSamePageLink()
   }
 
