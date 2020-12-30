@@ -57,7 +57,7 @@ header {
       animation: header-side-first 5s linear infinite;
 
       &_last {
-        padding-left: 1em;
+        padding-left: .4em;
       }
     }
   }
@@ -68,6 +68,6 @@ header {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-160%);
+    transform: translateX(-170%);
   }
 }
