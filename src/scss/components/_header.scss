@@ -37,8 +37,12 @@ header {
     position: relative;
     left: 5px;
 
-    &_item:not(:last-child) {
-      margin-right: 1em;
+    &_item {
+      position: relative;
+      
+      &:not(:last-child) {
+        margin-right: 1em;
+      }
     }
   }
 
@@ -46,10 +50,13 @@ header {
     position: fixed;
     top: 10em;
     right: -.4em;
-    overflow: hidden;
     transform: rotate(-90deg);
     width: 120px;
-    white-space: nowrap;
+
+    &_wrap {
+      overflow: hidden;
+      white-space: nowrap;
+    }
 
     &_content {
       display: block;
@@ -59,6 +66,23 @@ header {
       &_last {
         padding-left: .4em;
       }
+    }
+  }
+
+  &_soon {
+    &:before {
+      opacity: 0;
+      content: 'Bientôt';
+      position: absolute;
+      top: -100%;
+      left: 0;
+      transition: opacity .15s, transform .3s;
+      transform: rotate(5deg) translateY(110%);
+    }
+
+    &:hover:before {
+      opacity: 1;
+      transform: rotate(0deg) translateY(0%);
     }
   }
 }
