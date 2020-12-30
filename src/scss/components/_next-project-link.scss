@@ -1,25 +1,12 @@
 .next-project-link {
-  display: block;
+  display: flex;
   position: relative;
   margin-top: 10em;
   margin-bottom: -5em;
-  overflow: hidden;
-  max-height: 262px;
-
-  &_content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate3d(-50%, -50%, 0);
-  }
-
-  .img {
-    transition: transform ease-in-out 1s;
-  }
-
-  &:hover .img {
-    transform: scale(#{$img-hover-zoom});
-  }
+  background-color: var(--dark);
+  height: 262px;
+  justify-content: center;
+  align-items: center;
 }
 
 [darkmode][circle] .next-project-link_content p {
