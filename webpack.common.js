@@ -15,8 +15,8 @@ const PAGE_TITLES = {
 }
 
 const urlify = content => slugify(content, {lower: true, strict: true})
-const urlifyPost = content => `${urlify(content.title)}.html`
-const urlifyTestimonial = content => `${urlify(content.testimonial_name)}.html`
+const urlifyPost = content => `articles/${urlify(content.title)}.html`
+const urlifyTestimonial = content => `temoignages/${urlify(content.testimonial_name)}.html`
 
 const pageFactory = (name, index) => {
   let next_name = PAGES[index + 1] || PAGES[0]
@@ -43,6 +43,7 @@ const postFactory = (content, index) => {
     template: `./src/post.pug`,
     favicon: './src/favicon.ico',
     filename: urlifyPost(content),
+    publicPath: '../',
     page_title: 'Article',
     footer: {
       title: next_content.title,
@@ -59,6 +60,7 @@ const testimonialFactory = (content, index) => {
     template: `./src/testimonial.pug`,
     favicon: './src/favicon.ico',
     filename: urlifyTestimonial(content),
+    publicPath: '../',
     page_title: 'Témoignage',
     footer: {
       title: next_content.testimonial_name,
@@ -70,7 +72,9 @@ const testimonialFactory = (content, index) => {
 }
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    index: './src/index.js'
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
