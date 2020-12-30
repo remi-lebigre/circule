@@ -2,13 +2,16 @@
   &_header {
     pointer-events: none;
     height: 100vh;
+    opacity: 0;
+    animation: fade-in-2 .5s forwards .1s;
+
+    .separator {
+      transform: scaleX(0);
+      animation: separator-2 1s forwards .3s;
+    }
   }
 
-  &_name, &_quote {
-    display: none;
-  }
-
-  .quote-icon {
+  &_name, &_quote, .quote-icon {
     display: none;
   }
 
@@ -20,6 +23,16 @@
 
   &--hover {
     .testimonials {
+      &_header {
+        opacity: 0;
+        animation: fade-in .5s forwards .1s;
+
+        .separator {
+          transform: scaleX(0);
+          animation: separator 1s forwards .3s;
+        }
+      }
+
       &_default-content {
         display: none;
       }
@@ -27,10 +40,17 @@
       &_name, &_quote {
         display: block;
       }
+
+      &_name {
+        opacity: 0;
+        animation: fade-in .5s forwards 1s;
+      }
     }
 
     .quote-icon {
       display: block;
+      opacity: 0;
+      animation: fade-in .5s forwards .35s;
     }
 
     .testimonial_img {
@@ -42,5 +62,41 @@
         filter: grayscale(0);
       }
     }
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-2 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes separator {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes separator-2 {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
   }
 }
