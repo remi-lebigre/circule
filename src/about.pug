@@ -5,36 +5,36 @@ include views/components/circle
 block content
   section.container.section--about(data-scroll data-scroll-section)
     .row
-      .col-6
+      .col-6.col-m-4
         h1.section_header(data-scroll)
           span.title-animation
             span.title-animation_content À propos
       +circle.col-1.aligned-bottom.circle--delayed
     .row.mt-3
-      .col-6
+      .col-6.col-m-4
         +img(require("./assets/images/about/about-intro.jpg"))
-      .col-6
+      .col-6.col-m-4
         .row
-          .col-6
+          .col-6.col-m-1
             p.text-h1(data-scroll)
               span.title-animation
                 span.title-animation_content de
-          .col-6
+          .col-6.col-m-3
             p.text-h1.text-color--pink.text-aligned--right(data-scroll)
               span.title-animation
                 span.title-animation_content moi
         .row
-          .col-6
+          .col-6.col-m-3
             .separator.separator--big
             p.text-lead.mb-5.fade-in Studio Circule est un cabinet proposant plusieurs accompagnements : des soins énergétiques à distance pratiqués par magnétisme et radiesthésie.
         .row
-          .col-12
+          .col-12.col-m-4
             .row
-              .col-4
+              .col-4.col-m-offset-1.col-m-3
                 p Des séances de coaching à distance ou en présentiel.
                   br
                   | Il résulte d’une méthode mise en place au gré de formations, d’expériences et de résultats personnels. Il a pour missions de t’accompagner, te guider, te transmettre et te proposer des exercices pour réaliser tes objectifs et te faire évoluer sereinement dans ta vie et tes projets.
-              .col-offset-4.col-4
+              .col-offset-4.col-4.col-m-offset-1.col-m-3
                 p.mb-4 Pour les soins énergétiques, j’interviens sur toi, ton espace vital et les situations ou blocages sur lesquels tu as envie de travailler.
                   br
                   | Pour le coaching, je t’accompagne dans la structuration de projets professionnels ou personnels, dans ton organisation quotidienne, dans la création ou l’ajustement de ta garde-robe et dans l’harmonisation et la mise en beauté de ton intérieur.

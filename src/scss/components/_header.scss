@@ -67,7 +67,8 @@ header {
         padding-left: .4em;
       }
     }
-    &.header_soon:before{
+
+    &.header_soon:before {
       top: 100%;
     }
   }
@@ -96,5 +97,16 @@ header {
   }
   to {
     transform: translateX(-170%);
+  }
+}
+
+@include query-mobile {
+  header {
+    padding-top: $grid-gutter;
+  }
+  .header {
+    &_wrap, &_side {
+      display: none;
+    }
   }
 }

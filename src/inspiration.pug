@@ -5,12 +5,12 @@ block content
   - const { posts } = htmlWebpackPlugin.options
   section.container.gallery(data-scroll data-scroll-section)
     .row
-      .col-offset-4.col-8
+      .col-offset-4.col-8.col-m-4
         h1.section_header(data-scroll)
           span.title-animation
             span.title-animation_content Inspiration
     .row
-      .col-2
+      .col-2.col-m-4
         p.mt-5.fade-in Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet animi architecto aut delectus deleniti dolor, enim error facere, fugiat fugit in incidunt laudantium magni numquam pariatur quaerat sapiente ullam voluptates!
       .col-offset-2.col-8
         .separator.separator--big
@@ -19,32 +19,32 @@ block content
     each t,i in posts
       if i % 9 === 0
         .row
-          .col-4.prc-1
+          .col-4.prc-1.col-m-4
             +post(t).mt-25
-          .col-3.prc-1
+          .col-3.prc-1.col-m-4
             if posts[i + 1]
               +post(posts[i + 1]).mt-8
-          .col-5
+          .col-5.col-m-4
             if posts[i + 2]
               +post(posts[i + 2])
         .row
-          .col-5
+          .col-5.col-m-4
             if posts[i + 3]
               +post(posts[i + 3])
-          .col-3.plc-1
+          .col-3.plc-1.col-m-4
             if posts[i + 4]
               +post(posts[i + 4]).mt-33
-          .col-4.plc-1
+          .col-4.plc-1.col-m-4
             if posts[i + 5]
               +post(posts[i + 5]).mt-6
         .row
-          .col-4.prc-1
+          .col-4.prc-1.col-m-4
             if posts[i + 6]
               +post(posts[i + 6]).mt-25
-          .col-5
+          .col-5.col-m-4
             if posts[i + 7]
               +post(posts[i + 7]).mt-10
-          .col-3.plc-1
+          .col-3.plc-1.col-m-4
             if posts[i + 8]
               +post(posts[i + 8])
 

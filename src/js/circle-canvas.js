@@ -36,16 +36,18 @@ class CircleCanvas {
   STATUSES = ['delayed-drawing-in', 'drawing-in', 'drawn', 'drawing-out', 'delayed-drawing-out', 'finished']
   state = 'finished'
 
-  constructor () {
-    console.debug('New circle-canvas')
+  is_desktop = false
 
+  constructor ({desktop}) {
+    console.debug('New circle-canvas')
+    this.is_desktop = desktop
     this.initListeners()
     this.initCanvas()
   }
 
   initListeners = _ => document.querySelectorAll('.circle').forEach(c => {
-    c.addEventListener('mouseenter', this.hoverIn)
-    c.addEventListener('mouseleave', this.hoverOut)
+    c.addEventListener(this.is_desktop ? 'mouseenter' : 'touchstart', this.hoverIn)
+    c.addEventListener(this.is_desktop ? 'mouseleave' : 'touchend', this.hoverOut)
   })
 
   initCanvas = _ => {

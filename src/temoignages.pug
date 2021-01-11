@@ -6,12 +6,12 @@ block content
   - const { testimonials } = htmlWebpackPlugin.options
   section.container.gallery(data-scroll data-scroll-section)
     .row
-      .col-offset-4.col-8
+      .col-offset-4.col-8.col-m-4
         h1.section_header(data-scroll)
           span.title-animation
             span.title-animation_content Témoignages
     .row
-      .col-2
+      .col-2.col-m-4
         p.mt-5.fade-in Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet animi architecto aut delectus deleniti dolor, enim error facere, fugiat fugit in incidunt laudantium magni numquam pariatur quaerat sapiente ullam voluptates!
       .col-offset-2.col-8
         .separator.separator--big
@@ -20,31 +20,31 @@ block content
     each t,i in testimonials
       if i % 9 === 0
         .row
-          .col-4.prc-1
+          .col-4.prc-1.col-m-4
             +testimonial(t).mt-25
-          .col-3.prc-1
+          .col-3.prc-1.col-m-4
             if testimonials[i + 1]
               +testimonial(testimonials[i + 1]).mt-8
-          .col-5
+          .col-5.col-m-4
             if testimonials[i + 2]
               +testimonial(testimonials[i + 2])
         .row
-          .col-5
+          .col-5.col-m-4
             if testimonials[i + 3]
               +testimonial(testimonials[i + 3])
-          .col-3.plc-1
+          .col-3.plc-1.col-m-4
             if testimonials[i + 4]
               +testimonial(testimonials[i + 4]).mt-33
-          .col-4.plc-1
+          .col-4.plc-1.col-m-4
             if testimonials[i + 5]
               +testimonial(testimonials[i + 5]).mt-6
         .row
-          .col-4.prc-1
+          .col-4.prc-1.col-m-4
             if testimonials[i + 6]
               +testimonial(testimonials[i + 6]).mt-25
-          .col-5
+          .col-5.col-m-4
             if testimonials[i + 7]
               +testimonial(testimonials[i + 7]).mt-10
-          .col-3.plc-1
+          .col-3.plc-1.col-m-4
             if testimonials[i + 8]
               +testimonial(testimonials[i + 8])

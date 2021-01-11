@@ -17,14 +17,14 @@ block content
           | circule
     +img(require("./assets/images/home/home-intro.jpg")).margin-left-4.width-4.section_img
     .row.section_content-attached-bottom
-      +circle.col-offset-9.circle--delayed
-      .col-offset-9.col-3
+      +circle.col-offset-9.circle--delayed.col-m-1
+      .col-offset-9.col-3.col-m-offset-1.col-m-3
         .separator
-        p.indent-negative-3.fade-in Bonjour et bienvenue chez Studio Circule. Avec des outils comme le coaching, le magnétisme et les soins énergétiques, nous vous accompagnons dans votre vie et vos projets.
+        p.indent-negative-3.indent-negative-m-3.fade-in Bonjour et bienvenue chez Studio Circule. Avec des outils comme le coaching, le magnétisme et les soins énergétiques, nous vous accompagnons dans votre vie et vos projets.
 
   section.container(data-scroll data-scroll-section)
     .row
-      .col-8
+      .col-8.col-m-4
         h1.z-1(data-scroll data-scroll-offset="20%")
           span.title-animation.padding-left-6.text-color--pink
             span.title-animation_content carole
@@ -32,36 +32,36 @@ block content
             span.title-animation_content cicciu kopec
         span.icon.icon--flag-it
         span.icon.icon--flag-po
-      .col-offset-1.col-2
-        p.indent-negative-2 Je suis la fondatrice de Studio Circule. Mon métier&nbsp;? Énergéticienne, designer, artiste, magnétiseur, coach, collectionneuse d’expériences.
+      .col-offset-1.col-2.col-m-offset-1.col-m-3
+        p.indent-negative-2.indent-negative-m-3 Je suis la fondatrice de Studio Circule. Mon métier&nbsp;? Énergéticienne, designer, artiste, magnétiseur, coach, collectionneuse d’expériences.
           br
           | Enfant, mon emploi du temps consistait à aller à l’école, prendre des cours d’arts plastiques et d’orgue électronique, voir mes ami.e.s et pratiquer un à deux sports quasi quotidiennement.
     .row
       .col-offset-4.col-8
         .separator
     .row
-      .col-offset-4.col-2
+      .col-offset-4.col-2.col-m-offset-1.col-m-3
         p Au collège et lycée, j’ai rejoint la filière sport-étude avec une option mineure arts plastiques. J’ai pratiqué le basket en championnat, puis la boxe française m’a emmenée jusqu’au bac.
           | Quand il a été question de choisir une orientation, il a été très difficile pour moi de me décider.
-      .col-2
+      .col-2.col-m-offset-1.col-m-3
         p J’étais plutôt douée partout et surtout j’aimais tout faire en même temps.
           | C’est aussi ce que j’ai ressenti après 10 ans d’études d’art et de design lorsque je suis arrivée sur le marché du travail en France. Être salariée à temps-plein était très rassurant mais m’enfermait dans une seule définition de « Carole ».
       +circle.col-offset-1
 
   section.container(data-scroll data-scroll-section)
     .row
-      .col-3
+      .col-3.col-m-3
         p.text-lead J’avais l’impression de ne pas être entière ni vraiment à ma place.
           br
           | Alors j’ai voulu reprendre ce même mode de vie que celui de l’enfance : faire plusieurs activités qui se complètent.
         .separator
-      .col-offset-1.col-4
+      .col-offset-1.col-4.col-m-4
         +img(require("./assets/images/home/home-about.jpg"))
-      .col-2
+      .col-2.col-m-offset-1.col-m-3
         p Cela m’a inspirée pour t’accompagner de différentes façons ; que ce soit par l’échange oral, par des séances de soins énergétiques ou encore des séances d’exercices.
     .row
       +circle.col-1
-      .col-offset-7.col-2
+      .col-offset-7.col-2.col-m-offset-1.col-m-3
         p Ainsi, j’ai trouvé mon métier et ma façon d’être épanouie pour exprimer toute ma créativité.
 
   section(data-scroll data-scroll-section)
@@ -69,14 +69,14 @@ block content
     .container
       .row
         +circle.col-1
-        .col-offset-5.col-2
+        .col-offset-5.col-2.col-m-3
           p.text-lead Je suis là pour faire un bout de route avec toi pour ajuster ce qui a besoin de l’être.
-        .col-2
+        .col-2.col-m-offset-1.col-m-3
           p Pour rétablir un équilibre, à l’intérieur et à l’extérieur de toi, ou juste pour te faire du bien. Que ce soit toi, ton intérieur, ta garde-robe, ou encore tes projets, je suis là pour t’aider à retrouver une forme d’harmonie pour bien vivre et atteindre tes objectifs.
             | Nous avons conçu ce site comme un magazine (ça c’était juste pour réaliser un de mes rêves de petite fille
             br
             span.icon.icon--emoji
-        .col-2
+        .col-2.col-m-offset-1.col-m-3
           p Je te souhaite de t’y sentir bien, que tu puisses parcourir les différentes rubriques à ton rythme et viennes piocher ce que tu as envie et ce dont tu as besoin. Je suis ravie de répondre à tes questions ici, de te proposer un rdv là et si tu n’as qu’une minute devant toi ; cours faire un tirage !
 
   section.container(data-scroll data-scroll-section)
@@ -89,7 +89,7 @@ block content
           span.title-animation
             span.title-animation_content & déontologie
     .row
-      .col-offset-1.col-5
+      .col-offset-1.col-5.col-m-offset-1.col-m-3
         ul.list
           li
             p J’envoie mes certifications sur demande.
@@ -109,7 +109,7 @@ block content
   section.container(data-scroll data-scroll-section)
     .row
       +circle.col-offset-1.aligned-bottom
-      .col-offset-4.col-5
+      .col-offset-4.col-5.col-m-offset-1.col-m-3
         h2(data-scroll data-scroll-offset="20%")
           span.title-animation
             span.title-animation_content Diplômes & qualifications
@@ -141,40 +141,40 @@ block content
           .col-offset-3.col-6
             .testimonials_name
       .row
-        .col-2
+        .col-2.col-m-2
           +home-testimonial(testimonials[0]).testimonial-0.testimonial--first(data-scroll-speed="1" data-scroll-delay="0.03")
-        .col-offset-1.col-2
+        .col-offset-1.col-2.col-m-2
           +home-testimonial(testimonials[1]).testimonial-1(data-scroll-speed="1.2" data-scroll-delay="0.05")
-        .col-offset-2.col-2
+        .col-offset-2.col-2.col-m-2
           +home-testimonial(testimonials[2]).testimonial-2(data-scroll-speed=".9" data-scroll-delay="0.03")
-        .col-offset-1.col-2
+        .col-offset-1.col-2.col-m-2
           +home-testimonial(testimonials[3]).testimonial-3.testimonial--last(data-scroll-speed="1" data-scroll-delay="0.05")
       .row.pb-30
-        .col-offset-1.col-2
+        .col-offset-1.col-2.col-m-2
           +home-testimonial(testimonials[4]).testimonial-4(data-scroll-speed=".9" data-scroll-delay="0.05")
-        .col-offset-2.col-2
+        .col-offset-2.col-2.col-m-2
           +home-testimonial(testimonials[5]).testimonial-5(data-scroll-speed="1" data-scroll-delay="0.05")
-        .col-offset-2.col-2
+        .col-offset-2.col-2.col-m-2
           +home-testimonial(testimonials[6]).testimonial-6(data-scroll-speed="1.2" data-scroll-delay="0.03")
 
   section.section--cards(data-scroll data-scroll-section)
     .section_content.container.z-1(data-scroll data-scroll-sticky data-scroll-target=".section--cards" data-scroll-offset="-20%")
       .row
-        .col-12
+        .col-12.col-m-4
           h1.section_header.row(data-scroll)
-            span.title-animation.col-6.text-color--pink
+            span.title-animation.col-6.text-color--pink.col-m-4
               span.title-animation_content l’oracle
             br
-            span.title-animation.col-3
+            span.title-animation.col-3.col-m-1
               span.title-animation_content de
-            span.title-animation.col-5.pointer-events-none
+            span.title-animation.col-5.pointer-events-none.col-m-3
               span.title-animation_content.pointer-events-none roleca
       .row
         .col-5
           .separator
       .row
         +circle
-        .col-offset-2.col-2
+        .col-offset-2.col-2.col-m-4
           p Clique sur les cartes défilantes et découvre le message qu’elles ont à te délivrer.
             | Des decks sont disponibles sur notre e-shop. Amour, Attraction, Protection et Relaxation, ces 4 jeux t’accompagnent comme un oracle pouvant t’apporter des guidances quotidiennes.
             | Chaque jeu contient 21 cartes pour te rappeler qu’une bonne habitude et un changement peuvent s’opérer en seulement 21 jours.

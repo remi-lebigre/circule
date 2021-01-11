@@ -19,6 +19,14 @@
   }
 }
 
+@include query-mobile {
+  .circle {
+    $w: calc(100% / 4 - #{$grid-gutter});
+    width: $w;
+    padding-top: $w;
+  }
+}
+
 @keyframes circle-pop {
   from {
     transform: scale(0);

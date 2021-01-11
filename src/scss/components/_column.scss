@@ -67,26 +67,22 @@ $columns_count: 12;
 $mobile_columns_count: 4;
 @include query-mobile {
   @for $i from 1 through $mobile_columns_count {
-    //TODO
-    //.col-m-offset-#{$i} {
-    //  margin-left: calc(100% / #{$mobile_columns_count/$i});
-    //  padding-left: $grid-gutter/2;
-    //  padding-right: $grid-gutter/2;
-    //}
-    //.col-m-#{$i} {
-    //  width: calc(100% / #{$mobile_columns_count/$i});
-    //  padding-left: $grid-gutter/2;
-    //  padding-right: $grid-gutter/2;
-    //}
-    //.col-m-left-#{$i} {
-    //  left: calc(100% / #{$mobile_columns_count/$i});
-    //  padding-left: $grid-gutter/2;
-    //  padding-right: $grid-gutter/2;
-    //}
-    //.col-m-right-#{$i} {
-    //  right: calc(100% / #{$mobile_columns_count/$i});
-    //  padding-left: $grid-gutter/2;
-    //  padding-right: $grid-gutter/2;
-    //}
+    $col-width: calc(100% / #{$mobile_columns_count/$i} - #{$grid-gutter});
+    $width: calc((100% + #{$grid-gutter}) / #{$mobile_columns_count/$i} - #{$grid-gutter});
+    $padding: calc((100% + #{$grid-gutter}) / #{$mobile_columns_count/$i});
+    $negative-padding: calc((-100% - #{$grid-gutter}) / #{$i});
+    $gutter: $grid-gutter/2;
+
+    .col-m-#{$i} {
+      width: $col-width;
+      margin-left: $gutter;
+      margin-right: $gutter;
+    }
+    .col-m-offset-#{$i} {
+      margin-left: calc(100% / #{$mobile_columns_count/$i} + #{$gutter}) !important;
+    }
+    .indent-negative-m-#{$i} {
+      text-indent: $negative-padding;
+    }
   }
 }

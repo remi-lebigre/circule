@@ -16,9 +16,18 @@ class App {
   locomotive = null
   spy = null
   container = document
+  is_desktop = true
 
   mobileInit = _ => {
     console.debug('--- App mobile init')
+    this.is_desktop = false
+    this.startServices()
+    new Transitions({
+      callback: _ => {
+        this.locomotive.destroy()
+        this.startServices()
+      }
+    })
   }
 
   init = _ => {
@@ -38,7 +47,7 @@ class App {
     new HeaderDate()
     const router = new Router()
     if (router.isIndex()) {
-      setTimeout(_=>{
+      setTimeout(_ => {
         new Splitter({
           elements: document.querySelectorAll(".testimonials_default-content")
         }).split()
@@ -48,11 +57,13 @@ class App {
     } else if (router.isGallery()) {
       new Gallery()
     }
-    new CircleCanvas()
+    new CircleCanvas({desktop: this.is_desktop})
     new I({})
     new DebugGrid()
     new Darkmode()
-    this.spy.reload()
+    if (this.is_desktop) {
+      this.spy.reload()
+    }
     this.disablePageReloadOnSamePageLink()
   }
 
@@ -79,6 +90,13 @@ class App {
       this.locomotive = new LocomotiveScroll({
         el: this.container.querySelector('[data-scroll-container]'),
         smooth: true,
+        // reloadOnContextChange: true,
+        // smartphone: {
+        //   smooth: true
+        // },
+        // tablet: {
+        //   smooth: true
+        // }
         // getDirection: true
       })
       // this.locomotive.on('scroll', this.onScroll)

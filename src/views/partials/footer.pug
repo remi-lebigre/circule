@@ -1,7 +1,7 @@
 footer.container(data-scroll data-scroll-section)
   - const { footer: {title, link, name, img} } = htmlWebpackPlugin.options
   .row
-    .col-offset-8.col-4
+    .col-offset-8.col-4.col-m-offset-1.col-m-3
       a.next-project-link(href=`/${link}`)
         .next-project-link_content
           p.text-paragraph.text-color--white.text-aligned--center
@@ -22,7 +22,7 @@ footer.container(data-scroll data-scroll-section)
       p.text-h1(data-scroll)
         span.title-animation
           span.title-animation_content hello!
-    .col-1
+    .col-1.col-m-4
       nav.socials
         ul.socials_list
           li.socials_list_item

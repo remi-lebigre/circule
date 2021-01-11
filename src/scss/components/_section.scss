@@ -2,8 +2,13 @@ section {
   margin-bottom: 20em;
 }
 
-.section {
+@include query-mobile {
+  section {
+    margin-bottom: 5em;
+  }
+}
 
+.section {
   &--light-grey {
     background-color: var(--light-grey);
   }

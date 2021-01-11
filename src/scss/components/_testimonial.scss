@@ -17,41 +17,45 @@
   &_quote {
     display: none;
   }
+}
 
-  &--first {
-    left: calc(-50% - 12.5px);
-  }
+@include query-desktop {
+  .testimonial {
+    &--first {
+      left: calc(-50% - 12.5px);
+    }
 
-  &--last {
-    right: calc(-50% - 12.5px);
-  }
+    &--last {
+      right: calc(-50% - 12.5px);
+    }
 
-  &-0 {
-    margin-top: 12em;
-  }
+    &-0 {
+      margin-top: 12em;
+    }
 
-  &-1 {
-    margin-top: 20em;
-  }
+    &-1 {
+      margin-top: 20em;
+    }
 
-  &-2 {
-    margin-top: 0;
-  }
+    &-2 {
+      margin-top: 0;
+    }
 
-  &-3 {
-    margin-top: 22em;
-  }
+    &-3 {
+      margin-top: 22em;
+    }
 
-  &-4 {
-    margin-top: 6em;
-  }
+    &-4 {
+      margin-top: 6em;
+    }
 
-  &-5 {
-    margin-top: 12em;
-  }
+    &-5 {
+      margin-top: 12em;
+    }
 
-  &-6 {
-    margin-top: 6em;
+    &-6 {
+      margin-top: 6em;
+    }
   }
 }
 

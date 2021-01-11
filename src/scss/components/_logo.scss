@@ -4,3 +4,11 @@
   left: $grid-gutter*2;
   z-index: $z-index-cursor;
 }
+
+@include query-mobile {
+  .logo {
+    top: $grid-gutter;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
