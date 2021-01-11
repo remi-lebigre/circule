@@ -17,7 +17,7 @@ class Splitter {
           : canvasEl;
       const context = ghost.getContext("2d")
 
-      context.font = "normal 50px SuisseIntl"
+      context.font = "normal calc(2.5vw + 14px) SuisseIntl"
 
       for (let i = 0; i < words.length; i++) {
         curline.push(words[i])

@@ -38,9 +38,11 @@ class App {
     new HeaderDate()
     const router = new Router()
     if (router.isIndex()) {
-      new Splitter({
-        elements: document.querySelectorAll(".testimonials_default-content")
-      }).split()
+      setTimeout(_=>{
+        new Splitter({
+          elements: document.querySelectorAll(".testimonials_default-content")
+        }).split()
+      }, 1000)
       new Cards()
       new Testimonials()
     } else if (router.isGallery()) {
