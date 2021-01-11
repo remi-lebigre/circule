@@ -67,6 +67,9 @@ header {
         padding-left: .4em;
       }
     }
+    &.header_soon:before{
+      top: 100%;
+    }
   }
 
   &_soon {

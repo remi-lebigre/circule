@@ -6,6 +6,10 @@
   .text-color--pink {
     color: white !important;
   }
+
+  .img--light-grey {
+    background-color: var(--pink);
+  }
 }
 
 [darkmode] .circle-canvas--main {
