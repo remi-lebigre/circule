@@ -25,10 +25,16 @@
   .row {
     height: 100%;
 
-    .col-1, .col-3, .col-6 {
+    .col-1, .col-m-1, .col-3, .col-m-3, .col-6, .col-m-6 {
       height: 100%;
       background-color: rgb(243, 98, 92, .05);
     }
+  }
+}
+
+@include query-mobile {
+  .debug-grid {
+    width: calc(100% - #{$grid-gutter} * 2);
   }
 }
 
@@ -72,6 +78,16 @@ $mobile_columns_count: 4;
     $padding: calc((100% + #{$grid-gutter}) / #{$mobile_columns_count/$i});
     $negative-padding: calc((-100% - #{$grid-gutter}) / #{$i});
     $gutter: $grid-gutter/2;
+
+    .padding-left-m-#{$i} {
+      padding-left: $padding;
+    }
+    //.margin-left-#{$i} {
+    //  margin-left: $padding;
+    //}
+    //.width-#{$i} {
+    //  width: $width;
+    //}
 
     .col-m-#{$i} {
       width: $col-width;

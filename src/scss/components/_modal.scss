@@ -86,6 +86,19 @@
   }
 }
 
+@include query-mobile {
+  .modal {
+    &_content {
+      height: 66vh;
+    }
+
+    &_close {
+      top: 2em;
+      right: 2em;
+    }
+  }
+}
+
 [darkmode] {
   .modal_bg {
     background-color: $dark;

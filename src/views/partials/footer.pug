@@ -8,17 +8,20 @@ footer.container(data-scroll data-scroll-section)
             | Page suivante
           p.text-h4.text-color--white.text-aligned--center=title
   .row
-    .col-5
+    .col-5.col-m-3
       .separator
   .row
-    .col-3.mb-1
+    .col-3.mb-1.col-m-4
       p.text-h1.text-color--pink(data-scroll)
         span.title-animation
           span.title-animation_content Say
-    .col-2
+      p.text-h1(data-scroll).hidden
+        span.title-animation
+          span.title-animation_content hello!
+    .col-2.col-m-3
       p Pour nous connaître et nous rencontrer, pour nous parler ou parler de nous.
   .row
-    .col-4
+    .col-4.hidden-m
       p.text-h1(data-scroll)
         span.title-animation
           span.title-animation_content hello!
@@ -30,7 +33,7 @@ footer.container(data-scroll data-scroll-section)
           li.socials_list_item
             a.hover.text-paragraph(href="https://www.instagram.com/studio.circule/") Instagram
     //TODO: error when including mixin
-    .circle(data-scroll)
-  .row
+    .circle(data-scroll).hidden-m
+  .row.hidden-m
     .col-12
       p.text-aligned--right ©2020

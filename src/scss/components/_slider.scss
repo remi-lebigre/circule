@@ -1,0 +1,18 @@
+.slider {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 25px;
+  padding-right: 25px;
+  overflow: hidden;
+
+  &_wrap {
+    display: flex;
+    align-items: center;
+    transition: 1s $timing transform;
+  }
+}
+
+.slide {
+  position: relative;
+  flex: 1 0 auto;
+}

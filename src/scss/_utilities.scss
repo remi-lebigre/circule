@@ -45,3 +45,53 @@ $count: 40;
     }
   }
 }
+
+@include query-mobile {
+  @for $i from 1 through $count {
+    .mb-m-#{$i} {
+      margin-bottom: #{$i}em;
+    }
+    .mt-m-#{$i} {
+      margin-top: #{$i}em;
+    }
+    .mtn-m-#{$i} {
+      margin-top: -#{$i}em;
+    }
+    .mr-m-#{$i} {
+      margin-right: #{$i}em;
+    }
+    .ml-m-#{$i} {
+      margin-left: #{$i}em;
+    }
+    .pb-m-#{$i} {
+      padding-bottom: #{$i}em;
+    }
+    .pt-m-#{$i} {
+      padding-top: #{$i}em;
+    }
+    .pr-m-#{$i} {
+      padding-right: #{$i}em;
+    }
+    .pl-m-#{$i} {
+      padding-left: #{$i}em;
+    }
+    .prc-m-#{$i} {
+      padding-right: #{$grid-gutter*$i};
+    }
+    .plc-m-#{$i} {
+      padding-left: #{$grid-gutter*$i};
+    }
+  }
+}
+
+@include query-desktop {
+  .hidden {
+    display: none !important;
+  }
+}
+
+@include query-mobile {
+  .hidden-m {
+    display: none !important;
+  }
+}

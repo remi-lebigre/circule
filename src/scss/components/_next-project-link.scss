@@ -9,6 +9,13 @@
   align-items: center;
 }
 
+@include query-mobile {
+  .next-project-link {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
 [darkmode] .next-project-link_content p {
   color: $dark;
 }

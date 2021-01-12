@@ -6,18 +6,20 @@ include views/components/circle
 
 block content
   - const { testimonials } = htmlWebpackPlugin.options
-  section.section--main.section--full-height.container(data-scroll  data-scroll-section)
+  section.section--main.section--full-height.container.pt-m-5(data-scroll  data-scroll-section)
+    .row
+      +circle.col-m-offset-3.circle--delayed.hidden
     h1.section_header(data-scroll data-scroll-speed="1" data-scroll-delay="0.05")
       span.title-animation
         span.title-animation_content studio
       br
-      span.title-animation.padding-left-2
+      span.title-animation.padding-left-2.padding-left-m-1
         span.title-animation_content.text-color--pink
           span.text-italic .
           | circule
-    +img(require("./assets/images/home/home-intro.jpg")).margin-left-4.width-4.section_img
+    +img(require("./assets/images/home/home-intro.jpg")).margin-left-4.width-4.section_img.z-1
     .row.section_content-attached-bottom
-      +circle.col-offset-9.circle--delayed.col-m-1
+      +circle.col-offset-9.circle--delayed.hidden-m
       .col-offset-9.col-3.col-m-offset-1.col-m-3
         .separator
         p.indent-negative-3.indent-negative-m-3.fade-in Bonjour et bienvenue chez Studio Circule. Avec des outils comme le coaching, le magnétisme et les soins énergétiques, nous vous accompagnons dans votre vie et vos projets.
@@ -46,7 +48,7 @@ block content
       .col-2.col-m-offset-1.col-m-3
         p J’étais plutôt douée partout et surtout j’aimais tout faire en même temps.
           | C’est aussi ce que j’ai ressenti après 10 ans d’études d’art et de design lorsque je suis arrivée sur le marché du travail en France. Être salariée à temps-plein était très rassurant mais m’enfermait dans une seule définition de « Carole ».
-      +circle.col-offset-1
+      +circle.col-offset-1.hidden-m
 
   section.container(data-scroll data-scroll-section)
     .row
@@ -57,10 +59,10 @@ block content
         .separator
       .col-offset-1.col-4.col-m-4
         +img(require("./assets/images/home/home-about.jpg"))
-      .col-2.col-m-offset-1.col-m-3
+      .col-2.col-m-offset-1.col-m-3.mt-m-5
         p Cela m’a inspirée pour t’accompagner de différentes façons ; que ce soit par l’échange oral, par des séances de soins énergétiques ou encore des séances d’exercices.
     .row
-      +circle.col-1
+      +circle.col-1.hidden-m
       .col-offset-7.col-2.col-m-offset-1.col-m-3
         p Ainsi, j’ai trouvé mon métier et ma façon d’être épanouie pour exprimer toute ma créativité.
 
@@ -68,8 +70,8 @@ block content
     +img(require("./assets/images/home/home-plantes.jpg")).mb-8
     .container
       .row
-        +circle.col-1
-        .col-offset-5.col-2.col-m-3
+        +circle.col-1.hidden-m
+        .col-offset-5.col-2.col-m-3.mt-m-3.mb-m-3
           p.text-lead Je suis là pour faire un bout de route avec toi pour ajuster ce qui a besoin de l’être.
         .col-2.col-m-offset-1.col-m-3
           p Pour rétablir un équilibre, à l’intérieur et à l’extérieur de toi, ou juste pour te faire du bien. Que ce soit toi, ton intérieur, ta garde-robe, ou encore tes projets, je suis là pour t’aider à retrouver une forme d’harmonie pour bien vivre et atteindre tes objectifs.
@@ -81,7 +83,7 @@ block content
 
   section.container(data-scroll data-scroll-section)
     .row
-      .col-offset-1.col-5
+      .col-offset-1.col-5.col-m-4
         h2(data-scroll data-scroll-offset="20%")
           span.title-animation
             span.title-animation_content Ethique
@@ -104,16 +106,16 @@ block content
           li
             p Attention, mes pratiques et accompagnements ne se substituent nullement à la médecine allopathique, mais agissent en complément. Je ne délivre pas de diagnostic ni n’interfère avec un traitement médical, ce n’est pas mon métier.
               | Consulte en priorité un médecin adapté à ta pathologie.
-      +circle.col-offset-4.col-1
+      +circle.col-offset-4.col-1.hidden-m
 
   section.container(data-scroll data-scroll-section)
     .row
-      +circle.col-offset-1.aligned-bottom
-      .col-offset-4.col-5.col-m-offset-1.col-m-3
+      +circle.col-offset-1.aligned-bottom.hidden-m
+      .col-offset-4.col-5.col-m-4
         h2(data-scroll data-scroll-offset="20%")
           span.title-animation
             span.title-animation_content Diplômes & qualifications
-        ul.list
+        ul.list.col-m-offset-1
           li
             p Maitre Praticienne Reiki Usui (Niveau III) de l’école de Reiki de Gauthier Papp, Paris
           li
@@ -131,7 +133,7 @@ block content
         .row
           .col-offset-2.col-1
             span.testimonials_quote-icon.quote-icon.text-callout.text-color--pink “
-          .col-7
+          .col-7.col-m-4
             p.text-callout.testimonials_default-content(data-scroll data-scroll-offset="20%") Ils ont testé la méthode .Circule pour des soins énergétiques ou des séances de coaching et vous racontent.
             p.text-callout.testimonials_quote
         .row
@@ -143,16 +145,16 @@ block content
       .row
         .col-2.col-m-2
           +home-testimonial(testimonials[0]).testimonial-0.testimonial--first(data-scroll-speed="1" data-scroll-delay="0.03")
-        .col-offset-1.col-2.col-m-2
+        .col-offset-1.col-2.col-m-2.mt-m-2
           +home-testimonial(testimonials[1]).testimonial-1(data-scroll-speed="1.2" data-scroll-delay="0.05")
         .col-offset-2.col-2.col-m-2
           +home-testimonial(testimonials[2]).testimonial-2(data-scroll-speed=".9" data-scroll-delay="0.03")
-        .col-offset-1.col-2.col-m-2
+        .col-offset-1.col-2.col-m-2.mt-m-2
           +home-testimonial(testimonials[3]).testimonial-3.testimonial--last(data-scroll-speed="1" data-scroll-delay="0.05")
       .row.pb-30
         .col-offset-1.col-2.col-m-2
           +home-testimonial(testimonials[4]).testimonial-4(data-scroll-speed=".9" data-scroll-delay="0.05")
-        .col-offset-2.col-2.col-m-2
+        .col-offset-2.col-2.col-m-2.mt-m-2
           +home-testimonial(testimonials[5]).testimonial-5(data-scroll-speed="1" data-scroll-delay="0.05")
         .col-offset-2.col-2.col-m-2
           +home-testimonial(testimonials[6]).testimonial-6(data-scroll-speed="1.2" data-scroll-delay="0.03")
@@ -170,17 +172,61 @@ block content
             span.title-animation.col-5.pointer-events-none.col-m-3
               span.title-animation_content.pointer-events-none roleca
       .row
-        .col-5
+        .col-5.col-m-3.col-m-offset-1
           .separator
       .row
-        +circle
-        .col-offset-2.col-2.col-m-4
+        +circle.hidden-m
+        .col-offset-2.col-2.col-m-3.col-m-offset-1
           p Clique sur les cartes défilantes et découvre le message qu’elles ont à te délivrer.
             | Des decks sont disponibles sur notre e-shop. Amour, Attraction, Protection et Relaxation, ces 4 jeux t’accompagnent comme un oracle pouvant t’apporter des guidances quotidiennes.
             | Chaque jeu contient 21 cartes pour te rappeler qu’une bonne habitude et un changement peuvent s’opérer en seulement 21 jours.
             | Pour en savoir plus, contacte-nous !
+    .container.hidden.slider
+      .row.slider_wrap
+        .slide.col-m-2.col-m-offset-1
+          +card
+        .slide.col-m-2
+          +card
+        .slide.col-m-2
+          +card
+        .slide.col-m-2
+          +card
+        .slide.col-m-2
+          +card
+        .slide.col-m-2
+          +card
+        .slide.col-m-2
+          +card
+        .slide.col-m-2
+          +card
+        .slide.col-m-2
+          +card
+        .slide.col-m-2
+          +card
+        .slide.col-m-2
+          +card
+        .slide.col-m-2
+          +card
+        .slide.col-m-2
+          +card
+        .slide.col-m-2
+          +card
+        .slide.col-m-2
+          +card
+        .slide.col-m-2
+          +card
+        .slide.col-m-2
+          +card
+        .slide.col-m-2
+          +card
+        .slide.col-m-2
+          +card
+        .slide.col-m-2
+          +card
+        .slide.col-m-2
+          +card
     .container
-      .cards
+      .cards.hidden-m
         .row
           .col-offset-6.col-2(data-scroll data-scroll-speed="1" data-scroll-delay="0.05")
             +card

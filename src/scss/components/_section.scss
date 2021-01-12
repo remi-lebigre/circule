@@ -8,56 +8,58 @@ section {
   }
 }
 
-.section {
-  &--light-grey {
-    background-color: var(--light-grey);
-  }
+@include query-desktop {
+  .section {
+    &--light-grey {
+      background-color: var(--light-grey);
+    }
 
-  &--pink {
-    background-color: var(--pink);
-  }
+    &--pink {
+      background-color: var(--pink);
+    }
 
-  &--full-height {
-    height: 100vh;
-  }
+    &--full-height {
+      height: 100vh;
+    }
 
-  &--main {
-    .section {
-      &_header {
-        margin-top: 0;
-        padding-top: 22%;
-      }
+    &--main {
+      .section {
+        &_header {
+          margin-top: 0;
+          padding-top: 22%;
+        }
 
-      &_img {
-        position: absolute;
-        z-index: -1;
-        top: 7em;
-      }
+        &_img {
+          position: absolute;
+          z-index: -1;
+          top: 7em;
+        }
 
-      &_content-attached-bottom {
-        position: absolute;
-        bottom: $container-margin-y;
-        right: 0;
-        width: calc(100% + #{$grid-gutter});
+        &_content-attached-bottom {
+          position: absolute;
+          bottom: $container-margin-y;
+          right: 0;
+          width: calc(100% + #{$grid-gutter});
+        }
       }
     }
-  }
 
-  &--about {
-    .section {
-      &_header {
-        padding-top: 20%;
+    &--about {
+      .section {
+        &_header {
+          padding-top: 20%;
+        }
       }
     }
-  }
 
-  &--cards {
-    .section {
-      &_content {
-        pointer-events: none;
+    &--cards {
+      .section {
+        &_content {
+          pointer-events: none;
 
-        span, p, .circle {
-          pointer-events: auto;
+          span, p, .circle {
+            pointer-events: auto;
+          }
         }
       }
     }

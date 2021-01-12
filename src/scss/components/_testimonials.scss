@@ -65,6 +65,14 @@
   }
 }
 
+@include query-mobile {
+  .testimonials {
+    &_header {
+      height: auto;
+    }
+  }
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;

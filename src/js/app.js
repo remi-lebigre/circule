@@ -11,6 +11,7 @@ import Spy from "./spy"
 import Splitter from "./splitter"
 import Transitions from "./transitions";
 import Gallery from "./gallery";
+import Swipe from "./swipe";
 
 class App {
   locomotive = null
@@ -22,10 +23,12 @@ class App {
     console.debug('--- App mobile init')
     this.is_desktop = false
     this.startServices()
+    new Swipe()
     new Transitions({
       callback: _ => {
         this.locomotive.destroy()
         this.startServices()
+        new Swipe()
       }
     })
   }

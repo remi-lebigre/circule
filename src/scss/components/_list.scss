@@ -11,3 +11,13 @@ ul.list {
     padding-bottom: 2em;
   }
 }
+
+@include query-mobile {
+  ul.list {
+    margin-top: 1em;
+    li {
+      padding-top: 1.5em;
+      padding-bottom: 1.5em;
+    }
+  }
+}
