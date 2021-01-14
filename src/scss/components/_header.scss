@@ -8,6 +8,10 @@ header {
 }
 
 .header {
+  &--mobile-opened {
+    z-index: 1001;
+  }
+
   &_wrap {
     display: flex;
     justify-content: space-between;
@@ -103,10 +107,5 @@ header {
 @include query-mobile {
   header {
     padding-top: $grid-gutter;
-  }
-  .header {
-    &_wrap, &_side {
-      display: none;
-    }
   }
 }

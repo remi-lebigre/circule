@@ -11,7 +11,8 @@ import Spy from "./spy"
 import Splitter from "./splitter"
 import Transitions from "./transitions";
 import Gallery from "./gallery";
-import Swipe from "./swipe";
+import Slider from "./slider";
+import MenuMobile from "./menu_mobile";
 
 class App {
   locomotive = null
@@ -22,20 +23,11 @@ class App {
   mobileInit = _ => {
     console.debug('--- App mobile init')
     this.is_desktop = false
-    this.startServices()
-    new Swipe()
-    new Transitions({
-      callback: _ => {
-        this.locomotive.destroy()
-        this.startServices()
-        new Swipe()
-      }
-    })
+    this.init()
   }
 
   init = _ => {
-    console.debug('--- App desktop init')
-    this.spy = new Spy()
+    console.debug('--- App init')
     this.startServices()
     new Transitions({
       callback: _ => {
@@ -57,6 +49,7 @@ class App {
       }, 1000)
       new Cards()
       new Testimonials()
+      new Slider()
     } else if (router.isGallery()) {
       new Gallery()
     }
@@ -65,7 +58,15 @@ class App {
     new DebugGrid()
     new Darkmode()
     if (this.is_desktop) {
-      this.spy.reload()
+      if (this.spy) {
+        this.spy.reload()
+      } else {
+        this.spy = new Spy()
+      }
+    } else {
+      setTimeout(_ => {
+        new MenuMobile()
+      })
     }
     this.disablePageReloadOnSamePageLink()
   }

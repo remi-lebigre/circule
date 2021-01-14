@@ -1,5 +1,5 @@
-header.fade-in
-  .container.header_wrap
+header.header.fade-in
+  .container.header_wrap.hidden-m
     .header_left
     .header_center
       p.text-link Paris
@@ -18,9 +18,17 @@ header.fade-in
             a.hover.text-link(href="#") Shop
           li.header_nav_item
             button.darkmode_cta
-  .header_side.header_soon
+  .header_side.header_soon.hidden-m
     .header_side_wrap
       a.header_side_content.text-link(href="#")
         span booking booking booking
         span.header_side_content_last booking booking booking
+  .container.hidden
+    .header_mobile.row
+      .col-m-1
+        .header_mobile_burger
+      .col-m-2
+        a.header_mobile_home-link.text-link(href="/") .CIRCULE
+      .col-m-1
+        button.darkmode_cta
 

@@ -2,7 +2,7 @@
   display: none;
 
   &-cta {
-    z-index: 9999;
+    z-index: $z-index-cursor -1;
     position: fixed;
     top: 0;
     left: 0;

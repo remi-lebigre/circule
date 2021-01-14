@@ -1,5 +1,6 @@
 import barba from "@barba/core";
 import barbaPrefetch from "@barba/prefetch";
+import MenuMobile from "./menu_mobile";
 
 class Transitions {
   PANEL_CLASS = '.transition-panel'
@@ -49,6 +50,10 @@ class Transitions {
 
   beforeLeave = ({current: {container}}) => new Promise(resolve => {
     container.classList.add(this.IN_TRANSITION_CLASS)
+    const menu = document.querySelector('.menu-mobile--opened')
+    if (menu) {
+      new MenuMobile().close()
+    }
     resolve()
   })
 

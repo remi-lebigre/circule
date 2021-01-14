@@ -22,3 +22,9 @@
     background-image: url('/src/assets/images/_items/cursor-clic.png')
   }
 }
+
+@include query-mobile {
+  .spy {
+    display: none;
+  }
+}

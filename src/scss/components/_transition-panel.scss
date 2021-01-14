@@ -17,3 +17,9 @@
 .in-transition {
   pointer-events: none !important;
 }
+
+@include query-mobile {
+  .transition-panel {
+    z-index: $z-index-cursor +2;
+  }
+}

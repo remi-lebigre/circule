@@ -3,13 +3,13 @@ import Cookies from "./cookies"
 class Darkmode {
   DARKMODE_COOKIE = 'darkmode_cookie_circule'
   body = document.querySelector('body')
-  cta = document.querySelector('.darkmode_cta')
+  ctas = document.querySelectorAll('.darkmode_cta')
   cookie = new Cookies()
 
   constructor () {
     console.debug('New darkmode')
 
-    this.cta.addEventListener('click', this.toggle)
+    this.ctas.forEach(cta => cta.addEventListener('click', this.toggle))
     const darkmode_enabled = this.cookie.get(this.DARKMODE_COOKIE)
     !darkmode_enabled ? this.unset() : this.set()
   }

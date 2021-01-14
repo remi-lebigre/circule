@@ -7,8 +7,6 @@
 
 @include query-mobile {
   .logo {
-    top: $grid-gutter;
-    left: 50%;
-    transform: translateX(-50%);
+    display: none;
   }
 }

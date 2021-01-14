@@ -1,4 +1,4 @@
-class Swipe {
+class Slider {
   slider = null
   slides = []
   start = 0
@@ -53,4 +53,4 @@ class Swipe {
   }
 }
 
-export default Swipe
+export default Slider
