@@ -16,7 +16,7 @@
 
   &, &_content {
     display: inline-block;
-    transition-property: translate;
+    transition-property: transform;
     transition-duration: 1s;
     transition-timing-function: $timing;
   }
