@@ -16,7 +16,7 @@ import {
 import BezierEasing from 'bezier-easing'
 
 class CircleCanvas {
-  height = window.innerHeight
+  height = window.screen.height
   width = window.innerWidth
   initial_radius = 0
   radius = 0
