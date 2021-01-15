@@ -136,6 +136,11 @@ a {
   }
 }
 
+.text-disabled {
+  text-decoration: line-through;
+  opacity: .5;
+}
+
 @include query-mobile {
   .text-lead {
     font-size: 16px;

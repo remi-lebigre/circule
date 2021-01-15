@@ -14,13 +14,23 @@ include ../components/circle
             li.menu-mobile_nav_item
               a.text-link.text-color--white(href="/inspiration.html") Inspiration
             li.menu-mobile_nav_item.header_soon
-              a.text-link.text-color--white(href="#") Shop
+              a.text-link.text-color--white.text-disabled(href="#") Shop
             li.menu-mobile_nav_item
               .menu-mobile_scroll
                 .menu-mobile_scroll_wrap
                   a.menu-mobile_scroll_content.text-link.text-color--white(href="#")
-                    span booking booking booking
-                    span.menu-mobile_scroll_last booking booking booking
+                    span
+                      span.text-disabled booking
+                      |  
+                      span.text-disabled booking
+                      |  
+                      span.text-disabled booking
+                    span.menu-mobile_scroll_last
+                      span.text-disabled booking
+                      |  
+                      span.text-disabled booking
+                      |  
+                      span.text-disabled booking
     .container
       .menu-mobile_footer
         p.text-link.text-color--white Paris
