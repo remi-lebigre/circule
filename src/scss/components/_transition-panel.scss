@@ -20,6 +20,12 @@
 
 @include query-mobile {
   .transition-panel {
-    z-index: $z-index-cursor +2;
+    opacity: 0;
+    z-index: $z-index-cursor + 2;
+  }
+  .in-transition {
+    .transition-panel {
+      opacity: 1;
+    }
   }
 }
