@@ -36,3 +36,9 @@
     }
   }
 }
+
+@include query-mobile {
+  .post_header {
+    margin-top: 1em;
+  }
+}

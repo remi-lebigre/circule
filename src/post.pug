@@ -5,11 +5,13 @@ include views/components/img
 block content
   - const { title, date, rich_content, header, cover: {url} } = htmlWebpackPlugin.options
   section.post.container.post(data-scroll data-scroll-section)
+    .row.hidden.mt-m-5.mb-m-5
+      +circle.circle--delayed.col-m-offset-1
     .row
       .col-12
         a.post_back-link.fade-in(href="/inspiration.html") Retour
     .row
-      +circle.circle--delayed
+      +circle.circle--delayed.hidden-m
       .col-offset-3.col-6.col-m-4
         h1.post_header.text-callout(data-scroll)
           span.title-animation
@@ -18,11 +20,11 @@ block content
       .col-offset-4.col-8.col-m-4
         p.post_date.fade-in=date
     .row
-      .col-2.col-m-4
+      .col-2.col-m-offset-1.col-m-3.mt-m-3
         if header
-          p.mt-5.fade-in=header
+          p.mt-5.fade-in.indent-negative-m-3=header
       .post_content.col-offset-2.col-8.col-m-4
-        .separator.separator--big
+        .separator.separator--big.col-m-offset-1.col-m-3
         if url
           +img(url).img--width-auto
         p=rich_content

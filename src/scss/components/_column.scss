@@ -35,6 +35,11 @@
 @include query-mobile {
   .debug-grid {
     width: calc(100% - #{$grid-gutter} * 2);
+
+    &-cta {
+      width: 2em;
+      height: 2em;
+    }
   }
 }
 
