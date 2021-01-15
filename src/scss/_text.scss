@@ -80,6 +80,14 @@ p, .text-paragraph {
   letter-spacing: 0.17px;
 }
 
+.text-paragraph-link {
+  font-family: EBGaramond, "sans-serif";
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  text-decoration: underline;
+}
+
 a {
   color: var(--dark);
 
