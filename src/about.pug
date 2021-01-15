@@ -4,17 +4,28 @@ include views/components/circle
 
 block content
   section.container.section--about(data-scroll data-scroll-section)
-    .row
+    .row.hidden.mt-m-8
+      +circle.col-m-offset-1
+    .row.mt-m-5
       .col-6.col-m-4
         h1.section_header(data-scroll)
           span.title-animation
             span.title-animation_content À propos
-      +circle.col-1.aligned-bottom.circle--delayed
+    .row.hidden.section_header
+      .col-m-offset-1.col-m-1
+        p.text-h1(data-scroll)
+          span.title-animation
+            span.title-animation_content de
+      .col-m-2
+        p.text-h1.text-color--pink.text-aligned-m--right(data-scroll)
+          span.title-animation
+            span.title-animation_content moi
+      +circle.aligned-bottom.circle--delayed.hidden-m
     .row.mt-3
-      .col-6.col-m-4
+      .col-6.col-m-4.section_img
         +img(require("./assets/images/about/about-intro.jpg"))
       .col-6.col-m-4
-        .row
+        .row.hidden-m
           .col-6.col-m-1
             p.text-h1(data-scroll)
               span.title-animation
@@ -26,19 +37,19 @@ block content
         .row
           .col-6.col-m-3
             .separator.separator--big
-            p.text-lead.mb-5.fade-in Studio Circule est un cabinet proposant plusieurs accompagnements : des soins énergétiques à distance pratiqués par magnétisme et radiesthésie.
+            p.text-lead.mb-5.mb-m-3.fade-in Studio Circule est un cabinet proposant plusieurs accompagnements&nbsp;: des soins énergétiques à distance pratiqués par magnétisme et radiesthésie.
         .row
           .col-12.col-m-4
             .row
               .col-4.col-m-offset-1.col-m-3
-                p Des séances de coaching à distance ou en présentiel.
+                p.mb-m-1 Des séances de coaching à distance ou en présentiel.
                   br
                   | Il résulte d’une méthode mise en place au gré de formations, d’expériences et de résultats personnels. Il a pour missions de t’accompagner, te guider, te transmettre et te proposer des exercices pour réaliser tes objectifs et te faire évoluer sereinement dans ta vie et tes projets.
               .col-offset-4.col-4.col-m-offset-1.col-m-3
-                p.mb-4 Pour les soins énergétiques, j’interviens sur toi, ton espace vital et les situations ou blocages sur lesquels tu as envie de travailler.
+                p.mb-4.mb-m-1 Pour les soins énergétiques, j’interviens sur toi, ton espace vital et les situations ou blocages sur lesquels tu as envie de travailler.
                   br
                   | Pour le coaching, je t’accompagne dans la structuration de projets professionnels ou personnels, dans ton organisation quotidienne, dans la création ou l’ajustement de ta garde-robe et dans l’harmonisation et la mise en beauté de ton intérieur.
-                p.mb-2 En complément, tu trouveras une section éditoriale où je partage de façon aussi spontanée que personnelle ; des lectures, des coups de coeurs, des réflexions, des interviews et quelques tips pour le quotidien.
+                p.mb-2.mb-m-1 En complément, tu trouveras une section éditoriale où je partage de façon aussi spontanée que personnelle ; des lectures, des coups de coeurs, des réflexions, des interviews et quelques tips pour le quotidien.
                 p Enfin, pour toi et juste pour toi, à disposition de jour comme de nuits, tu trouveras deux outils : un tirage de carte sur la section “l’oracle de Roleca” et une bulle de respiration en cohérence cardiaque sur mon rythme préféré ; le 5-7. Pose ta souris sur le rond jaune&nbsp;!
 
 

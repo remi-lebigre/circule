@@ -19,5 +19,10 @@
 .is-inview {
   .separator {
     transform: scaleX(1);
+
+    &--big{
+      margin-top: $container-margin-y;
+      margin-bottom: $container-margin-y;
+    }
   }
 }

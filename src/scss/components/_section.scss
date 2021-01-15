@@ -68,17 +68,13 @@ section {
 
 @include query-mobile {
   .section {
-    &--main {
-      .section {
-        &_header {
-          z-index: 2;
-          position: relative;
-        }
+    &_header {
+      z-index: 2;
+      position: relative;
+    }
 
-        &_img {
-          margin-top: -1.5em;
-        }
-      }
+    &_img {
+      margin-top: -1.5em;
     }
   }
 }
