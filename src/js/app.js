@@ -13,6 +13,7 @@ import Transitions from "./transitions";
 import Gallery from "./gallery";
 import Slider from "./slider";
 import MenuMobile from "./menu_mobile";
+import DateFormatter from "./date";
 
 class App {
   locomotive = null
@@ -54,8 +55,13 @@ class App {
       if (this.is_desktop) {
         new Testimonials()
       }
-    } else if (router.isGallery()) {
+    } else if (router.isTemoignages()) {
       new Gallery()
+    } else if (router.isPost()) {
+      new DateFormatter({elements: document.querySelectorAll('.post_date')})
+    } else if (router.isInspiration()) {
+      new Gallery()
+      new DateFormatter({elements: document.querySelectorAll('.figure_date')})
     }
     new CircleCanvas({desktop: this.is_desktop})
     new I({})

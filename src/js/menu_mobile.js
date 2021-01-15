@@ -7,7 +7,6 @@ class MenuMobile {
     this.menu = document.querySelector('.menu-mobile')
     this.open_cta = document.querySelector('.header_mobile_burger')
 
-    console.log('this.open_cta', this.open_cta)
     this.open_cta.addEventListener('click', this.toggle)
   }
 
