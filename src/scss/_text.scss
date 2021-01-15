@@ -127,3 +127,18 @@ a {
     text-align: center;
   }
 }
+
+@include query-mobile {
+  .text-lead {
+    font-size: 16px;
+  }
+  .text-aligned-m {
+    &--right {
+      text-align: right;
+    }
+
+    &--center {
+      text-align: center;
+    }
+  }
+}

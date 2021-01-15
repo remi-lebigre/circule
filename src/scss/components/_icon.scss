@@ -50,3 +50,19 @@
     transform: rotate(10deg);
   }
 }
+
+@include query-mobile {
+  .icon {
+    &--flag-it {
+      position: absolute;
+      top: 7%;
+      left: 34%;
+    }
+
+    &--flag-po {
+      position: absolute;
+      left: 48%;
+      top: 3%;
+    }
+  }
+}

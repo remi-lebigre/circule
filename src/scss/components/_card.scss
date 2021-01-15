@@ -3,3 +3,9 @@
   transition: .3s ease-in-out filter, .5s ease-in-out transform;
   border-radius: 7px;
 }
+
+@include query-mobile {
+  .card {
+    margin-bottom: 0;
+  }
+}

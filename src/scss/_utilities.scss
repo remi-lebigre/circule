@@ -9,7 +9,7 @@
 $count: 40;
 
 @include query-desktop {
-  @for $i from 1 through $count {
+  @for $i from 0 through $count {
     .mb-#{$i} {
       margin-bottom: #{$i}em;
     }
@@ -47,7 +47,7 @@ $count: 40;
 }
 
 @include query-mobile {
-  @for $i from 1 through $count {
+  @for $i from 0 through $count {
     .mb-m-#{$i} {
       margin-bottom: #{$i}em;
     }

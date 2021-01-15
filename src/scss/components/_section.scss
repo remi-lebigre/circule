@@ -4,7 +4,7 @@ section {
 
 @include query-mobile {
   section {
-    margin-bottom: 5em;
+    margin-bottom: 3em;
   }
 }
 
@@ -60,6 +60,23 @@ section {
           span, p, .circle {
             pointer-events: auto;
           }
+        }
+      }
+    }
+  }
+}
+
+@include query-mobile {
+  .section {
+    &--main {
+      .section {
+        &_header {
+          z-index: 2;
+          position: relative;
+        }
+
+        &_img {
+          margin-top: -1.5em;
         }
       }
     }

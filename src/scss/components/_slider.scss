@@ -1,8 +1,7 @@
 .slider {
-  margin-left: 0;
-  margin-right: 0;
-  padding-left: 25px;
-  padding-right: 25px;
+  margin: 3em 0 6em;
+  padding-left: $grid-gutter;
+  padding-right: $grid-gutter;
   overflow: hidden;
 
   &_wrap {

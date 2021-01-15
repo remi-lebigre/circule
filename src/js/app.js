@@ -43,20 +43,22 @@ class App {
     const router = new Router()
     if (router.isIndex()) {
       setTimeout(_ => {
+        const testimonial_content = document.querySelectorAll(".testimonials_default-content")
         new Splitter({
-          elements: document.querySelectorAll(".testimonials_default-content")
+          elements: testimonial_content
         }).split()
+        new I({elements: testimonial_content})
       }, 1000)
       new Cards()
-      new Testimonials()
       new Slider()
+      if (this.is_desktop) {
+        new Testimonials()
+      }
     } else if (router.isGallery()) {
       new Gallery()
     }
     new CircleCanvas({desktop: this.is_desktop})
     new I({})
-    new DebugGrid()
-    new Darkmode()
     if (this.is_desktop) {
       if (this.spy) {
         this.spy.reload()
@@ -68,7 +70,11 @@ class App {
         new MenuMobile()
       })
     }
+
+    // non critical load
     this.disablePageReloadOnSamePageLink()
+    new DebugGrid()
+    new Darkmode()
   }
 
   initScrollonImageLoad = _ => {
