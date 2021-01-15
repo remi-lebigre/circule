@@ -4,18 +4,23 @@ include views/components/post
 block content
   - const { posts } = htmlWebpackPlugin.options
   section.container.gallery(data-scroll data-scroll-section)
+    .row.hidden.mt-m-8
+      +circle.col-m-offset-1.circle--delayed
     .row
       .col-offset-4.col-8.col-m-4
         h1.section_header(data-scroll)
           span.title-animation
             span.title-animation_content Inspiration
+    .row.hidden
+      .col-m-4
+        .separator
     .row
-      .col-2.col-m-4
-        p.mt-5.fade-in Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet animi architecto aut delectus deleniti dolor, enim error facere, fugiat fugit in incidunt laudantium magni numquam pariatur quaerat sapiente ullam voluptates!
+      .col-2.col-m-3.col-m-offset-1.mb-m-2
+        p.mt-5.fade-in.indent-negative-m-3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet animi architecto aut delectus deleniti dolor, enim error facere, fugiat fugit in incidunt laudantium magni numquam pariatur quaerat sapiente ullam voluptates!
       .col-offset-2.col-8
         .separator.separator--big
     .row
-      .col-offset-4.col-1.circle
+      +circle.col-offset-4.col-1.circle--delayed.hidden-m
     each t,i in posts
       if i % 9 === 0
         .row

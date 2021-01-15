@@ -23,3 +23,9 @@
     transform: scale(#{$img-hover-zoom});
   }
 }
+
+@include query-mobile {
+  .figure {
+    margin-bottom: 2em;
+  }
+}
