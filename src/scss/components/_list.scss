@@ -1,7 +1,10 @@
 ul.list {
   margin-top: 2em;
 
-  li {
+  .list_item {
+    opacity: 0;
+    transform: translateX(-10px);
+
     &:first-child {
       border-top: solid 1px var(--dark);
     }
@@ -9,13 +12,20 @@ ul.list {
     border-bottom: solid 1px var(--dark);
     padding-top: 2em;
     padding-bottom: 2em;
+
+    &.is-inview {
+      opacity: 1;
+      transform: translateX(0);
+      transition: opacity 1s, transform 1s $timing;
+    }
   }
 }
 
 @include query-mobile {
   ul.list {
     margin-top: 1em;
-    li {
+
+    .list_item {
       padding-top: 1.5em;
       padding-bottom: 1.5em;
     }

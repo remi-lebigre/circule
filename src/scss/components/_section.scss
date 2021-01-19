@@ -33,6 +33,7 @@ section {
           position: absolute;
           z-index: -1;
           top: 7em;
+          height: calc(100vh - 7em - #{$grid-gutter*2});
         }
 
         &_content-attached-bottom {

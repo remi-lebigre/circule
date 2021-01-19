@@ -4,15 +4,17 @@ include views/components/img
 
 block content
   - const { title, date, rich_content, header, cover: {url} } = htmlWebpackPlugin.options
+  - let showdown  = require('showdown')
+  - let converter = new showdown.Converter()
+  - const html_content = converter.makeHtml(rich_content)
   section.post.container.post(data-scroll data-scroll-section)
     .row.hidden.mt-m-5.mb-m-5
       +circle.circle--delayed.col-m-offset-1
     .row
-      .col-12
-        a.post_back-link.fade-in(href="/inspiration.html") Retour
-    .row
-      +circle.circle--delayed.hidden-m
-      .col-offset-3.col-6.col-m-4
+      .col-1.col-m-4
+        a.post_back-link.fade-in.mb-3(href="/inspiration.html") Retour
+        +circle.circle--delayed.circle--in-col.hidden-m
+      .col-offset-3.col-7.col-m-4
         h1.post_header.text-callout(data-scroll)
           span.title-animation
             span.title-animation_content=title
@@ -27,4 +29,5 @@ block content
         .separator.separator--big.col-m-offset-1.col-m-3
         if url
           +img(url).img--width-auto
-        p=rich_content
+        .rich-content
+          !=html_content

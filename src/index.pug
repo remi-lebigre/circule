@@ -53,7 +53,7 @@ block content
       +circle.col-offset-1.hidden-m
 
   section.container(data-scroll data-scroll-section)
-    .row
+    .row.flex
       .col-3.col-m-3
         p.text-lead J’avais l’impression de ne pas être entière ni vraiment à ma place.
           br
@@ -61,12 +61,11 @@ block content
         .separator
       .col-offset-1.col-4.col-m-4
         +img(require("./assets/images/home/home-about.jpg"))
-      .col-2.col-m-offset-1.col-m-3.mt-m-3
+      .col-2.col-m-offset-1.col-m-3.mt-m-3.flex.f-spb
         p Cela m’a inspirée pour t’accompagner de différentes façons&nbsp;; que ce soit par l’échange oral, par des séances de soins énergétiques ou encore des séances d’exercices.
+        p Ainsi, j’ai trouvé mon métier et ma façon d’être épanouie pour exprimer toute ma créativité.
     .row
       +circle.col-1.hidden-m
-      .col-offset-7.col-2.col-m-offset-1.col-m-3.mt-m-1
-        p Ainsi, j’ai trouvé mon métier et ma façon d’être épanouie pour exprimer toute ma créativité.
 
   section(data-scroll data-scroll-section)
     +img(require("./assets/images/home/home-plantes.jpg")).mb-8
@@ -95,21 +94,21 @@ block content
     .row
       .col-offset-1.col-5.col-m-offset-1.col-m-3
         ul.list
-          li
+          li.list_item(data-scroll data-scroll-offset="20%")
             p J’envoie mes certifications sur demande.
-          li
+          li.list_item(data-scroll data-scroll-offset="20%")
             p
               a.text-paragraph-link(href="#") Jean François Laurent
               |  m’a transmis la pratique et les protocoles de radiesthésie
-          li
+          li.list_item(data-scroll data-scroll-offset="20%")
             p J’ai obtenu mon certificat de praticienne Reiki par 
               a.text-paragraph-link(href="#") l’école de Reiki
               | .
-          li
+          li.list_item(data-scroll data-scroll-offset="20%")
             p Je respecte l’intégrité physique et morale de mes consultants et fais preuve d’une stricte confidentialité.
-          li
+          li.list_item(data-scroll data-scroll-offset="20%")
             p Je suis constamment en apprentissage car je complète ma boîte à outils par des formations diverses indiquées dans mes qualifications.
-          li
+          li.list_item(data-scroll data-scroll-offset="20%")
             p Attention, mes pratiques et accompagnements ne se substituent nullement à la médecine allopathique, mais agissent en complément. Je ne délivre pas de diagnostic ni n’interfère avec un traitement médical, ce n’est pas mon métier.
               | Consulte en priorité un médecin adapté à ta pathologie.
       +circle.col-offset-4.col-1.hidden-m
@@ -122,25 +121,25 @@ block content
           span.title-animation
             span.title-animation_content Diplômes & qualifications
         ul.list.col-m-offset-1
-          li
+          li.list_item(data-scroll data-scroll-offset="20%")
             p Maitre Praticienne Reiki Usui (Niveau III) de l’école de Reiki de Gauthier Papp, Paris
-          li
+          li.list_item(data-scroll data-scroll-offset="20%")
             p Magnétiseur et coach intuitive ; transmission par Jean-François Laurent, Lille
-          li
+          li.list_item(data-scroll data-scroll-offset="20%")
             p MFA Spécialité Applied Arts, Sandberg Insituut, Amsterdam
-          li
+          li.list_item(data-scroll data-scroll-offset="20%")
             p Master en Design, Ecole Européenne Supérieure d’Arts de Bretagne, Rennes
-          li
+          li.list_item(data-scroll data-scroll-offset="20%")
             p Bachelor en Design d’espaces, Ecole Européenne Supérieure d’Arts de Bretagne, Brest
 
   section.section--testimonials(data-scroll data-scroll-section)
     .testimonials.container
-      .testimonials_header.z-1(data-scroll data-scroll-sticky data-scroll-target=".section--testimonials" data-scroll-offset="-30%")
+      .testimonials_header.z-1(data-scroll data-scroll-sticky data-scroll-target=".section--testimonials" data-scroll-offset="-20%")
         .row
           .col-offset-2.col-1
             span.testimonials_quote-icon.quote-icon.text-callout.text-color--pink “
           .col-7.col-m-4
-            p.text-callout.testimonials_default-content(data-scroll data-scroll-offset="20%") Ils ont testé la méthode .Circule pour des soins énergétiques ou des séances de coaching et vous racontent.
+            p.text-callout.testimonials_default-content(data-scroll) Ils ont testé la méthode .Circule pour des soins énergétiques ou des séances de coaching et vous racontent.
             p.text-callout.testimonials_quote
         .row
           .col-offset-3.col-5.col-m-3
@@ -181,8 +180,8 @@ block content
         .col-5.col-m-3.col-m-offset-1
           .separator
       .row
-        +circle.hidden-m
-        .col-offset-2.col-2.col-m-3.col-m-offset-1
+        +circle.col-1.hidden-m
+        .col-offset-1.col-3.col-m-3.col-m-offset-1
           p Clique sur les cartes défilantes et découvre le message qu’elles ont à te délivrer.
             | Des decks sont disponibles sur notre e-shop. Amour, Attraction, Protection et Relaxation, ces 4 jeux t’accompagnent comme un oracle pouvant t’apporter des guidances quotidiennes.
             | Chaque jeu contient 21 cartes pour te rappeler qu’une bonne habitude et un changement peuvent s’opérer en seulement 21 jours.

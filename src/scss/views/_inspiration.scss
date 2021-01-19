@@ -12,6 +12,12 @@
   }
 }
 
-[darkmode] .circle-canvas--main {
-  background-color: var(--light-grey);
+[darkmode] {
+  .circle-canvas--main {
+    background-color: var(--light-grey);
+  }
+
+  .img--light-grey {
+    background-color: $light-grey;
+  }
 }

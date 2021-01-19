@@ -17,6 +17,11 @@
       animation-delay: 1s;
     }
   }
+
+  &--in-col{
+    width: 100%;
+    padding-top: 100%;
+  }
 }
 
 @include query-mobile {
