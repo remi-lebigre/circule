@@ -3,8 +3,9 @@ class Modal {
   ANIMATION_DURATION = 1500
   state = 'animating'
 
-  constructor ({coords}) {
+  constructor ({coords, card}) {
     console.debug('New modal')
+    document.querySelector('.modal_card').dataset.card = card
     this.modal = document.querySelector('.modal')
     this.modal_content = document.querySelector('.modal_content')
     this.modal_bg = document.querySelector('.modal_bg')

@@ -15,7 +15,7 @@ class Cards {
   hoverIn = _e => this.container.classList.add('cards--hover')
   hoverOut = _e => this.container.classList.remove('cards--hover')
 
-  click = ({target}) => new Modal({coords: target.getBoundingClientRect()}).open()
+  click = ({target}) => new Modal({coords: target.getBoundingClientRect(), card: target.dataset.card}).open()
 }
 
 export default Cards

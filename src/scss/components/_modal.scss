@@ -54,6 +54,15 @@
     height: 100%;
     width: 100%;
 
+    $card_count: 21;
+    @for $i from 1 through $card_count {
+      &[data-card="#{$i}"] {
+        .modal_card_face--back {
+          background-image: url("/src/assets/images/cards/#{$i}.jpg");
+        }
+      }
+    }
+
     &_face {
       border-radius: 7px;
       position: absolute;
@@ -65,12 +74,11 @@
       background: center /cover no-repeat;
 
       &--back {
-        background-image: url(/src/assets/images/_img/card_verso.jpg);
         transform: rotateY(180deg);
       }
 
       &--front {
-        background-image: url(/src/assets/images/_img/card.jpg);
+        background-image: url(/src/assets/images/cards/card.jpg);
       }
     }
   }
