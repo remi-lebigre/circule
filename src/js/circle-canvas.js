@@ -24,6 +24,7 @@ class CircleCanvas {
   circle_path = null
   target = null
   body = document.querySelector('body')
+  matrix = document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGMatrix()
 
   // the more steps the slower the animation is
   STEPS_IN = 90
@@ -251,12 +252,11 @@ class CircleCanvas {
 
   scaleUp = ({path, x, y, scale}) => {
     let p1 = new Path2D()
-    let m = document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGMatrix()
-    m.a = scale
-    m.d = scale
-    m.e = x - x * scale
-    m.f = y - y * scale
-    p1.addPath(path, m)
+    this.matrix.a = scale
+    this.matrix.d = scale
+    this.matrix.e = x - x * scale
+    this.matrix.f = y - y * scale
+    p1.addPath(path, this.matrix)
     return p1
   }
 

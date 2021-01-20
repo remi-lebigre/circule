@@ -36,7 +36,11 @@ class App {
         this.startServices()
       }
     })
+
+    window.addEventListener('resize', this.throttle(this.onWindowResize, 300))
   }
+
+  onWindowResize = _ => new CircleCanvas({desktop: this.is_desktop})
 
   startServices = _ => {
     this.initScrollonImageLoad()
@@ -106,22 +110,41 @@ class App {
       this.locomotive = new LocomotiveScroll({
         el: this.container.querySelector('[data-scroll-container]'),
         smooth: true,
-        // reloadOnContextChange: true,
-        // smartphone: {
-        //   smooth: true
-        // },
-        // tablet: {
-        //   smooth: true
-        // }
-        // getDirection: true
       })
-      // this.locomotive.on('scroll', this.onScroll)
-      // locomotive.on('call', this.onCall)
     }, 200)
   }
 
-  // onCall = action => console.log(`Scroll action call - ${action}`)
-  // onScroll = ({scroll: {y}}) => console.log(`Scroll - ${y}`)
+  throttle = (func, wait, options) => {
+    let context, args, result
+    let timeout = null
+    let previous = 0
+    if (!options) options = {}
+    let later = function () {
+      previous = options.leading === false ? 0 : Date.now()
+      timeout = null
+      result = func.apply(context, args)
+      if (!timeout) context = args = null
+    }
+    return function () {
+      let now = Date.now()
+      if (!previous && options.leading === false) previous = now
+      let remaining = wait - (now - previous)
+      context = this
+      args = arguments
+      if (remaining <= 0 || remaining > wait) {
+        if (timeout) {
+          clearTimeout(timeout)
+          timeout = null
+        }
+        previous = now
+        result = func.apply(context, args)
+        if (!timeout) context = args = null
+      } else if (!timeout && options.trailing !== false) {
+        timeout = setTimeout(later, remaining)
+      }
+      return result
+    }
+  }
 }
 
 export default App
