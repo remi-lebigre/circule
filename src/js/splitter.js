@@ -18,7 +18,6 @@ class Splitter {
       const context = ghost.getContext("2d")
 
       context.font = `normal ${this.elementProp(el, 'font-size')} SuisseIntl`
-      console.log('context font', context.font)
 
       for (let i = 0; i < words.length; i++) {
         curline.push(words[i])
