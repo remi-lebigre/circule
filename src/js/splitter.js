@@ -5,7 +5,7 @@ class Splitter {
 
   split = _ => {
     this.elements.forEach((el) => {
-      const maxwidth = el.getBoundingClientRect().width
+      const maxwidth = el.getBoundingClientRect().width - 20
       const words = el.textContent.split(" ")
       const lines = []
       let curline = []
