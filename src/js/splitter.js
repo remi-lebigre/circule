@@ -17,7 +17,8 @@ class Splitter {
           : canvasEl;
       const context = ghost.getContext("2d")
 
-      context.font = "normal calc(2.5vw + 14px) SuisseIntl"
+      context.font = `normal ${this.elementProp(el, 'font-size')} SuisseIntl`
+      console.log('context font', context.font)
 
       for (let i = 0; i < words.length; i++) {
         curline.push(words[i])
@@ -32,6 +33,8 @@ class Splitter {
       el.innerHTML = lines.map(l => `<span class="title-animation"><span class="title-animation_content">${l}</span></span>`).join('')
     })
   }
+
+  elementProp = (el, prop) => window.getComputedStyle(el, null).getPropertyValue(prop)
 }
 
 export default Splitter
