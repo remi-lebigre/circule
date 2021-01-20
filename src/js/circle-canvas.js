@@ -59,6 +59,7 @@ class CircleCanvas {
       c.setAttribute('width', `${c.clientWidth}px`)
       return c.getContext("2d")
     })
+    this.fill = this.isFirefox() ? this.fillForFirefox : this.fillOrganic
   }
 
   isDrawingIn = _ => this.state === 'drawing-in'
@@ -145,9 +146,19 @@ class CircleCanvas {
       }
 
       c.fillStyle = this.COLOR_YELLOW
-      c.fill(this.scaleUp({path: new Path2D(this.path({x, y})), x, y, scale: this.radius / this.SCALE}))
+      this.fill({context: c, x, y})
     })
   }
+
+  fillForFirefox = ({context, x, y}) => {
+    context.beginPath();
+    context.arc(x, y, this.radius, 0, 2 * Math.PI, false)
+    context.fill()
+  }
+
+  fillOrganic = ({context, x, y}) => context.fill(this.scaleUp({path: new Path2D(this.path({x, y})), x, y, scale: this.radius / this.SCALE}))
+
+  isFirefox = _ => navigator.userAgent.toLowerCase().indexOf('firefox') > -1
 
   paths = [
     [

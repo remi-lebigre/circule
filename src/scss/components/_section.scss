@@ -27,11 +27,12 @@ section {
         &_header {
           margin-top: 0;
           padding-top: 22%;
+          position: relative;
+          z-index: 2;
         }
 
         &_img {
           position: absolute;
-          z-index: -1;
           top: 7em;
           height: calc(100vh - 7em - #{$grid-gutter*2});
         }
