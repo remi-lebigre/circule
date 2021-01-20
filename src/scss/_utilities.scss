@@ -84,16 +84,15 @@ $count: 40;
   }
 }
 
-.flex {
-  display: flex !important;
-}
-
-.f-spb {
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 @include query-desktop {
+  .flex {
+    display: flex !important;
+  }
+
+  .f-spb {
+    flex-direction: column;
+    justify-content: space-between;
+  }
   .hidden {
     display: none !important;
   }
