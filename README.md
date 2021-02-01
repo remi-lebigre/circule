@@ -5,6 +5,9 @@ This is a web frontend boilerplate. It uses:
 - SCSS with Postcss and Autoprefixer
 - JS ES2015+ with Babel
 - LocomotiveScrollJS
+- BarbaJS for transitions
+- Vercel conf for CI/CD
+- Node script for content fetching from remote
 
 # Setup
 - `npm install`
@@ -15,11 +18,6 @@ This is a web frontend boilerplate. It uses:
 - `webpack --watch`
 - `webpack`
 
-# TODOs
-- Upload assets : https://www.npmjs.com/package/strapi-provider-upload-sftp-v2
+# TODOS
 
 # Sources
-## Project checklit
-https://docs.google.com/spreadsheets/d/17jsvPzTcREPVJKGjVPkMUEZ9JtGSVkt4c7tXcEtSZm0/edit#gid=1386834576
-## Animations
-https://projects.invisionapp.com/share/ZCZCUX8ERNS#/screens

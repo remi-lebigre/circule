@@ -38,13 +38,12 @@ block content
         .separator
       .col-offset-1.col-2.col-m-offset-1.col-m-3
         p.indent-negative-2.indent-negative-m-3 Je suis la fondatrice de Studio Circule. Mon métier&nbsp;? Énergéticienne, designer, artiste, magnétiseur, coach, collectionneuse d’expériences.
-          br
-          | Enfant, mon emploi du temps consistait à aller à l’école, prendre des cours d’arts plastiques et d’orgue électronique, voir mes ami.e.s et pratiquer un à deux sports quasi quotidiennement.
     .row.hidden-m
       .col-offset-4.col-8
         .separator
     .row
       .col-offset-4.col-2.col-m-offset-1.col-m-3.mt-m-1
+        p Enfant, mon emploi du temps consistait à aller à l’école, prendre des cours d’arts plastiques et d’orgue électronique, voir mes ami.e.s et pratiquer un à deux sports quasi quotidiennement.
         p Au collège et lycée, j’ai rejoint la filière sport-étude avec une option mineure arts plastiques. J’ai pratiqué le basket en championnat, puis la boxe française m’a emmenée jusqu’au bac.
           | Quand il a été question de choisir une orientation, il a été très difficile pour moi de me décider.
       .col-2.col-m-offset-1.col-m-3.mt-m-1
@@ -76,11 +75,12 @@ block content
           p.text-lead Je suis là pour faire un bout de route avec toi pour ajuster ce qui a besoin de l’être.
         .col-2.col-m-offset-1.col-m-3
           p Pour rétablir un équilibre, à l’intérieur et à l’extérieur de toi, ou juste pour te faire du bien. Que ce soit toi, ton intérieur, ta garde-robe, ou encore tes projets, je suis là pour t’aider à retrouver une forme d’harmonie pour bien vivre et atteindre tes objectifs.
-            | Nous avons conçu ce site comme un magazine (ça c’était juste pour réaliser un de mes rêves de petite fille
+            |  Nous avons conçu ce site comme un magazine (ça c’était juste pour réaliser un de mes rêves de petite fille
             br
             span.icon.icon--emoji
         .col-2.col-m-offset-1.col-m-3
-          p Je te souhaite de t’y sentir bien, que tu puisses parcourir les différentes rubriques à ton rythme et viennes piocher ce que tu as envie et ce dont tu as besoin. Je suis ravie de répondre à tes questions ici, de te proposer un rdv là et si tu n’as qu’une minute devant toi ; cours faire un tirage !
+          p Je te souhaite de t’y sentir bien, que tu puisses parcourir les différentes rubriques à ton rythme et viennes piocher ce que tu as envie et ce dont tu as besoin. Je suis ravie de répondre à tes questions #[a(href="mailto:mail@mail.com") ici], de te proposer un rdv là.
+            |  Et juste pour toi, je mets à disposition deux outils de la méthode .Circule. Le rond pour apprendre à se relaxer par la respiration et mon jeu&nbsp;; l'Oracle de Roleca. Pour la respiration, il te suffit de placer ton curseur sur le rond jaune et respirer en fonction de ses mouvements. Inspire lorsqu'il grandit, expire lorsqu'il reprend sa forme initiale. Idéalement, fais cette expérience pendant au moins 10 inspirations et ressens le calme qui s'installe en toi. Et si tu n'as qu'une minute devant toi, le deuxième outil t'attend&nbsp;: #[a.text-paragraph-link(href="#tarot" data-link-to) le tirage d'une carte]
 
   section.container(data-scroll data-scroll-section)
     .row
@@ -126,7 +126,7 @@ block content
           li.list_item(data-scroll data-scroll-offset="20%")
             p Magnétiseur et coach intuitive ; transmission par Jean-François Laurent, Lille
           li.list_item(data-scroll data-scroll-offset="20%")
-            p MFA Spécialité Applied Arts, Sandberg Insituut, Amsterdam
+            p MFA Spécialité Applied Arts, Sandberg Instituut, Amsterdam
           li.list_item(data-scroll data-scroll-offset="20%")
             p Master en Design, Ecole Européenne Supérieure d’Arts de Bretagne, Rennes
           li.list_item(data-scroll data-scroll-offset="20%")
@@ -174,7 +174,7 @@ block content
           +home-testimonial(testimonials[3]).testimonial-3.mb-m-2
           +home-testimonial(testimonials[5]).testimonial-5
 
-  section.section--cards(data-scroll data-scroll-section)
+  section#tarot.section--cards(data-scroll data-scroll-section)
     .section_content.container.z-1(data-scroll data-scroll-sticky data-scroll-target=".section--cards" data-scroll-offset="-20%")
       .row
         .col-12.col-m-4
@@ -192,10 +192,14 @@ block content
       .row
         +circle.col-1.hidden-m
         .col-offset-1.col-3.col-m-3.col-m-offset-1
-          p Clique sur les cartes défilantes et découvre le message qu’elles ont à te délivrer.
-            | Des decks sont disponibles sur notre e-shop. Amour, Attraction, Protection et Relaxation, ces 4 jeux t’accompagnent comme un oracle pouvant t’apporter des guidances quotidiennes.
-            | Chaque jeu contient 21 cartes pour te rappeler qu’une bonne habitude et un changement peuvent s’opérer en seulement 21 jours.
-            | Pour en savoir plus, contacte-nous !
+          p.mb-1 Clique sur les cartes et obtiens une guidance&nbsp;!
+            br
+            | Avec la carte que tu as tiré, tu as une bonne habitude à prendre ou un conseil à appliquer.
+            br
+            | Cet oracle a le pouvoir te faire changer de vie, tu es prêt.e&nbsp;?
+            br
+            | Commence dès maintenant&nbsp;; clique sur les cartes défilantes pour faire apparaître ton conseil personnalisé&nbsp;!
+          p Pssst&nbsp;: Pleins d'autres cartes t'attendent. Retrouve-les par thématique sur l'e-shop&nbsp;!
     .container.hidden.slider
       .row.slider_wrap
         .slide.col-m-2.col-m-offset-1

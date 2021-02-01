@@ -29,6 +29,8 @@ section {
           padding-top: 22%;
           position: relative;
           z-index: 2;
+          // Prevents interference with circles on main section
+          pointer-events: none;
         }
 
         &_img {

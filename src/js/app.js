@@ -111,7 +111,13 @@ class App {
         el: this.container.querySelector('[data-scroll-container]'),
         smooth: true,
       })
+      document.querySelectorAll('[data-link-to]').forEach(el => el.addEventListener('click', this.scrollTo(el.getAttribute('href'))))
     }, 200)
+  }
+
+  scrollTo = link => e => {
+    e.preventDefault()
+    this.locomotive.scrollTo(link)
   }
 
   throttle = (func, wait, options) => {
