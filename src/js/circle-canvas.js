@@ -26,14 +26,12 @@ class CircleCanvas {
   flag = document.querySelector('.circle-flag')
 
   // the more steps the slower the animation is
-  STEPS_IN = 375
-  STEPS_OUT = 430
-  STEPS_OUT_FAST = 80
-  easing_in = easeInQuint
-  easing_out = easeOutQuint
+  STEPS_IN = 300
+  STEPS_OUT = 450
+  easing_in = t => t
+  easing_out = t => t
 
   COLOR_YELLOW = "#e9ff1d"
-  STATUSES = ['delayed-drawing-in', 'drawing-in', 'drawn', 'drawing-out', 'drawing-out-fast', 'delayed-drawing-out', 'delayed-drawing-out-fast', 'finished']
   state = 'finished'
 
   is_desktop = false
@@ -63,14 +61,9 @@ class CircleCanvas {
   }
 
   isDrawingIn = _ => this.state === 'drawing-in'
-  isDrawn = _ => this.state === 'drawn'
   isDrawingOut = _ => this.state === 'drawing-out'
-  isDrawingOutFast = _ => this.state === 'drawing-out-fast'
   isFinished = _ => this.state === 'finished'
-
   isDelayedDrawingIn = _ => this.state === 'delayed-drawing-in'
-  isDelayedDrawingOut = _ => this.state === 'delayed-drawing-out'
-  isDelayedDrawingOutFast = _ => this.state === 'delayed-drawing-out-fast'
 
   drawIn = _ => {
     console.debug('STATE - drawing-in')
@@ -79,35 +72,16 @@ class CircleCanvas {
     this.state = 'drawing-in'
     this.animate()
   }
-  endDraw = _ => {
-    console.debug('STATE - drawn')
-    this.state = 'drawn'
-  }
-  drawOut = _ => {
+  drawOut = ({frame}) => {
     console.debug('STATE - drawing-out')
     this.body.removeAttribute('circle')
-    this.frame = 0
+    this.frame = frame
     this.state = 'drawing-out'
-    this.animate()
-  }
-  drawOutFast = _ => {
-    console.debug('STATE - drawing-out-fast')
-    this.body.removeAttribute('circle')
-    this.frame = 0
-    this.state = 'drawing-out-fast'
     this.animate()
   }
   delayDrawIn = _ => {
     console.debug('STATE - delayed-drawing-in')
     this.state = 'delayed-drawing-in'
-  }
-  delayDrawOut = _ => {
-    console.debug('STATE - delayed-drawing-out')
-    this.state = 'delayed-drawing-out'
-  }
-  delayDrawOutFast = _ => {
-    console.debug('STATE - delayed-drawing-out-fast')
-    this.state = 'delayed-drawing-out-fast'
   }
   finish = _ => {
     console.debug('STATE - finished')
@@ -131,12 +105,7 @@ class CircleCanvas {
 
   hoverOut = _ => {
     this.toggleFlag()
-    console.log(this.state)
-    if (this.isDrawn() || this.isDrawingOut()) {
-      this.drawOutFast()
-    } else if (this.isDrawingIn()) {
-      this.delayDrawOutFast()
-    }
+    this.finish()
   }
 
   targetCoords = _ => {
@@ -159,7 +128,6 @@ class CircleCanvas {
 
       c.fillStyle = this.COLOR_YELLOW
       this.fill({context: c, x, y})
-
     })
   }
 
@@ -175,14 +143,15 @@ class CircleCanvas {
     // console.debug(this.state, this.frame, this.radius)
 
     let steps = this.STEPS_IN
-    if (this.isDrawingIn() || this.isDelayedDrawingOut() || this.isDelayedDrawingOutFast()) {
+    if (this.isDrawingIn()) {
       this.radiusUp(steps)
     } else if (this.isDrawingOut()) {
       steps = this.STEPS_OUT
       this.radiusDown(steps)
-    } else if (this.isDrawingOutFast()) {
-      steps = this.STEPS_OUT_FAST
-      this.radiusDown(steps)
+    } else if (this.isFinished()) {
+      this.radius = this.initial_radius
+      this.drawCircle()
+      return
     }
 
     if (this.frame <= steps) {
@@ -190,17 +159,11 @@ class CircleCanvas {
       window.requestAnimationFrame(this.animate)
     } else {
       if (this.isDrawingIn()) {
-        this.drawOut()
+        this.drawOut({frame: 0})
       } else if (this.isDrawingOut()) {
         this.drawIn()
-      } else if (this.isDrawingOutFast()) {
-        this.finish()
       } else if (this.isDelayedDrawingIn()) {
         this.drawIn()
-      } else if (this.isDelayedDrawingOut()) {
-        this.drawOut()
-      } else if (this.isDelayedDrawingOutFast()) {
-        this.drawOutFast()
       }
     }
   }
