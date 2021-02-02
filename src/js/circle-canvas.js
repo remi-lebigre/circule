@@ -63,7 +63,6 @@ class CircleCanvas {
   isDrawingIn = _ => this.state === 'drawing-in'
   isDrawingOut = _ => this.state === 'drawing-out'
   isFinished = _ => this.state === 'finished'
-  isDelayedDrawingIn = _ => this.state === 'delayed-drawing-in'
 
   drawIn = _ => {
     console.debug('STATE - drawing-in')
@@ -78,10 +77,6 @@ class CircleCanvas {
     this.frame = frame
     this.state = 'drawing-out'
     this.animate()
-  }
-  delayDrawIn = _ => {
-    console.debug('STATE - delayed-drawing-in')
-    this.state = 'delayed-drawing-in'
   }
   finish = _ => {
     console.debug('STATE - finished')
@@ -149,7 +144,7 @@ class CircleCanvas {
       steps = this.STEPS_OUT
       this.radiusDown(steps)
     } else if (this.isFinished()) {
-      this.radius = this.initial_radius
+      this.radius = 0
       this.drawCircle()
       return
     }
@@ -161,8 +156,6 @@ class CircleCanvas {
       if (this.isDrawingIn()) {
         this.drawOut({frame: 0})
       } else if (this.isDrawingOut()) {
-        this.drawIn()
-      } else if (this.isDelayedDrawingIn()) {
         this.drawIn()
       }
     }
