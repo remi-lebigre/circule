@@ -12,3 +12,5 @@ tmp
 
 # Environment variables
 .env
+
+.vercel
