@@ -2,7 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const slugify = require('slugify')
+const slugify = require('slugify');
+const CopyPlugin = require("copy-webpack-plugin");
 
 const POSTS = require(`./tmp/posts.json`)
 const TESTIMONIALS = require(`./tmp/testimonials.json`)
@@ -122,6 +123,11 @@ module.exports = {
     new MiniCssExtractPlugin(),
     ...PAGES.map(pageFactory),
     ...POSTS.map(postFactory),
-    ...TESTIMONIALS.map(testimonialFactory)
+    ...TESTIMONIALS.map(testimonialFactory),
+    new CopyPlugin({
+      patterns: [
+        {from: path.resolve(__dirname, "src", "api"), to: path.resolve(__dirname, "dist", "api")},
+      ],
+    }),
   ],
 }
