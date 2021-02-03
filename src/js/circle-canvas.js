@@ -23,7 +23,7 @@ class CircleCanvas {
   frame = 0
   target = null
   body = document.querySelector('body')
-  flag = document.querySelector('.circle-flag')
+  flag = null
 
   // the more steps the slower the animation is
   STEPS_IN = 300
@@ -89,6 +89,7 @@ class CircleCanvas {
 
   hoverIn = ({target}) => {
     this.target = target
+    this.flag = document.querySelector('.circle-flag')
     this.toggleFlag()
     this.initCircle({target})
     if (this.isFinished()) {

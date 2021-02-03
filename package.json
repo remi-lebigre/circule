@@ -39,7 +39,7 @@
     "webpack-merge": "^5.4.0"
   },
   "scripts": {
-    "start": "webpack serve --config webpack.dev.js",
+    "start": "REM_ENV=development webpack serve --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js"
   },
   "keywords": [],

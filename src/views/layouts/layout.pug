@@ -1,5 +1,5 @@
 include ../../views/components/modal
-- const { name, page_title } = htmlWebpackPlugin.options
+- const { name, page_title, endpoint } = htmlWebpackPlugin.options
 - const website_title = `Circule | ${page_title}`
 doctype html
 html(lang=locale)
@@ -8,21 +8,18 @@ html(lang=locale)
     meta(charset='utf-8')
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
     meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no")
-    meta(name="description" content="")
-    meta(property="og:title" content="")
-    meta(property="og:description" content="")
-    meta(property="og:image" content='')
-    meta(property="og:url" content="")
-    meta(property="og:website" content="website")
+    meta(property="og:title" content=page_title)
+    meta(property="og:image" content=`${endpoint}/meta_image.jpg`)
+    meta(property="og:url" content=endpoint)
+    meta(property="og:type" content="website")
     meta(property="og:site_name" content=website_title)
-    meta(property="og:locale" content="")
-    meta(property="og:image:width" content="")
-    meta(property="og:image:height" content="")
+    meta(property="og:locale" content="fr_FR")
+    meta(property="og:image:width" content="1200")
+    meta(property="og:image:height" content="627")
     meta(name="twitter:card" content="summary")
-    meta(name="twitter:url" content="")
-    meta(name="twitter:title" content="")
-    meta(name="twitter:description" content="")
-    meta(name="twitter:image" content='')
+    meta(name="twitter:url" content=endpoint)
+    meta(name="twitter:title" content=page_title)
+    meta(name="twitter:image" content=`${endpoint}/meta_image.jpg`)
   body(data-barba="wrapper")
     include ../partials/no_js
     a.logo.hover.text-link(href="/") .CIRCULE
