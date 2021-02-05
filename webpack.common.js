@@ -140,7 +140,6 @@ module.exports = {
     ...TESTIMONIALS.map(testimonialFactory),
     new CopyPlugin({
       patterns: [
-        {from: path.resolve(__dirname, "src", "api"), to: path.resolve(__dirname, "dist", "api")},
         {from: path.resolve(__dirname, "src", "assets", "images", "meta_image.jpg"), to: path.resolve(__dirname, "dist")},
       ],
     }),
