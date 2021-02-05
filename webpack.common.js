@@ -41,7 +41,7 @@ const pageFactory = ({name, description}, index) => {
     testimonials: TESTIMONIALS.map(e => ({page_link: urlifyTestimonial(e), ...e})),
     footer: {
       title: PAGE_TITLES[next_name],
-      link: `${next_name}.html`,
+      link: next_name,
       name: next_name
     }
   })
