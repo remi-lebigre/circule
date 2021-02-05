@@ -25,7 +25,7 @@ const urlifyPost = content => `articles/${urlify(content.title)}.html`
 const urlifyTestimonial = content => `temoignages/${urlify(content.testimonial_name)}.html`
 
 const is_dev = process.env.REM_ENV === "develoment"
-const endpoint = is_dev ? "http://localhost:9002" : "https://circule-git-circule.remi-lebigre.vercel.app"
+const endpoint = is_dev ? "http://localhost:9002" : "https://studiocircule.com"
 
 const pageFactory = ({name, description}, index) => {
   let next_name = (PAGES[index + 1] || PAGES[0]).name
