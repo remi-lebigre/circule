@@ -21,8 +21,8 @@ const PAGE_TITLES = {
 }
 
 const urlify = content => slugify(content, {lower: true, strict: true})
-const urlifyPost = content => `articles/${urlify(content.title)}`
-const urlifyTestimonial = content => `temoignages/${urlify(content.testimonial_name)}`
+const urlifyPost = content => `articles/${urlify(content.title)}.html`
+const urlifyTestimonial = content => `temoignages/${urlify(content.testimonial_name)}.html`
 
 const is_dev = process.env.REM_ENV === "develoment"
 const endpoint = is_dev ? "http://localhost:9002" : "https://studiocircule.com"
