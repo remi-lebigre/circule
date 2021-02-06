@@ -66,14 +66,12 @@ class CircleCanvas {
 
   drawIn = _ => {
     console.debug('STATE - drawing-in')
-    this.body.setAttribute('circle', true)
     this.frame = 0
     this.state = 'drawing-in'
     this.animate()
   }
   drawOut = ({frame}) => {
     console.debug('STATE - drawing-out')
-    this.body.removeAttribute('circle')
     this.frame = frame
     this.state = 'drawing-out'
     this.animate()
@@ -89,6 +87,7 @@ class CircleCanvas {
 
   hoverIn = ({target}) => {
     this.target = target
+    this.body.setAttribute('circle', true)
     this.flag = document.querySelector('.circle-flag')
     this.toggleFlag()
     this.initCircle({target})
@@ -102,6 +101,7 @@ class CircleCanvas {
   hoverOut = _ => {
     this.toggleFlag()
     this.finish()
+    this.body.removeAttribute('circle')
   }
 
   targetCoords = _ => {
