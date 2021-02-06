@@ -21,8 +21,8 @@ const PAGE_TITLES = {
 }
 
 const urlify = content => slugify(content, {lower: true, strict: true})
-const urlifyPost = content => `articles/${urlify(content.title)}.html`
-const urlifyTestimonial = content => `temoignages/${urlify(content.testimonial_name)}.html`
+const urlifyPost = content => `articles/${urlify(content.title)}`
+const urlifyTestimonial = content => `temoignages/${urlify(content.testimonial_name)}`
 
 const is_dev = process.env.REM_ENV === "develoment"
 const endpoint = is_dev ? "http://localhost:9002" : "https://studiocircule.com"
@@ -34,7 +34,6 @@ const pageFactory = ({name, description}, index) => {
     meta: {description: {property: 'description', content: description}},
     endpoint: endpoint,
     template: `./src/${name}.pug`,
-    favicon: './src/favicon.ico',
     filename: `${name}.html`,
     page_title: PAGE_TITLES[name],
     name,
@@ -42,7 +41,7 @@ const pageFactory = ({name, description}, index) => {
     testimonials: TESTIMONIALS.map(e => ({page_link: urlifyTestimonial(e), ...e})),
     footer: {
       title: PAGE_TITLES[next_name],
-      link: `${next_name}.html`,
+      link: next_name,
       name: next_name
     }
   })
@@ -54,7 +53,6 @@ const postFactory = (content, index) => {
     meta: {description: {property: 'description', content: content.title}},
     endpoint: endpoint,
     template: `./src/post.pug`,
-    favicon: './src/favicon.ico',
     filename: urlifyPost(content),
     publicPath: '../',
     page_title: 'Article',
@@ -73,7 +71,6 @@ const testimonialFactory = (content, index) => {
     meta: {description: {property: 'description', content: content.testimonial_quote}},
     endpoint: endpoint,
     template: `./src/testimonial.pug`,
-    favicon: './src/favicon.ico',
     filename: urlifyTestimonial(content),
     publicPath: '../',
     page_title: 'Témoignage',
@@ -141,6 +138,7 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         {from: path.resolve(__dirname, "src", "assets", "images", "meta_image.jpg"), to: path.resolve(__dirname, "dist")},
+        {from: path.resolve(__dirname, "src", "favicon.ico"), to: path.resolve(__dirname, "dist")},
       ],
     }),
   ],

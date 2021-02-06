@@ -24,13 +24,11 @@ class Slider {
     if (this.animating) {
       return
     }
-    console.log('touchstart', evt)
     this.xDown = evt.touches[0].clientX
     this.start = 0
   }
 
   onTouchMove = evt => {
-    console.log('onTouchMove', evt)
     if (!this.xDown) {
       return
     }
