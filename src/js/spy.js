@@ -16,7 +16,7 @@ class Spy {
 
   reload = _ => this.addLinkListeners()
 
-  addLinkListeners = _ => document.querySelectorAll('a').forEach(this.addHoverListeners)
+  addLinkListeners = _ => document.querySelectorAll('a, .card').forEach(this.addHoverListeners)
 
   addHoverListeners = el => {
     el.addEventListener('mouseenter', this.hover)
