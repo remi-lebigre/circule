@@ -1,15 +1,15 @@
 const formidable = require("formidable");
 const nodemailer = require("nodemailer");
 
-const allowCors = (fn) => async (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET,POST");
-  if (req.method === "OPTIONS") {
-    res.status(200).end();
-    return;
-  }
-  return await fn(req, res);
-};
+// const allowCors = (fn) => async (req, res) => {
+//   res.setHeader("Access-Control-Allow-Origin", "*");
+//   res.setHeader("Access-Control-Allow-Methods", "GET,POST");
+//   if (req.method === "OPTIONS") {
+//     res.status(200).end();
+//     return;
+//   }
+//   return await fn(req, res);
+// };
 
 const sendEmail = (
   {
@@ -107,4 +107,5 @@ const handler = (req, response) => {
   });
 };
 
-module.exports = allowCors(handler);
+// module.exports = allowCors(handler);
+module.exports = handler;
