@@ -27,7 +27,7 @@ class BookingForm {
   };
 
   sendRequest = () =>
-    fetch("http://localhost:3000/api/mailer", {
+    fetch("/api/mailer", {
       method: "POST",
       body: new FormData(this.form),
     })
