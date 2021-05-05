@@ -14,6 +14,7 @@ import Gallery from "./gallery";
 import Slider from "./slider";
 import MenuMobile from "./menu_mobile";
 import DateFormatter from "./date";
+import BookingForm from './booking_form'
 
 class App {
   locomotive = null
@@ -66,7 +67,10 @@ class App {
     } else if (router.isInspiration()) {
       new Gallery()
       new DateFormatter({elements: document.querySelectorAll('.figure_date')})
+    } else if (router.isBooking()) {
+      new BookingForm()
     }
+    
     new CircleCanvas({desktop: this.is_desktop})
     new I({})
     if (this.is_desktop) {

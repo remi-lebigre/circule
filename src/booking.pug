@@ -1,0 +1,72 @@
+extends views/layouts/view
+include views/components/circle
+include views/components/post
+
+block content
+  section.container.gallery.mb-0(data-scroll data-scroll-section)
+    .row.hidden.mt-m-8
+      +circle.col-m-offset-1.circle--delayed
+    .row
+      .col-offset-4.col-8.col-m-4
+        h1.section_header(data-scroll)
+          span.title-animation
+            span.title-animation_content Booking
+    .row.hidden
+      .col-m-4
+        .separator
+    .row
+      .col-3.col-m-3.col-m-offset-1.mb-m-2
+        p.mt-5.fade-in.mb-1
+          | Pour une demande de RDV, merci de me transmettre votre date de naissance, une photo récente et de m’indiquer en quoi puis-je vous aider. Je reviens vers vous au plus vite.
+          br
+          | Une séance de soin énergétique dure 1h30 et est facturée 90€.
+          br
+          | Elle se règle par virement bancaire ou Paypal. Toute annulation -24h avant la séance sera facturée à 100%.
+          br
+          | Pour les séances de coaching, laissez-moi un message et voyons ensemble au cas par cas !
+          br
+          | Je serai ravie de vous accompagner.
+        p.fade-in Merci de votre confiance :) 
+      .col-offset-1.col-8
+        .row
+          .col-12
+            .separator.separator--big
+    .row.mtn-4
+      +circle.col-1.col-offset-4.hidden-m
+  section.container.mt-0.mb-0(data-scroll data-scroll-section)
+    form.form
+      .row
+        .col-3.col-m-4.col-offset-4
+          .form_field
+            input(placeholder="Prénom" required type="text" name="first_name")
+        .col-5.col-m-4
+          .form_field
+            input(placeholder="Nom" required type="text" name="last_name")
+      .row
+        .col-5.col-m-4.col-offset-4
+          .form_field
+            input(placeholder="Email" required type="email" name="email")
+        .col-3.col-m-4
+          .form_field
+            input(placeholder="Date de naissance" required type="text" name="birthday")
+      .row
+        .col-8.col-m-4.col-offset-4
+          .form_field
+            textarea(placeholder='Message' required rows="8" name="message")
+      .row
+        .col-3.col-m-4.col-offset-4
+          .form_field
+            input.hidden.hidden-m(required type="file" name="photo" id="photo")
+            label(for="photo") Photo récente
+          .mtn-1
+           i jpg ou png, 1.5Mo maximum
+        .col-2.col-offset-3.col-m-4.mt-m-3
+          button.form_submit-button(type="submit") Envoyer
+      .row
+        .col-offset-6.col-6.mt-m-1.mb-m-1
+          p.text-aligned--right.form_success-message.hidden.hidden-m Merci pour votre message, nous reviondrons vers vous d'ici peu !
+          p.text-aligned--right.form_error-message(style="color:red;") 
+    .row.mt-3
+      .col-offset-4.col-4
+        p 
+          i En soumettant ce formulaire, j’accepte que les informations saisies dans ce formulaire soient utilisées et, traitées pour permettre de me recontacter, dans le cadre de la relation commerciale qui découle de cette prise de contact.

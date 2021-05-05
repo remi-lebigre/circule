@@ -10,5 +10,14 @@ module.exports = merge(common, {
     compress: true,
     port: 9002,
     open: true,
+    historyApiFallback: {
+      rewrites: [
+        { from: /^\/$/, to: '/index' },
+      ],
+    },
+    staticOptions: {
+      extensions: ['html'],
+      redirect: false,
+    },
   },
 });
